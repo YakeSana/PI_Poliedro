@@ -1,15 +1,21 @@
+package model;
 import java.util.ArrayList;
 import java.util.List;
 
 public class Pergunta {
     private String pergunta;
-    private List<String> respostas = new ArrayList<String>();
+    private List<Alternativa> alternativas = new ArrayList<Alternativa>();
     private int id;
 
-    Pergunta(int id){
+    public Pergunta(int id){
         setPergunta("Pergunta " + id);
-        setRespostas(List.of("a", "b", "c","d","e"));
         setId(id);
+        for(int i=0;i<5;i++){
+            boolean correta = false;
+            if(i==0) correta = true;
+            Alternativa alt = new Alternativa(i,"Alternativa "+i , id, correta);
+            alternativas.add(alt);
+        }
     }
 
     public String getPergunta() {
@@ -20,12 +26,8 @@ public class Pergunta {
         this.pergunta = pergunta;
     }
 
-    public List<String> getRespostas() {
-        return respostas;
-    }
-
-    public void setRespostas(List<String> respostas) {
-        this.respostas = respostas;
+    public List<Alternativa> getAlternativas() {
+        return alternativas;
     }
 
     public int getId() {

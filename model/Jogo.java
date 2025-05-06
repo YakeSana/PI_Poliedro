@@ -1,3 +1,4 @@
+package model;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Random;
@@ -10,7 +11,7 @@ public class Jogo{
     private List<Integer> id_perguntas_feitas = new ArrayList<>();
     
     Scanner scanner = new Scanner(System.in);
-    Jogo(){
+    public Jogo(){
         while (jogo_rodando) {
             int id;
             Random random = new Random();
@@ -25,14 +26,16 @@ public class Jogo{
             
             //Exibição das perguntas e respostas
             System.out.println(pergunta.getPergunta());
-            for(int i=0;i<5;i++){
-                System.out.println("Questão "+i+": "+ "Resposta "+pergunta.getRespostas().get(i));
+            int idcorreta = -1;
+            for(Alternativa i:pergunta.getAlternativas()){
+                if(i.isCorreta()) idcorreta = i.getId();
+                System.out.println(i);
             }
             System.out.println("Digite o número da questão.");
             int resposta = scanner.nextInt();
 
             //Tramento do Acerto
-            if(resposta == 0){
+            if(resposta == idcorreta){
                 pontuacao++;
                 System.out.println("Resposta Correta\n");
                 checkpoint(true);
