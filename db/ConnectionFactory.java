@@ -1,8 +1,8 @@
+package db;
 import java.sql.Connection;
-
 import java.sql.DriverManager;
 
-public class ConexaoBD {
+public class ConnectionFactory {
     private static String host = "banco-pi-banco-de-dados-pi.l.aivencloud.com";
     private static String porta = "26247";
     private static String db = "banco_PI";

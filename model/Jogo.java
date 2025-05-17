@@ -3,39 +3,41 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Random;
 import java.util.Scanner;
+import db.PerguntasDAO;
 
 public class Jogo{
     private static int pontuacao;
     private static int checkpoint;
     private static boolean jogo_rodando = true;
     private List<Integer> id_perguntas_feitas = new ArrayList<>();
+    private static Random random = new Random();
     
     Scanner scanner = new Scanner(System.in);
     public Jogo(){
         while (jogo_rodando) {
             int id;
-            Random random = new Random();
-
             //Geração de id da pergunta
             do{
                 id = random.nextInt(50);
             }
             while(id_perguntas_feitas.contains(id));
-            Pergunta pergunta = new Pergunta(id);
+            PerguntasDAO db = new PerguntasDAO(); 
+            Pergunta pergunta = db.getPerguntacomAlternativa(id, 1);
             id_perguntas_feitas.add(pergunta.getId());
             
             //Exibição das perguntas e respostas
             System.out.println(pergunta.getPergunta());
-            int idcorreta = -1;
+            Alternativa correta = null;
             for(Alternativa i:pergunta.getAlternativas()){
-                if(i.isCorreta()) idcorreta = i.getId();
+                if(i.isCorreta()) correta = i;
                 System.out.println(i);
             }
             System.out.println("Digite o número da questão.");
             int resposta = scanner.nextInt();
+            Alternativa alternativa_escolhida = pergunta.getAlternativas().get(resposta);
 
             //Tramento do Acerto
-            if(resposta == idcorreta){
+            if(alternativa_escolhida == correta){
                 pontuacao++;
                 System.out.println("Resposta Correta\n");
                 checkpoint(true);
