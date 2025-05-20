@@ -17,7 +17,6 @@ public class TelaLogin extends javax.swing.JFrame {
      */
     public TelaLogin() {
         initComponents();
-        this.setLocationRelativeTo(null);
     }
 
     /**
@@ -154,23 +153,36 @@ public class TelaLogin extends javax.swing.JFrame {
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
         // TODO add your handling code here:
-                        //pega o login do usuário
-        String login = usuarioTextField.getText();
+        // Pega o nome de usuário e a senha
+    String nomeUsuario = usuarioTextField.getText();
+    String senha = new String(senhaPasswordField.getPassword());
 
-        String senha = new String(senhaPasswordField.getPassword());
+    try {
+        // Cria o objeto usuário com login e senha
+        Usuario usuario = new Usuario(nomeUsuario, senha);
 
-        if (login.equals("admin") && senha.equals("admin")) {
-    JOptionPane.showMessageDialog(null, "Bem-vindo!");
-
-    // Abre a próxima tela
-        TelaMenu telaMenu = new TelaMenu();
-        telaMenu.setVisible(true);
+        // Verifica se o usuário existe no banco
+        DAO dao = new DAO();
+        
+        if (dao.existe(usuario)) {
+            // Exibe o nome real e o tipo (se quiser)
+            JOptionPane.showMessageDialog(null, "Bem-vindo, " + usuario.getNomeReal() + "!");
+             // Abre a próxima tela
+            TelaMenu telaMenu = new TelaMenu();
+            telaMenu.setVisible(true);
 
     // Fecha a tela atual
-        dispose();
+            dispose();
         } else {
-    JOptionPane.showMessageDialog(null, "Usuário inválido");
-}
+            JOptionPane.showMessageDialog(null, "Usuário ou senha inválidos.");
+        }
+
+    } catch (Exception e) {
+        JOptionPane.showMessageDialog(null, "Problemas técnicos. Tente novamente mais tarde.");
+        e.printStackTrace();
+    }
+    
+       
 
     }//GEN-LAST:event_jButton1ActionPerformed
 
