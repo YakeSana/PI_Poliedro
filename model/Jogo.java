@@ -7,7 +7,8 @@ import db.PerguntasDAO;
 
 public class Jogo{
     private static int pontuacao;
-    private static int checkpoint;
+    private static int num_questao = 1;
+    private static int checkpoint = 1;
     private static boolean jogo_rodando = true;
     private List<Integer> id_perguntas_feitas = new ArrayList<>();
     private List<Integer> id_perguntas_disponiveis = new ArrayList<>();
@@ -34,6 +35,7 @@ public class Jogo{
             id_perguntas_feitas.add(pergunta.getId());
             
             //Exibição das perguntas e respostas
+            System.out.println("Questão " + num_questao);
             System.out.println(pergunta.getPergunta());
             Alternativa correta = null;
             for(Alternativa i:pergunta.getAlternativas()){
@@ -46,14 +48,17 @@ public class Jogo{
 
             //Tramento do Acerto
             if(alternativa_escolhida == correta){
-                pontuacao++;
+                pontuacao += 10 * Math.pow(2.2, num_questao - 1);
+                num_questao++;
                 System.out.println("Resposta Correta\n");
                 checkpoint(true);
             }
             
             //Tratamento do Erro
             else{
-                pontuacao--;
+                for(int i =0;i<--num_questao-checkpoint;i++){
+                    pontuacao -= 10 * Math.pow(2.2, num_questao - 1);
+                }
                 System.out.println("Resposta Incorreta\n"); 
                 checkpoint(false);
             }
@@ -61,7 +66,7 @@ public class Jogo{
             System.out.println("Pontuação: "+pontuacao);
 
             //Finalização do jogo
-            if(pontuacao >= 10){
+            if(num_questao > 12){
                 System.out.println("Parabéns, você venceu.");
                 jogo_rodando = false;
             }
@@ -71,18 +76,19 @@ public class Jogo{
 
     
     private void checkpoint(boolean acertou){
-        final int[] checkPoints = {0,2,5,7};
+        final int[] checkPoints = {1,4,8};
         
         if(acertou){
             for(int i:checkPoints){
-                if(i == pontuacao){
+                if(i == num_questao){
                     checkpoint = i;
+                    atualiza_dificuldade();
                     System.out.println("Checkpoint Salvo em "+i);
                 }
             }
         }
         else{
-            pontuacao = checkpoint;
+            num_questao = checkpoint;
             System.out.println("Voltando para o checkpoint "+checkpoint);
         }
     }
@@ -93,6 +99,18 @@ public class Jogo{
     }
 
     private void atualiza_dificuldade(){
-        
+        switch (checkpoint) {
+            case 0:
+                dificuldade = 1;
+                break;
+            case 4:
+                dificuldade = 2;
+                break;
+            case 8:
+                dificuldade = 3;
+                break;
+            default:
+                break;
+        }
     }
 }
