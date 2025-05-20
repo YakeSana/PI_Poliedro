@@ -9,6 +9,7 @@ public class ConnectionFactory {
     private static String usuario = "avnadmin";
     private static String senha = "AVNS_lMl_1mqdHp4be6dwoYp";
 
+
     public static Connection obterConexao () throws Exception{
         String url = String.format(
         "jdbc:mysql://%s:%s/%s",

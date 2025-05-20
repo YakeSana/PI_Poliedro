@@ -10,19 +10,27 @@ public class Jogo{
     private static int checkpoint;
     private static boolean jogo_rodando = true;
     private List<Integer> id_perguntas_feitas = new ArrayList<>();
+    private List<Integer> id_perguntas_disponiveis = new ArrayList<>();
     private static Random random = new Random();
+    private static int dificuldade = 1; 
     
     Scanner scanner = new Scanner(System.in);
     public Jogo(){
+        PerguntasDAO db = new PerguntasDAO(); 
+        atualiza_perguntas_disponiveis(db);
         while (jogo_rodando) {
             int id;
             //Geração de id da pergunta
             do{
-                id = random.nextInt(50);
+                if(id_perguntas_disponiveis.isEmpty()) {
+                    atualiza_perguntas_disponiveis(db);
+                    id_perguntas_feitas.clear();
+                }
+                id = id_perguntas_disponiveis.get(random.nextInt(id_perguntas_disponiveis.size()));
+                id_perguntas_disponiveis.remove(Integer.valueOf(id));
             }
             while(id_perguntas_feitas.contains(id));
-            PerguntasDAO db = new PerguntasDAO(); 
-            Pergunta pergunta = db.getPerguntacomAlternativa(id, 1);
+            Pergunta pergunta = db.getPerguntacomAlternativa(id, 1,dificuldade);
             id_perguntas_feitas.add(pergunta.getId());
             
             //Exibição das perguntas e respostas
@@ -61,9 +69,10 @@ public class Jogo{
         scanner.close();        
     }
 
+    
     private void checkpoint(boolean acertou){
         final int[] checkPoints = {0,2,5,7};
-
+        
         if(acertou){
             for(int i:checkPoints){
                 if(i == pontuacao){
@@ -76,5 +85,14 @@ public class Jogo{
             pontuacao = checkpoint;
             System.out.println("Voltando para o checkpoint "+checkpoint);
         }
+    }
+
+    
+    private void atualiza_perguntas_disponiveis(PerguntasDAO db) {
+        id_perguntas_disponiveis = db.ids_disponiveis(dificuldade, 1);
+    }
+
+    private void atualiza_dificuldade(){
+        
     }
 }

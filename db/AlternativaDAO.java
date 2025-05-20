@@ -11,7 +11,7 @@ public class AlternativaDAO {
     public List<Alternativa> getlistaAlternativas(int id_pergunta){
         List<Alternativa> alternativas = new ArrayList<Alternativa>();
         try (Connection conexao = new ConnectionFactory().obterConexao()){
-            String sql = "SELECT * from alternativa where id_pergunta == ?";
+            String sql = "SELECT * from alternativa where id_pergunta = ?";
             PreparedStatement stmt = conexao.prepareStatement(sql);
             stmt.setInt(1, id_pergunta);
             ResultSet data = stmt.executeQuery();
