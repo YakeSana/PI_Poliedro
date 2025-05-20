@@ -15,7 +15,7 @@ public class Jogo{
     private List<Integer> id_perguntas_feitas = new ArrayList<>();
     private List<Integer> id_perguntas_disponiveis = new ArrayList<>();
     private static Random random = new Random();
-    private static int dificuldade; 
+    private static int dificuldade = 1; 
     
     Scanner scanner = new Scanner(System.in);
     public Jogo(){
@@ -28,9 +28,9 @@ public class Jogo{
             do{
                 disciplina = sorteia_idDiscipina();
                 if(id_perguntas_disponiveis.isEmpty()) {
-                    id_perguntas_disponiveis = db.ids_disponiveis(dificuldade, disciplina);
                     id_perguntas_feitas.clear();
                 }
+                id_perguntas_disponiveis = db.ids_disponiveis(dificuldade, disciplina);
                 id = id_perguntas_disponiveis.get(random.nextInt(id_perguntas_disponiveis.size()));
                 id_perguntas_disponiveis.remove(Integer.valueOf(id));
             }
