@@ -86,6 +86,11 @@ public class TelaMenu extends javax.swing.JFrame {
         jButton2.setFont(new java.awt.Font("Super Crumble", 0, 36)); // NOI18N
         jButton2.setForeground(new java.awt.Color(255, 255, 255));
         jButton2.setText("Matérias");
+        jButton2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton2ActionPerformed(evt);
+            }
+        });
 
         jButton3.setBackground(new java.awt.Color(36, 96, 150));
         jButton3.setFont(new java.awt.Font("Super Crumble", 0, 36)); // NOI18N
@@ -158,6 +163,13 @@ public class TelaMenu extends javax.swing.JFrame {
  
 
     }//GEN-LAST:event_jButton4ActionPerformed
+
+    private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
+        // TODO add your handling code here:
+        TelaMaterias materiasTela = new TelaMaterias();
+        materiasTela.setVisible(true);
+        dispose();
+    }//GEN-LAST:event_jButton2ActionPerformed
 
     /**
      * @param args the command line arguments
