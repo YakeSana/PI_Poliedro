@@ -63,7 +63,7 @@ public class TelaMaterias extends javax.swing.JFrame {
         jPanel1.setBackground(new java.awt.Color(255, 255, 255, 230));
 
         jToggleButton1.setBackground(new java.awt.Color(95, 18, 140));
-        jToggleButton1.setFont(new java.awt.Font("Javanese Text", 0, 18)); // NOI18N
+        jToggleButton1.setFont(new java.awt.Font("Super Crumble", 0, 18)); // NOI18N
         jToggleButton1.setForeground(new java.awt.Color(255, 255, 255));
         jToggleButton1.setText("Biologia");
         jToggleButton1.addActionListener(new java.awt.event.ActionListener() {
@@ -73,22 +73,22 @@ public class TelaMaterias extends javax.swing.JFrame {
         });
 
         jToggleButton2.setBackground(new java.awt.Color(95, 18, 140));
-        jToggleButton2.setFont(new java.awt.Font("Javanese Text", 0, 18)); // NOI18N
+        jToggleButton2.setFont(new java.awt.Font("Super Crumble", 0, 18)); // NOI18N
         jToggleButton2.setForeground(new java.awt.Color(255, 255, 255));
         jToggleButton2.setText("Filosofia");
 
         jToggleButton3.setBackground(new java.awt.Color(95, 18, 140));
-        jToggleButton3.setFont(new java.awt.Font("Javanese Text", 0, 18)); // NOI18N
+        jToggleButton3.setFont(new java.awt.Font("Super Crumble", 0, 18)); // NOI18N
         jToggleButton3.setForeground(new java.awt.Color(255, 255, 255));
         jToggleButton3.setText("Física");
 
         jToggleButton4.setBackground(new java.awt.Color(95, 18, 140));
-        jToggleButton4.setFont(new java.awt.Font("Javanese Text", 0, 18)); // NOI18N
+        jToggleButton4.setFont(new java.awt.Font("Super Crumble", 0, 18)); // NOI18N
         jToggleButton4.setForeground(new java.awt.Color(255, 255, 255));
         jToggleButton4.setText("Geografia");
 
         jToggleButton5.setBackground(new java.awt.Color(95, 18, 140));
-        jToggleButton5.setFont(new java.awt.Font("Javanese Text", 0, 18)); // NOI18N
+        jToggleButton5.setFont(new java.awt.Font("Super Crumble", 0, 18)); // NOI18N
         jToggleButton5.setForeground(new java.awt.Color(255, 255, 255));
         jToggleButton5.setText("Históra");
         jToggleButton5.addActionListener(new java.awt.event.ActionListener() {
@@ -98,12 +98,12 @@ public class TelaMaterias extends javax.swing.JFrame {
         });
 
         jToggleButton6.setBackground(new java.awt.Color(95, 18, 140));
-        jToggleButton6.setFont(new java.awt.Font("Javanese Text", 0, 18)); // NOI18N
+        jToggleButton6.setFont(new java.awt.Font("Super Crumble", 0, 18)); // NOI18N
         jToggleButton6.setForeground(new java.awt.Color(255, 255, 255));
         jToggleButton6.setText("Matemática");
 
         jToggleButton7.setBackground(new java.awt.Color(95, 18, 140));
-        jToggleButton7.setFont(new java.awt.Font("Javanese Text", 0, 18)); // NOI18N
+        jToggleButton7.setFont(new java.awt.Font("Super Crumble", 0, 18)); // NOI18N
         jToggleButton7.setForeground(new java.awt.Color(255, 255, 255));
         jToggleButton7.setText("Português");
         jToggleButton7.addActionListener(new java.awt.event.ActionListener() {
@@ -113,16 +113,16 @@ public class TelaMaterias extends javax.swing.JFrame {
         });
 
         jToggleButton8.setBackground(new java.awt.Color(95, 18, 140));
-        jToggleButton8.setFont(new java.awt.Font("Javanese Text", 0, 18)); // NOI18N
+        jToggleButton8.setFont(new java.awt.Font("Super Crumble", 0, 18)); // NOI18N
         jToggleButton8.setForeground(new java.awt.Color(255, 255, 255));
         jToggleButton8.setText("Química");
 
         jToggleButton9.setBackground(new java.awt.Color(95, 18, 140));
-        jToggleButton9.setFont(new java.awt.Font("Javanese Text", 0, 18)); // NOI18N
+        jToggleButton9.setFont(new java.awt.Font("Super Crumble", 0, 18)); // NOI18N
         jToggleButton9.setForeground(new java.awt.Color(255, 255, 255));
         jToggleButton9.setText("Sociologia");
 
-        jLabel3.setFont(new java.awt.Font("Javanese Text", 0, 36)); // NOI18N
+        jLabel3.setFont(new java.awt.Font("Super Crumble", 0, 48)); // NOI18N
         jLabel3.setForeground(new java.awt.Color(36, 96, 150));
         jLabel3.setText("Selecione as matérias!");
 
@@ -136,12 +136,12 @@ public class TelaMaterias extends javax.swing.JFrame {
                     .addComponent(jToggleButton4, javax.swing.GroupLayout.PREFERRED_SIZE, 124, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jToggleButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 124, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jToggleButton7, javax.swing.GroupLayout.PREFERRED_SIZE, 124, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 77, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 62, Short.MAX_VALUE)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jToggleButton5, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 124, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jToggleButton2, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 124, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jToggleButton8, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 124, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(63, 63, 63)
+                .addGap(75, 75, 75)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                     .addComponent(jToggleButton6, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(jToggleButton9, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
@@ -149,29 +149,29 @@ public class TelaMaterias extends javax.swing.JFrame {
                 .addGap(62, 62, 62))
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(jLabel3, javax.swing.GroupLayout.PREFERRED_SIZE, 357, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(136, 136, 136))
+                .addComponent(jLabel3)
+                .addGap(81, 81, 81))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addGap(15, 15, 15)
                 .addComponent(jLabel3, javax.swing.GroupLayout.PREFERRED_SIZE, 60, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 35, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 27, Short.MAX_VALUE)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jToggleButton1)
-                    .addComponent(jToggleButton2)
-                    .addComponent(jToggleButton3))
-                .addGap(52, 52, 52)
+                    .addComponent(jToggleButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jToggleButton2, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jToggleButton3, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(55, 55, 55)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jToggleButton4)
-                    .addComponent(jToggleButton5)
-                    .addComponent(jToggleButton6))
-                .addGap(53, 53, 53)
+                    .addComponent(jToggleButton4, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jToggleButton5, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jToggleButton6, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(55, 55, 55)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jToggleButton7)
-                    .addComponent(jToggleButton8)
-                    .addComponent(jToggleButton9))
+                    .addComponent(jToggleButton7, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jToggleButton8, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jToggleButton9, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(68, 68, 68))
         );
 
