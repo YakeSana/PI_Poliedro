@@ -19,6 +19,7 @@ public class AreaAdm extends javax.swing.JFrame {
     setaButton.setBorderPainted(false);
     setaButton.setFocusPainted(false);
     setaButton.setOpaque(false);
+    this.setLocationRelativeTo(null);
     }
 
     /**
