@@ -3,6 +3,8 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Random;
 import java.util.Scanner;
+
+import db.DisciplinasDAO;
 import db.PerguntasDAO;
 
 public class Jogo{
@@ -13,25 +15,27 @@ public class Jogo{
     private List<Integer> id_perguntas_feitas = new ArrayList<>();
     private List<Integer> id_perguntas_disponiveis = new ArrayList<>();
     private static Random random = new Random();
-    private static int dificuldade = 1; 
+    private static int dificuldade; 
     
     Scanner scanner = new Scanner(System.in);
     public Jogo(){
-        PerguntasDAO db = new PerguntasDAO(); 
-        atualiza_perguntas_disponiveis(db);
+        PerguntasDAO db = new PerguntasDAO();
+        atualiza_dificuldade();
         while (jogo_rodando) {
             int id;
+            int disciplina;
             //Geração de id da pergunta
             do{
+                disciplina = sorteia_idDiscipina();
                 if(id_perguntas_disponiveis.isEmpty()) {
-                    atualiza_perguntas_disponiveis(db);
+                    id_perguntas_disponiveis = db.ids_disponiveis(dificuldade, disciplina);
                     id_perguntas_feitas.clear();
                 }
                 id = id_perguntas_disponiveis.get(random.nextInt(id_perguntas_disponiveis.size()));
                 id_perguntas_disponiveis.remove(Integer.valueOf(id));
             }
             while(id_perguntas_feitas.contains(id));
-            Pergunta pergunta = db.getPerguntacomAlternativa(id, 1,dificuldade);
+            Pergunta pergunta = db.getPerguntacomAlternativa(id, disciplina,dificuldade);
             id_perguntas_feitas.add(pergunta.getId());
             
             //Exibição das perguntas e respostas
@@ -59,6 +63,7 @@ public class Jogo{
                 for(int i =0;i<--num_questao-checkpoint;i++){
                     pontuacao -= 10 * Math.pow(2.2, num_questao - 1);
                 }
+                pontuacao -= pontuacao*0.05;
                 System.out.println("Resposta Incorreta\n"); 
                 checkpoint(false);
             }
@@ -93,10 +98,11 @@ public class Jogo{
         }
     }
 
-    
-    private void atualiza_perguntas_disponiveis(PerguntasDAO db) {
-        id_perguntas_disponiveis = db.ids_disponiveis(dificuldade, 1);
-    }
+    private int sorteia_idDiscipina(){
+        DisciplinasDAO dis = new DisciplinasDAO();
+        List<Integer> disciplinas = dis.getListaDisciplinas();
+        return disciplinas.get(random.nextInt(disciplinas.size()));
+    };
 
     private void atualiza_dificuldade(){
         switch (checkpoint) {

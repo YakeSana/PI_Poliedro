@@ -19,12 +19,12 @@ public class PerguntasDAO {
             if(data.next()){
                 pergunta = new Pergunta(idPergunta, data.getString("texto"), null,data.getInt("id_disciplina"));
             }
+            else{
+                new RuntimeException("Query de Pergunta Vazia");
+            }
             if (pergunta != null) {
                 AlternativaDAO alternativasDAO = new AlternativaDAO();
                 pergunta.setAlternativas(alternativasDAO.getlistaAlternativas(idPergunta));
-            }
-            else{
-                new RuntimeException("Query de Pergunta Vazia");
             }
         } catch (Exception e) {
             e.printStackTrace();
@@ -39,6 +39,23 @@ public class PerguntasDAO {
             PreparedStatement stmt = conexao.prepareStatement(sqlString);
             stmt.setInt(1, id_disciplina);
             stmt.setInt(2, dificuldade);
+            ResultSet data = stmt.executeQuery();
+            while(data.next()){
+                lista.add(data.getInt("id_pergunta"));
+            }
+            System.out.println("ids_disponíveis" + lista);
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        return lista;
+    }
+
+    public List<Integer> ids_disponiveis(int dificuldade){
+        List<Integer> lista = new ArrayList<>();
+        try(Connection conexao = new ConnectionFactory().obterConexao()) {
+            String sqlString = "SELECT * from pergunta where id_dificuldade = ?";
+            PreparedStatement stmt = conexao.prepareStatement(sqlString);
+            stmt.setInt(1, dificuldade);
             ResultSet data = stmt.executeQuery();
             while(data.next()){
                 lista.add(data.getInt("id_pergunta"));
