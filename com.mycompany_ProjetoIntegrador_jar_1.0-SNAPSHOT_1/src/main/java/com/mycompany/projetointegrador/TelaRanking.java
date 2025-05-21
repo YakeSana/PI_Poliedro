@@ -8,12 +8,12 @@ package com.mycompany.projetointegrador;
  *
  * @author conta
  */
-public class TelaPontuacao extends javax.swing.JFrame {
+public class TelaRanking extends javax.swing.JFrame {
 
     /**
      * Creates new form TelaPontuacao
      */
-    public TelaPontuacao() {
+    public TelaRanking() {
         initComponents();
         setaButton.setContentAreaFilled(false);
     setaButton.setBorderPainted(false);
@@ -52,23 +52,23 @@ public class TelaPontuacao extends javax.swing.JFrame {
 
         jLabel2.setFont(new java.awt.Font("Super Crumble", 0, 48)); // NOI18N
         jLabel2.setForeground(new java.awt.Color(36, 96, 150));
-        jLabel2.setText("Sua Pontuação:");
+        jLabel2.setText("Ranking");
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel1Layout.createSequentialGroup()
-                .addGap(150, 150, 150)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
+                .addContainerGap(233, Short.MAX_VALUE)
                 .addComponent(jLabel2)
-                .addContainerGap(159, Short.MAX_VALUE))
+                .addGap(232, 232, 232))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
-                .addGap(23, 23, 23)
+                .addGap(27, 27, 27)
                 .addComponent(jLabel2)
-                .addContainerGap(349, Short.MAX_VALUE))
+                .addContainerGap(341, Short.MAX_VALUE))
         );
 
         getContentPane().add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(400, 110, 640, 430));
@@ -84,8 +84,8 @@ public class TelaPontuacao extends javax.swing.JFrame {
 
     private void setaButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_setaButtonActionPerformed
         // TODO add your handling code here:
-        TelaMenuAluno menuAlunoTela = new TelaMenuAluno();
-        menuAlunoTela.setVisible(true);
+        TelaMenu menuTela = new TelaMenu();
+        menuTela.setVisible(true);
         dispose();
         
     }//GEN-LAST:event_setaButtonActionPerformed
@@ -107,20 +107,21 @@ public class TelaPontuacao extends javax.swing.JFrame {
                 }
             }
         } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(TelaPontuacao.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(TelaRanking.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(TelaPontuacao.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(TelaRanking.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(TelaPontuacao.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(TelaRanking.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(TelaPontuacao.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(TelaRanking.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
+        //</editor-fold>
         //</editor-fold>
 
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new TelaPontuacao().setVisible(true);
+                new TelaRanking().setVisible(true);
             }
         });
     }

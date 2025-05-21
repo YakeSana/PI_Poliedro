@@ -30,8 +30,8 @@ public class TelaJogo2 extends javax.swing.JFrame {
         jPanel2 = new javax.swing.JPanel();
         jPanel3 = new javax.swing.JPanel();
         jLabel9 = new javax.swing.JLabel();
-        jButton4 = new javax.swing.JButton();
-        jButton5 = new javax.swing.JButton();
+        simButton = new javax.swing.JButton();
+        naoButton = new javax.swing.JButton();
         jPanel1 = new javax.swing.JPanel();
         jLabel3 = new javax.swing.JLabel();
         jLabel4 = new javax.swing.JLabel();
@@ -60,15 +60,20 @@ public class TelaJogo2 extends javax.swing.JFrame {
         jLabel9.setFont(new java.awt.Font("Super Crumble", 0, 24)); // NOI18N
         jLabel9.setText("Está certo disso?");
 
-        jButton4.setBackground(new java.awt.Color(13, 255, 0));
-        jButton4.setFont(new java.awt.Font("Super Crumble", 0, 18)); // NOI18N
-        jButton4.setForeground(new java.awt.Color(255, 255, 255));
-        jButton4.setText("Sim");
+        simButton.setBackground(new java.awt.Color(13, 255, 0));
+        simButton.setFont(new java.awt.Font("Super Crumble", 0, 18)); // NOI18N
+        simButton.setForeground(new java.awt.Color(255, 255, 255));
+        simButton.setText("Sim");
 
-        jButton5.setBackground(new java.awt.Color(248, 17, 17));
-        jButton5.setFont(new java.awt.Font("Super Crumble", 0, 18)); // NOI18N
-        jButton5.setForeground(new java.awt.Color(255, 255, 255));
-        jButton5.setText("Não");
+        naoButton.setBackground(new java.awt.Color(248, 17, 17));
+        naoButton.setFont(new java.awt.Font("Super Crumble", 0, 18)); // NOI18N
+        naoButton.setForeground(new java.awt.Color(255, 255, 255));
+        naoButton.setText("Não");
+        naoButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                naoButtonActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout jPanel3Layout = new javax.swing.GroupLayout(jPanel3);
         jPanel3.setLayout(jPanel3Layout);
@@ -78,9 +83,9 @@ public class TelaJogo2 extends javax.swing.JFrame {
                 .addGap(55, 55, 55)
                 .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                     .addGroup(jPanel3Layout.createSequentialGroup()
-                        .addComponent(jButton4)
+                        .addComponent(simButton)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(jButton5))
+                        .addComponent(naoButton))
                     .addComponent(jLabel9))
                 .addContainerGap(60, Short.MAX_VALUE))
         );
@@ -91,8 +96,8 @@ public class TelaJogo2 extends javax.swing.JFrame {
                 .addComponent(jLabel9)
                 .addGap(65, 65, 65)
                 .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jButton4)
-                    .addComponent(jButton5))
+                    .addComponent(simButton)
+                    .addComponent(naoButton))
                 .addContainerGap(57, Short.MAX_VALUE))
         );
 
@@ -245,6 +250,14 @@ public class TelaJogo2 extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_jButton1ActionPerformed
 
+    private void naoButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_naoButtonActionPerformed
+        // TODO add your handling code here:
+        TelaJogo1 jogoTela = new TelaJogo1();
+        jogoTela.setVisible(true);
+        dispose();
+        
+    }//GEN-LAST:event_naoButtonActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -284,8 +297,6 @@ public class TelaJogo2 extends javax.swing.JFrame {
     private javax.swing.JButton jButton1;
     private javax.swing.JButton jButton2;
     private javax.swing.JButton jButton3;
-    private javax.swing.JButton jButton4;
-    private javax.swing.JButton jButton5;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel11;
@@ -303,5 +314,7 @@ public class TelaJogo2 extends javax.swing.JFrame {
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JPanel jPanel3;
+    private javax.swing.JButton naoButton;
+    private javax.swing.JButton simButton;
     // End of variables declaration//GEN-END:variables
 }

@@ -192,17 +192,7 @@ public class TelaMaterias extends javax.swing.JFrame {
     }//GEN-LAST:event_jToggleButton5ActionPerformed
 
     private void setaButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_setaButtonActionPerformed
-        // TODO add your handling code here:
-        if (professor){
-        TelaMenu menuTela = new TelaMenu();
-        menuTela.setVisible(true);
-        dispose();   
-        } else {
-            TelaMenuAluno menuAlunoTela = new TelaMenuAluno();
-            menuAlunoTela.setVisible(true);
-            dispose();
-        }
-         
+        // TODO add your handling code here: 
     }//GEN-LAST:event_setaButtonActionPerformed
 
     private void jToggleButton7ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jToggleButton7ActionPerformed
