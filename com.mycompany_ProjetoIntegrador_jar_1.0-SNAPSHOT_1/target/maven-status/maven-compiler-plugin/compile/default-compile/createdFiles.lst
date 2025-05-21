@@ -1,5 +1,6 @@
 com\mycompany\projetointegrador\AreaAdm$1.class
 com\mycompany\projetointegrador\TelaMaterias$2.class
+com\mycompany\projetointegrador\TelaPerguntas$1.class
 com\mycompany\projetointegrador\TelajogoAcertou.class
 com\mycompany\projetointegrador\TelaJogo1$3.class
 com\mycompany\projetointegrador\TelaMaterias.class
@@ -59,5 +60,6 @@ com\mycompany\projetointegrador\TelaCadastro$3.class
 com\mycompany\projetointegrador\TelaCadastro.class
 com\mycompany\projetointegrador\TelaMenuAluno$1.class
 com\mycompany\projetointegrador\AreaAdm.class
+com\mycompany\projetointegrador\TelaPerguntas.class
 com\mycompany\projetointegrador\TelaMaterias$5.class
 com\mycompany\projetointegrador\TelaJogo2.class
