@@ -18,7 +18,7 @@ public class TelaMenu extends javax.swing.JFrame {
     /** Creates new form TelaMenu */
     public TelaMenu() {
         initComponents();
-         this.setLocationRelativeTo(null);
+        this.setLocationRelativeTo(null);
          Dimension tamanhoTela = Toolkit.getDefaultToolkit().getScreenSize();
          int largura = (int)tamanhoTela.getWidth();
          int altura = (int)tamanhoTela.getHeight();

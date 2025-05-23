@@ -154,8 +154,8 @@ public class TelaGerenciarPerguntas extends javax.swing.JFrame {
 
     private void areaadmCadastrarButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_areaadmCadastrarButtonActionPerformed
         // TODO add your handling code here:
-        TelaAdicionarPeguntas cadastroTela = new TelaCadastro();
-        cadastroTela.setVisible(true);
+        TelaAdicionarPeguntas AddPerguntasTela = new TelaAdicionarPeguntas();
+        AddPerguntasTela.setVisible(true);
         dispose();
     }//GEN-LAST:event_areaadmCadastrarButtonActionPerformed
 
