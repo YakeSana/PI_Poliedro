@@ -129,9 +129,9 @@ public class TelaGerenciarUsuarios extends javax.swing.JFrame {
                 .addComponent(areaadmCadastrarButton)
                 .addGap(50, 50, 50)
                 .addComponent(jButton1)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 50, Short.MAX_VALUE)
+                .addGap(50, 50, 50)
                 .addComponent(editarPerguntasButton)
-                .addGap(29, 29, 29)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 29, Short.MAX_VALUE)
                 .addComponent(jLabel3)
                 .addGap(15, 15, 15))
         );
@@ -139,7 +139,7 @@ public class TelaGerenciarUsuarios extends javax.swing.JFrame {
         getContentPane().add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(470, 290, 510, 490));
 
         jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagens/img corredor - png.png"))); // NOI18N
-        getContentPane().add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 1540, 1030));
+        getContentPane().add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 1560, 1030));
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
