@@ -1,8 +1,11 @@
+com\mycompany\projetointegrador\TelaGerenciarUsuarios.class
 com\mycompany\projetointegrador\AreaAdm$1.class
 com\mycompany\projetointegrador\TelaMaterias$2.class
+com\mycompany\projetointegrador\TelaEditarPerguntas.class
 com\mycompany\projetointegrador\TelaPerguntas$1.class
 com\mycompany\projetointegrador\TelajogoAcertou.class
 com\mycompany\projetointegrador\TelaJogo1$3.class
+com\mycompany\projetointegrador\TelaEditarPerguntas$2.class
 com\mycompany\projetointegrador\TelaMaterias.class
 com\mycompany\projetointegrador\TelaMenuAluno$3.class
 com\mycompany\projetointegrador\TelaGanhou$1.class
@@ -18,6 +21,7 @@ com\mycompany\projetointegrador\Usuario.class
 com\mycompany\projetointegrador\TelaJogo1$4.class
 com\mycompany\projetointegrador\TelaPerdeu$2.class
 com\mycompany\projetointegrador\TelaPerdeu$1.class
+com\mycompany\projetointegrador\TelaEditarPerguntas$1.class
 com\mycompany\projetointegrador\TelaMenuAluno$2.class
 com\mycompany\projetointegrador\TelaMaterias$3.class
 com\mycompany\projetointegrador\TelaMenu$5.class
@@ -29,7 +33,9 @@ com\mycompany\projetointegrador\TelaPontuacao$2.class
 com\mycompany\projetointegrador\TelaJogo2$3.class
 com\mycompany\projetointegrador\TelaJogoErrou$1.class
 com\mycompany\projetointegrador\TelaLogin$4.class
+com\mycompany\projetointegrador\TelaGerenciarUsuarios$1.class
 com\mycompany\projetointegrador\DAO.class
+com\mycompany\projetointegrador\TelaGerenciarUsuarios$2.class
 com\mycompany\projetointegrador\TelaMenu.class
 com\mycompany\projetointegrador\TelaJogo1$5.class
 com\mycompany\projetointegrador\TelaLogin$1.class
@@ -52,6 +58,8 @@ com\mycompany\projetointegrador\TelaPontuacao$1.class
 com\mycompany\projetointegrador\TelaGanhou.class
 com\mycompany\projetointegrador\TelaJogo1$6.class
 com\mycompany\projetointegrador\TelaJogo2$2.class
+com\mycompany\projetointegrador\TelaEditarPerguntas$3.class
+com\mycompany\projetointegrador\TelaGerenciarUsuarios$3.class
 com\mycompany\projetointegrador\TelaLogin$2.class
 com\mycompany\projetointegrador\TelaMenu$3.class
 com\mycompany\projetointegrador\ConexaoBD.class

@@ -90,7 +90,7 @@ public class TelaMaterias extends javax.swing.JFrame {
         jToggleButton5.setBackground(new java.awt.Color(95, 18, 140));
         jToggleButton5.setFont(new java.awt.Font("Super Crumble", 0, 18)); // NOI18N
         jToggleButton5.setForeground(new java.awt.Color(255, 255, 255));
-        jToggleButton5.setText("Históra");
+        jToggleButton5.setText("História");
         jToggleButton5.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jToggleButton5ActionPerformed(evt);

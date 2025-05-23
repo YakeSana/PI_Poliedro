@@ -6,10 +6,15 @@ public class TelaCadastro extends javax.swing.JFrame {
 
     public TelaCadastro() {
         initComponents();
+        jButton2.setContentAreaFilled(false);
+    jButton2.setBorderPainted(false);
+    jButton2.setFocusPainted(false);
+    jButton2.setOpaque(false);
     }
 
     @SuppressWarnings("unchecked")
     private void initComponents() {
+        
 
         jButton2 = new javax.swing.JButton();
         jPanel1 = new javax.swing.JPanel();

@@ -8,12 +8,12 @@ package com.mycompany.projetointegrador;
  *
  * @author conta
  */
-public class AreaAdm extends javax.swing.JFrame {
+public class TelaGerenciarUsuarios extends javax.swing.JFrame {
 
     /**
      * Creates new form AreaAdm
      */
-    public AreaAdm() {
+    public TelaGerenciarUsuarios() {
         initComponents();
         setaButton.setContentAreaFilled(false);
     setaButton.setBorderPainted(false);
@@ -38,7 +38,7 @@ public class AreaAdm extends javax.swing.JFrame {
         areaadmCadastrarButton = new javax.swing.JButton();
         editarPerguntasButton = new javax.swing.JButton();
         jLabel3 = new javax.swing.JLabel();
-        jToggleButton1 = new javax.swing.JToggleButton();
+        jButton1 = new javax.swing.JButton();
         jLabel1 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
@@ -75,12 +75,12 @@ public class AreaAdm extends javax.swing.JFrame {
         jPanel1.setBackground(new java.awt.Color(255, 255, 255, 220));
 
         jLabel2.setFont(new java.awt.Font("Javanese Text", 0, 36)); // NOI18N
-        jLabel2.setText("Área do Administrador");
+        jLabel2.setText("Usuários");
 
         areaadmCadastrarButton.setBackground(new java.awt.Color(42, 122, 195));
         areaadmCadastrarButton.setFont(new java.awt.Font("Javanese Text", 0, 18)); // NOI18N
         areaadmCadastrarButton.setForeground(new java.awt.Color(255, 255, 255));
-        areaadmCadastrarButton.setText("Cadastrar");
+        areaadmCadastrarButton.setText("Cadastrar usuário");
         areaadmCadastrarButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 areaadmCadastrarButtonActionPerformed(evt);
@@ -90,23 +90,19 @@ public class AreaAdm extends javax.swing.JFrame {
         editarPerguntasButton.setBackground(new java.awt.Color(42, 122, 195));
         editarPerguntasButton.setFont(new java.awt.Font("Javanese Text", 0, 18)); // NOI18N
         editarPerguntasButton.setForeground(new java.awt.Color(255, 255, 255));
-        editarPerguntasButton.setText("Gerenciar perguntas");
+        editarPerguntasButton.setText("Editar usuários");
 
         jLabel3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagens/Logo_Poliedro_Horiz_EDUCACAO_300x70.png"))); // NOI18N
 
-        jToggleButton1.setBackground(new java.awt.Color(42, 122, 195));
-        jToggleButton1.setFont(new java.awt.Font("Javanese Text", 0, 18)); // NOI18N
-        jToggleButton1.setForeground(new java.awt.Color(255, 255, 255));
-        jToggleButton1.setText("Gerenciar usuários");
+        jButton1.setBackground(new java.awt.Color(42, 122, 195));
+        jButton1.setFont(new java.awt.Font("Javanese Text", 0, 18)); // NOI18N
+        jButton1.setForeground(new java.awt.Color(255, 255, 255));
+        jButton1.setText("Remover usuário");
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
-                .addContainerGap(85, Short.MAX_VALUE)
-                .addComponent(jLabel2)
-                .addGap(70, 70, 70))
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel1Layout.createSequentialGroup()
@@ -117,26 +113,30 @@ public class AreaAdm extends javax.swing.JFrame {
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                             .addComponent(areaadmCadastrarButton, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                             .addComponent(editarPerguntasButton, javax.swing.GroupLayout.DEFAULT_SIZE, 230, Short.MAX_VALUE)
-                            .addComponent(jToggleButton1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
+                            .addComponent(jButton1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
+                .addGap(0, 183, Short.MAX_VALUE)
+                .addComponent(jLabel2)
+                .addGap(192, 192, 192))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
-                .addGap(20, 20, 20)
+                .addGap(18, 18, 18)
                 .addComponent(jLabel2)
-                .addGap(27, 27, 27)
+                .addGap(29, 29, 29)
                 .addComponent(areaadmCadastrarButton)
-                .addGap(45, 45, 45)
-                .addComponent(jToggleButton1)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 45, Short.MAX_VALUE)
+                .addGap(50, 50, 50)
+                .addComponent(jButton1)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 50, Short.MAX_VALUE)
                 .addComponent(editarPerguntasButton)
                 .addGap(29, 29, 29)
                 .addComponent(jLabel3)
                 .addGap(15, 15, 15))
         );
 
-        getContentPane().add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(470, 290, 510, 480));
+        getContentPane().add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(470, 290, 510, 490));
 
         jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagens/img corredor - png.png"))); // NOI18N
         getContentPane().add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 1540, 1030));
@@ -154,10 +154,9 @@ public class AreaAdm extends javax.swing.JFrame {
 
     private void areaadmCadastrarButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_areaadmCadastrarButtonActionPerformed
         // TODO add your handling code here:
-        TelaCadastro cadastroTela = new TelaCadastro(); 
+        TelaCadastro cadastroTela = new TelaCadastro();
         cadastroTela.setVisible(true);
         dispose();
-
     }//GEN-LAST:event_areaadmCadastrarButtonActionPerformed
 
     /**
@@ -177,20 +176,23 @@ public class AreaAdm extends javax.swing.JFrame {
                 }
             }
         } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(AreaAdm.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(TelaGerenciarUsuarios.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(AreaAdm.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(TelaGerenciarUsuarios.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(AreaAdm.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(TelaGerenciarUsuarios.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(AreaAdm.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(TelaGerenciarUsuarios.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
         //</editor-fold>
 
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new AreaAdm().setVisible(true);
+                new TelaGerenciarUsuarios().setVisible(true);
             }
         });
     }
@@ -198,12 +200,12 @@ public class AreaAdm extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton areaadmCadastrarButton;
     private javax.swing.JButton editarPerguntasButton;
+    private javax.swing.JButton jButton1;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
-    private javax.swing.JToggleButton jToggleButton1;
     private javax.swing.JButton setaButton;
     // End of variables declaration//GEN-END:variables
 }
