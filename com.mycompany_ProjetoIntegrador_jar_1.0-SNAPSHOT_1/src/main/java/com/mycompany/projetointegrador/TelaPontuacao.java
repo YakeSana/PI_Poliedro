@@ -46,7 +46,7 @@ public class TelaPontuacao extends javax.swing.JFrame {
                 setaButtonActionPerformed(evt);
             }
         });
-        getContentPane().add(setaButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 10, -1, 50));
+        getContentPane().add(setaButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 10, -1, 60));
 
         jPanel1.setBackground(new java.awt.Color(255, 255, 255, 220));
 

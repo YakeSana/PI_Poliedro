@@ -5,6 +5,8 @@
 
 package com.mycompany.projetointegrador;
 
+import java.awt.Dimension;
+import java.awt.Toolkit;
 import javax.swing.JOptionPane;
 
 /**
@@ -17,6 +19,10 @@ public class TelaMenu extends javax.swing.JFrame {
     public TelaMenu() {
         initComponents();
          this.setLocationRelativeTo(null);
+         Dimension tamanhoTela = Toolkit.getDefaultToolkit().getScreenSize();
+         int largura = (int)tamanhoTela.getWidth();
+         int altura = (int)tamanhoTela.getHeight();
+         this.setSize(largura, altura);
     }
 
     /** This method is called from within the constructor to

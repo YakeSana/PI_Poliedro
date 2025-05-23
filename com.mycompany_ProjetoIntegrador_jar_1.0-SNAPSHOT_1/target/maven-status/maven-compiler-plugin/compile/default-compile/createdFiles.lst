@@ -1,3 +1,4 @@
+com\mycompany\projetointegrador\TelaGerenciarPerguntas$2.class
 com\mycompany\projetointegrador\TelaGerenciarUsuarios.class
 com\mycompany\projetointegrador\AreaAdm$1.class
 com\mycompany\projetointegrador\TelaMaterias$2.class
@@ -28,6 +29,7 @@ com\mycompany\projetointegrador\TelaJogo1$8.class
 com\mycompany\projetointegrador\AreaAdm$3.class
 com\mycompany\projetointegrador\TelaRanking$1.class
 com\mycompany\projetointegrador\TelaPontuacao$2.class
+com\mycompany\projetointegrador\TelaGerenciarPerguntas.class
 com\mycompany\projetointegrador\TelaJogo2$3.class
 com\mycompany\projetointegrador\TelaJogoErrou$1.class
 com\mycompany\projetointegrador\TelaLogin$4.class
@@ -48,6 +50,7 @@ com\mycompany\projetointegrador\TelaGanhou$2.class
 com\mycompany\projetointegrador\TelaJogo1$1.class
 com\mycompany\projetointegrador\TelaJogo1$9.class
 com\mycompany\projetointegrador\TelaMenu$4.class
+com\mycompany\projetointegrador\TelaGerenciarPerguntas$1.class
 com\mycompany\projetointegrador\TelaPontuacao.class
 com\mycompany\projetointegrador\AreaAdm$2.class
 com\mycompany\projetointegrador\TelaPerdeu.class
@@ -56,6 +59,7 @@ com\mycompany\projetointegrador\TelaPontuacao$1.class
 com\mycompany\projetointegrador\TelaGanhou.class
 com\mycompany\projetointegrador\TelaJogo1$6.class
 com\mycompany\projetointegrador\TelaJogo2$2.class
+com\mycompany\projetointegrador\TelaGerenciarPerguntas$3.class
 com\mycompany\projetointegrador\TelaGerenciarUsuarios$3.class
 com\mycompany\projetointegrador\TelaLogin$2.class
 com\mycompany\projetointegrador\TelaMenu$3.class
