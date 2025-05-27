@@ -7,14 +7,12 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class PerguntasDAO {
-    public Pergunta getPerguntacomAlternativa(int idPergunta,int id_disciplina,int dificuldade){
+    public Pergunta getPerguntacomAlternativa(int idPergunta){
         Pergunta pergunta = null;
         try (Connection conexao = new ConnectionFactory().obterConexao();){
-            String sqlString = "SELECT * from pergunta where id_pergunta = ? and id_disciplina = ? and id_dificuldade = ?";
+            String sqlString = "SELECT * from pergunta where id_pergunta = ?";
             PreparedStatement stmt = conexao.prepareStatement(sqlString);
             stmt.setInt(1, idPergunta);
-            stmt.setInt(2, id_disciplina);
-            stmt.setInt(3, dificuldade);
             ResultSet data = stmt.executeQuery();
             if(data.next()){
                 pergunta = new Pergunta(idPergunta, data.getString("texto"), null,data.getInt("id_disciplina"));
@@ -32,38 +30,45 @@ public class PerguntasDAO {
         return pergunta;
     }
 
-    public List<Integer> ids_disponiveis(int dificuldade,int id_disciplina){
-        List<Integer> lista = new ArrayList<>();
-        try(Connection conexao = new ConnectionFactory().obterConexao()) {
-            String sqlString = "SELECT * from pergunta where id_disciplina = ? and id_dificuldade = ?";
-            PreparedStatement stmt = conexao.prepareStatement(sqlString);
-            stmt.setInt(1, id_disciplina);
-            stmt.setInt(2, dificuldade);
-            ResultSet data = stmt.executeQuery();
-            while(data.next()){
-                lista.add(data.getInt("id_pergunta"));
-            }
-            System.out.println("ids_disponíveis" + lista);
-        } catch (Exception e) {
-            e.printStackTrace();
-        }
-        return lista;
-    }
 
-    public List<Integer> ids_disponiveis(int dificuldade){
+    public List<Integer> ids_disponiveis(int dificuldade, List<Integer> idsDisciplinas) {
         List<Integer> lista = new ArrayList<>();
-        try(Connection conexao = new ConnectionFactory().obterConexao()) {
-            String sqlString = "SELECT * from pergunta where id_dificuldade = ?";
-            PreparedStatement stmt = conexao.prepareStatement(sqlString);
+    
+        if (idsDisciplinas == null || idsDisciplinas.isEmpty()) {
+            throw new IllegalArgumentException("Lista de disciplinas não pode ser nula ou vazia.");
+        }
+    
+        try (Connection conexao = new ConnectionFactory().obterConexao()) {
+            // Construindo SQL com cláusula IN para os IDs das disciplinas
+            StringBuilder sqlBuilder = new StringBuilder("SELECT id_pergunta FROM pergunta WHERE id_dificuldade = ? AND id_disciplina IN (");
+            for (int i = 0; i < idsDisciplinas.size(); i++) {
+                sqlBuilder.append("?");
+                if (i < idsDisciplinas.size() - 1) {
+                    sqlBuilder.append(", ");
+                }
+            }
+            sqlBuilder.append(")");
+    
+            PreparedStatement stmt = conexao.prepareStatement(sqlBuilder.toString());
             stmt.setInt(1, dificuldade);
+    
+            // Setando os IDs de disciplina nos parâmetros
+            for (int i = 0; i < idsDisciplinas.size(); i++) {
+                stmt.setInt(i + 2, idsDisciplinas.get(i)); // +2 pois o primeiro parâmetro é dificuldade
+            }
+    
             ResultSet data = stmt.executeQuery();
-            while(data.next()){
+            while (data.next()) {
                 lista.add(data.getInt("id_pergunta"));
             }
-            System.out.println("ids_disponíveis" + lista);
+    
+            System.out.println("ids_disponiveis: " + lista);
         } catch (Exception e) {
             e.printStackTrace();
         }
+    
         return lista;
     }
+    
+    
 }

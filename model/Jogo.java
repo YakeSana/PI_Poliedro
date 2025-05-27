@@ -21,21 +21,19 @@ public class Jogo{
     public Jogo(){
         PerguntasDAO db = new PerguntasDAO();
         atualiza_dificuldade();
+        setIdPerguntasDisponiveis();
         while (jogo_rodando) {
-            int id;
-            int disciplina;
+            int id_pergunta;
             //Geração de id da pergunta
             do{
-                disciplina = sorteia_idDiscipina();
                 if(id_perguntas_disponiveis.isEmpty()) {
                     id_perguntas_feitas.clear();
                 }
-                id_perguntas_disponiveis = db.ids_disponiveis(dificuldade, disciplina);
-                id = id_perguntas_disponiveis.get(random.nextInt(id_perguntas_disponiveis.size()));
-                id_perguntas_disponiveis.remove(Integer.valueOf(id));
+                id_pergunta = id_perguntas_disponiveis.get(random.nextInt(id_perguntas_disponiveis.size()));
+                id_perguntas_disponiveis.remove(Integer.valueOf(id_pergunta));
             }
-            while(id_perguntas_feitas.contains(id));
-            Pergunta pergunta = db.getPerguntacomAlternativa(id, disciplina,dificuldade);
+            while(id_perguntas_feitas.contains(id_pergunta));
+            Pergunta pergunta = db.getPerguntacomAlternativa(id_pergunta);
             id_perguntas_feitas.add(pergunta.getId());
             
             //Exibição das perguntas e respostas
@@ -88,6 +86,7 @@ public class Jogo{
                 if(i == num_questao){
                     checkpoint = i;
                     atualiza_dificuldade();
+                    setIdPerguntasDisponiveis();
                     System.out.println("Checkpoint Salvo em "+i);
                 }
             }
@@ -98,11 +97,11 @@ public class Jogo{
         }
     }
 
-    private int sorteia_idDiscipina(){
+    private void setIdPerguntasDisponiveis(){
         DisciplinasDAO dis = new DisciplinasDAO();
-        List<Integer> disciplinas = dis.getListaDisciplinas();
-        return disciplinas.get(random.nextInt(disciplinas.size()));
-    };
+        PerguntasDAO db = new PerguntasDAO();
+        id_perguntas_disponiveis = db.ids_disponiveis(dificuldade, dis.getListaDisciplinas());
+    }
 
     private void atualiza_dificuldade(){
         switch (checkpoint) {
