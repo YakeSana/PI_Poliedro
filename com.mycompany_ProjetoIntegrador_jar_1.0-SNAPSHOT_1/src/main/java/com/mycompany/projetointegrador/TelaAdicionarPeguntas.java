@@ -44,6 +44,8 @@ public class TelaAdicionarPeguntas extends javax.swing.JFrame {
         jTextField12 = new javax.swing.JTextField();
         jLabel2 = new javax.swing.JLabel();
         jLabel4 = new javax.swing.JLabel();
+        dificuldadeComboBox = new javax.swing.JComboBox<>();
+        materiasComboBox = new javax.swing.JComboBox<>();
         jLabel1 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
@@ -115,6 +117,12 @@ public class TelaAdicionarPeguntas extends javax.swing.JFrame {
         jLabel4.setFont(new java.awt.Font("Javanese Text", 0, 18)); // NOI18N
         jLabel4.setText("Resposta:");
 
+        dificuldadeComboBox.setFont(new java.awt.Font("Javanese Text", 0, 14)); // NOI18N
+        dificuldadeComboBox.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Fácil", "Médio", "Difícil", " " }));
+
+        materiasComboBox.setFont(new java.awt.Font("Javanese Text", 0, 14)); // NOI18N
+        materiasComboBox.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Biologia", "Filosofia", "Física", "Geografia", "História", "Matemática", "Português", "Química", "Sociologia" }));
+
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
@@ -136,7 +144,13 @@ public class TelaAdicionarPeguntas extends javax.swing.JFrame {
                                 .addComponent(jTextField12, javax.swing.GroupLayout.DEFAULT_SIZE, 635, Short.MAX_VALUE)
                                 .addComponent(jTextField7, javax.swing.GroupLayout.Alignment.TRAILING))
                             .addComponent(jLabel4))))
-                .addContainerGap(43, Short.MAX_VALUE))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+            .addGroup(jPanel1Layout.createSequentialGroup()
+                .addGap(159, 159, 159)
+                .addComponent(dificuldadeComboBox, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 183, Short.MAX_VALUE)
+                .addComponent(materiasComboBox, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(175, 175, 175))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -157,7 +171,11 @@ public class TelaAdicionarPeguntas extends javax.swing.JFrame {
                 .addComponent(jTextField11, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
                 .addComponent(jTextField12, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 102, Short.MAX_VALUE)
+                .addGap(18, 18, 18)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(dificuldadeComboBox, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(materiasComboBox, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 45, Short.MAX_VALUE)
                 .addComponent(editarPerguntasButton)
                 .addGap(38, 38, 38))
         );
@@ -233,6 +251,7 @@ public class TelaAdicionarPeguntas extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JComboBox<String> dificuldadeComboBox;
     private javax.swing.JButton editarPerguntasButton;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
@@ -246,6 +265,7 @@ public class TelaAdicionarPeguntas extends javax.swing.JFrame {
     private javax.swing.JTextField jTextField7;
     private javax.swing.JTextField jTextField8;
     private javax.swing.JTextField jTextField9;
+    private javax.swing.JComboBox<String> materiasComboBox;
     private javax.swing.JButton setaButton;
     // End of variables declaration//GEN-END:variables
 }
