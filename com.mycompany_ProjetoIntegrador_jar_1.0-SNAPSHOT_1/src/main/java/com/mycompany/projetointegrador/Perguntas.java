@@ -25,6 +25,7 @@ public class Perguntas {
     public Perguntas(int id) {
     this.id = id;
 }
+    
 
     // Getters e Setters
     public int getId() {
@@ -58,4 +59,5 @@ public class Perguntas {
     public void setDisciplinaId(int disciplina) {
         this.disciplina = disciplina;
     }
+   
 }

@@ -67,6 +67,7 @@ public void editar(Usuario usuario)throws Exception{
             ps.execute();
         }
     }
+
 }
 
 
