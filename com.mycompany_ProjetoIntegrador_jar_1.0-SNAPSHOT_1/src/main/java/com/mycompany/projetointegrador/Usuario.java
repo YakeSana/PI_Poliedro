@@ -13,17 +13,26 @@ public class Usuario {
     private String nomeUsuario;
     private String senha;
     private String tipo;
+    private int id;
 
     public Usuario(String nomeUsuario, String senha) {
         this.nomeUsuario = nomeUsuario;
         this.senha = senha;
     }
+    public Usuario(int id) {
+    this.id = id;
+}
+    public int getId() {
+        return id;
+    }
+
 
     public Usuario(String nomeReal, String nomeUsuario, String senha, String tipo) {
         this.nomeReal = nomeReal;
         this.nomeUsuario = nomeUsuario;
         this.senha = senha;
         this.tipo = tipo;
+        
     }
 
     public String getNomeReal() {

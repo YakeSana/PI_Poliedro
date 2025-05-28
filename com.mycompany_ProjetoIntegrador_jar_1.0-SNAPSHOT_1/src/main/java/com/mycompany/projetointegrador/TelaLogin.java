@@ -37,7 +37,7 @@ public class TelaLogin extends javax.swing.JFrame {
         jLabel5 = new javax.swing.JLabel();
         usuarioTextField = new javax.swing.JTextField();
         senhaPasswordField = new javax.swing.JPasswordField();
-        jButton1 = new javax.swing.JButton();
+        entrarButton = new javax.swing.JButton();
         jLabel1 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
@@ -88,13 +88,13 @@ public class TelaLogin extends javax.swing.JFrame {
             }
         });
 
-        jButton1.setBackground(new java.awt.Color(42, 122, 195));
-        jButton1.setFont(new java.awt.Font("Javanese Text", 0, 18)); // NOI18N
-        jButton1.setForeground(new java.awt.Color(255, 255, 255));
-        jButton1.setText("Entrar");
-        jButton1.addActionListener(new java.awt.event.ActionListener() {
+        entrarButton.setBackground(new java.awt.Color(42, 122, 195));
+        entrarButton.setFont(new java.awt.Font("Javanese Text", 0, 18)); // NOI18N
+        entrarButton.setForeground(new java.awt.Color(255, 255, 255));
+        entrarButton.setText("Entrar");
+        entrarButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton1ActionPerformed(evt);
+                entrarButtonActionPerformed(evt);
             }
         });
 
@@ -119,7 +119,7 @@ public class TelaLogin extends javax.swing.JFrame {
                         .addComponent(jLabel3)
                         .addGap(143, 143, 143))
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
-                        .addComponent(jButton1)
+                        .addComponent(entrarButton)
                         .addGap(160, 160, 160))))
         );
         jPanel2Layout.setVerticalGroup(
@@ -136,7 +136,7 @@ public class TelaLogin extends javax.swing.JFrame {
                     .addComponent(jLabel5)
                     .addComponent(senhaPasswordField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(18, 18, 18)
-                .addComponent(jButton1)
+                .addComponent(entrarButton)
                 .addContainerGap(20, Short.MAX_VALUE))
         );
 
@@ -152,7 +152,7 @@ public class TelaLogin extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_usuarioTextFieldActionPerformed
 
-    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+    private void entrarButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_entrarButtonActionPerformed
         // TODO add your handling code here:
         // Pega o nome de usuário e a senha
     String nomeUsuario = usuarioTextField.getText();
@@ -169,12 +169,21 @@ public class TelaLogin extends javax.swing.JFrame {
             // Exibe o nome real e o tipo (se quiser)
             JOptionPane.showMessageDialog(null, "Bem-vindo, " + usuario.getNomeReal() + "!");
              // Abre a próxima tela
-            TelaMenu telaMenu = new TelaMenu();
-            telaMenu.setVisible(true);
-
-    // Fecha a tela atual
+            TelaMenuAluno telaMenuAl = new TelaMenuAluno();
+            telaMenuAl.setVisible(true);
             dispose();
-        } else {
+            if (usuario.getTipo().equalsIgnoreCase("admin")) {
+        // Se for administrador, abre a tela de admin
+        TelaMenu menuTela = new TelaMenu();
+        menuTela.setVisible(true);
+        dispose();
+    } else if (usuario.getTipo().equalsIgnoreCase("aluno")) {
+        // Se for aluno, abre a tela do aluno
+        TelaMenuAluno telaMenuAluno = new TelaMenuAluno();
+        telaMenuAluno.setVisible(true);
+    }
+        } 
+        else {
             JOptionPane.showMessageDialog(null, "Usuário ou senha inválidos.");
         }
 
@@ -185,7 +194,7 @@ public class TelaLogin extends javax.swing.JFrame {
     
        
 
-    }//GEN-LAST:event_jButton1ActionPerformed
+    }//GEN-LAST:event_entrarButtonActionPerformed
 
     private void senhaPasswordFieldActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_senhaPasswordFieldActionPerformed
         // TODO add your handling code here:
@@ -227,7 +236,7 @@ public class TelaLogin extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton jButton1;
+    private javax.swing.JButton entrarButton;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;

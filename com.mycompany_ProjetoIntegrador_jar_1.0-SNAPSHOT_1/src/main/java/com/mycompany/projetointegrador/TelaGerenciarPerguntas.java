@@ -38,7 +38,7 @@ public class TelaGerenciarPerguntas extends javax.swing.JFrame {
         areaadmCadastrarButton = new javax.swing.JButton();
         editarPerguntasButton = new javax.swing.JButton();
         jLabel3 = new javax.swing.JLabel();
-        jButton1 = new javax.swing.JButton();
+        removerPerguntasButton = new javax.swing.JButton();
         jLabel1 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
@@ -94,10 +94,15 @@ public class TelaGerenciarPerguntas extends javax.swing.JFrame {
 
         jLabel3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagens/Logo_Poliedro_Horiz_EDUCACAO_300x70.png"))); // NOI18N
 
-        jButton1.setBackground(new java.awt.Color(42, 122, 195));
-        jButton1.setFont(new java.awt.Font("Javanese Text", 0, 18)); // NOI18N
-        jButton1.setForeground(new java.awt.Color(255, 255, 255));
-        jButton1.setText("Remover perguntas");
+        removerPerguntasButton.setBackground(new java.awt.Color(42, 122, 195));
+        removerPerguntasButton.setFont(new java.awt.Font("Javanese Text", 0, 18)); // NOI18N
+        removerPerguntasButton.setForeground(new java.awt.Color(255, 255, 255));
+        removerPerguntasButton.setText("Remover perguntas");
+        removerPerguntasButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                removerPerguntasButtonActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
@@ -113,7 +118,7 @@ public class TelaGerenciarPerguntas extends javax.swing.JFrame {
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                             .addComponent(areaadmCadastrarButton, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                             .addComponent(editarPerguntasButton, javax.swing.GroupLayout.DEFAULT_SIZE, 230, Short.MAX_VALUE)
-                            .addComponent(jButton1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
+                            .addComponent(removerPerguntasButton, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
                 .addGap(0, 162, Short.MAX_VALUE)
@@ -128,7 +133,7 @@ public class TelaGerenciarPerguntas extends javax.swing.JFrame {
                 .addGap(29, 29, 29)
                 .addComponent(areaadmCadastrarButton)
                 .addGap(50, 50, 50)
-                .addComponent(jButton1)
+                .addComponent(removerPerguntasButton)
                 .addGap(50, 50, 50)
                 .addComponent(editarPerguntasButton)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 29, Short.MAX_VALUE)
@@ -158,6 +163,13 @@ public class TelaGerenciarPerguntas extends javax.swing.JFrame {
         AddPerguntasTela.setVisible(true);
         dispose();
     }//GEN-LAST:event_areaadmCadastrarButtonActionPerformed
+
+    private void removerPerguntasButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_removerPerguntasButtonActionPerformed
+        // TODO add your handling code here:
+        TelaRemoverPerguntas removerTela = new TelaRemoverPerguntas();
+        removerTela.setVisible(true);
+        dispose();
+    }//GEN-LAST:event_removerPerguntasButtonActionPerformed
 
     /**
      * @param args the command line arguments
@@ -204,12 +216,12 @@ public class TelaGerenciarPerguntas extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton areaadmCadastrarButton;
     private javax.swing.JButton editarPerguntasButton;
-    private javax.swing.JButton jButton1;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
+    private javax.swing.JButton removerPerguntasButton;
     private javax.swing.JButton setaButton;
     // End of variables declaration//GEN-END:variables
 }

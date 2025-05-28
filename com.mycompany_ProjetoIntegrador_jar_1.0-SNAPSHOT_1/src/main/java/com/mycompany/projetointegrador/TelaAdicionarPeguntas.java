@@ -35,13 +35,13 @@ public class TelaAdicionarPeguntas extends javax.swing.JFrame {
         setaButton = new javax.swing.JButton();
         jLabel3 = new javax.swing.JLabel();
         jPanel1 = new javax.swing.JPanel();
-        editarPerguntasButton = new javax.swing.JButton();
-        jTextField7 = new javax.swing.JTextField();
-        jTextField8 = new javax.swing.JTextField();
-        jTextField9 = new javax.swing.JTextField();
-        jTextField10 = new javax.swing.JTextField();
-        jTextField11 = new javax.swing.JTextField();
-        jTextField12 = new javax.swing.JTextField();
+        adicionarPerguntasButton = new javax.swing.JButton();
+        txtAddPergunta = new javax.swing.JTextField();
+        txtAddRespA = new javax.swing.JTextField();
+        txtAddRespB = new javax.swing.JTextField();
+        txtAddRespC = new javax.swing.JTextField();
+        txtAddRespD = new javax.swing.JTextField();
+        txtAddRespE = new javax.swing.JTextField();
         jLabel2 = new javax.swing.JLabel();
         jLabel4 = new javax.swing.JLabel();
         dificuldadeComboBox = new javax.swing.JComboBox<>();
@@ -89,27 +89,32 @@ public class TelaAdicionarPeguntas extends javax.swing.JFrame {
 
         jPanel1.setBackground(new java.awt.Color(255, 255, 255, 220));
 
-        editarPerguntasButton.setBackground(new java.awt.Color(42, 122, 195));
-        editarPerguntasButton.setFont(new java.awt.Font("Javanese Text", 0, 18)); // NOI18N
-        editarPerguntasButton.setForeground(new java.awt.Color(255, 255, 255));
-        editarPerguntasButton.setText("Adicionar");
-        editarPerguntasButton.addActionListener(new java.awt.event.ActionListener() {
+        adicionarPerguntasButton.setBackground(new java.awt.Color(42, 122, 195));
+        adicionarPerguntasButton.setFont(new java.awt.Font("Javanese Text", 0, 18)); // NOI18N
+        adicionarPerguntasButton.setForeground(new java.awt.Color(255, 255, 255));
+        adicionarPerguntasButton.setText("Adicionar");
+        adicionarPerguntasButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                editarPerguntasButtonActionPerformed(evt);
+                adicionarPerguntasButtonActionPerformed(evt);
             }
         });
 
-        jTextField7.setFont(new java.awt.Font("Javanese Text", 0, 18)); // NOI18N
+        txtAddPergunta.setFont(new java.awt.Font("Javanese Text", 0, 18)); // NOI18N
+        txtAddPergunta.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                txtAddPerguntaActionPerformed(evt);
+            }
+        });
 
-        jTextField8.setFont(new java.awt.Font("Javanese Text", 0, 14)); // NOI18N
+        txtAddRespA.setFont(new java.awt.Font("Javanese Text", 0, 14)); // NOI18N
 
-        jTextField9.setFont(new java.awt.Font("Javanese Text", 0, 14)); // NOI18N
+        txtAddRespB.setFont(new java.awt.Font("Javanese Text", 0, 14)); // NOI18N
 
-        jTextField10.setFont(new java.awt.Font("Javanese Text", 0, 14)); // NOI18N
+        txtAddRespC.setFont(new java.awt.Font("Javanese Text", 0, 14)); // NOI18N
 
-        jTextField11.setFont(new java.awt.Font("Javanese Text", 0, 14)); // NOI18N
+        txtAddRespD.setFont(new java.awt.Font("Javanese Text", 0, 14)); // NOI18N
 
-        jTextField12.setFont(new java.awt.Font("Javanese Text", 0, 14)); // NOI18N
+        txtAddRespE.setFont(new java.awt.Font("Javanese Text", 0, 14)); // NOI18N
 
         jLabel2.setFont(new java.awt.Font("Javanese Text", 0, 18)); // NOI18N
         jLabel2.setText("Pergunta:");
@@ -131,18 +136,18 @@ public class TelaAdicionarPeguntas extends javax.swing.JFrame {
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addGap(247, 247, 247)
-                        .addComponent(editarPerguntasButton, javax.swing.GroupLayout.PREFERRED_SIZE, 230, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addComponent(adicionarPerguntasButton, javax.swing.GroupLayout.PREFERRED_SIZE, 230, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addGap(52, 52, 52)
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(jLabel2)
                             .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                .addComponent(jTextField8)
-                                .addComponent(jTextField9)
-                                .addComponent(jTextField10)
-                                .addComponent(jTextField11)
-                                .addComponent(jTextField12, javax.swing.GroupLayout.DEFAULT_SIZE, 635, Short.MAX_VALUE)
-                                .addComponent(jTextField7, javax.swing.GroupLayout.Alignment.TRAILING))
+                                .addComponent(txtAddRespA)
+                                .addComponent(txtAddRespB)
+                                .addComponent(txtAddRespC)
+                                .addComponent(txtAddRespD)
+                                .addComponent(txtAddRespE, javax.swing.GroupLayout.DEFAULT_SIZE, 635, Short.MAX_VALUE)
+                                .addComponent(txtAddPergunta, javax.swing.GroupLayout.Alignment.TRAILING))
                             .addComponent(jLabel4))))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
             .addGroup(jPanel1Layout.createSequentialGroup()
@@ -158,25 +163,25 @@ public class TelaAdicionarPeguntas extends javax.swing.JFrame {
                 .addGap(42, 42, 42)
                 .addComponent(jLabel2)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jTextField7, javax.swing.GroupLayout.PREFERRED_SIZE, 116, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(txtAddPergunta, javax.swing.GroupLayout.PREFERRED_SIZE, 116, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
                 .addComponent(jLabel4)
                 .addGap(18, 18, 18)
-                .addComponent(jTextField8, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(txtAddRespA, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
-                .addComponent(jTextField9, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(txtAddRespB, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
-                .addComponent(jTextField10, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(txtAddRespC, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
-                .addComponent(jTextField11, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(txtAddRespD, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
-                .addComponent(jTextField12, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(txtAddRespE, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(dificuldadeComboBox, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(materiasComboBox, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 45, Short.MAX_VALUE)
-                .addComponent(editarPerguntasButton)
+                .addComponent(adicionarPerguntasButton)
                 .addGap(38, 38, 38))
         );
 
@@ -196,9 +201,13 @@ public class TelaAdicionarPeguntas extends javax.swing.JFrame {
 
     }//GEN-LAST:event_setaButtonActionPerformed
 
-    private void editarPerguntasButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_editarPerguntasButtonActionPerformed
+    private void adicionarPerguntasButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_adicionarPerguntasButtonActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_editarPerguntasButtonActionPerformed
+    }//GEN-LAST:event_adicionarPerguntasButtonActionPerformed
+
+    private void txtAddPerguntaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtAddPerguntaActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_txtAddPerguntaActionPerformed
 
     /**
      * @param args the command line arguments
@@ -251,21 +260,21 @@ public class TelaAdicionarPeguntas extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton adicionarPerguntasButton;
     private javax.swing.JComboBox<String> dificuldadeComboBox;
-    private javax.swing.JButton editarPerguntasButton;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
-    private javax.swing.JTextField jTextField10;
-    private javax.swing.JTextField jTextField11;
-    private javax.swing.JTextField jTextField12;
-    private javax.swing.JTextField jTextField7;
-    private javax.swing.JTextField jTextField8;
-    private javax.swing.JTextField jTextField9;
     private javax.swing.JComboBox<String> materiasComboBox;
     private javax.swing.JButton setaButton;
+    private javax.swing.JTextField txtAddPergunta;
+    private javax.swing.JTextField txtAddRespA;
+    private javax.swing.JTextField txtAddRespB;
+    private javax.swing.JTextField txtAddRespC;
+    private javax.swing.JTextField txtAddRespD;
+    private javax.swing.JTextField txtAddRespE;
     // End of variables declaration//GEN-END:variables
 }

@@ -8,12 +8,12 @@ package com.mycompany.projetointegrador;
  *
  * @author 25.01439-0
  */
-public class TelaMaterias extends javax.swing.JFrame {
+public class TelaMateriasAluno extends javax.swing.JFrame {
 
     /**
      * Creates new form TelaMaterias
      */
-    public TelaMaterias() {
+    public TelaMateriasAluno() {
         initComponents();
         setaButton.setContentAreaFilled(false);
     setaButton.setBorderPainted(false);
@@ -192,9 +192,9 @@ public class TelaMaterias extends javax.swing.JFrame {
     }//GEN-LAST:event_jToggleButton5ActionPerformed
 
     private void setaButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_setaButtonActionPerformed
-        // TODO add your handling code here:
-        TelaMenu menuTela = new TelaMenu();
-        menuTela.setVisible(true);
+        // TODO add your handling code here: 
+        TelaMenuAluno alunoMenuTela = new TelaMenuAluno();
+        alunoMenuTela.setVisible(true);
         dispose();
     }//GEN-LAST:event_setaButtonActionPerformed
 
@@ -219,20 +219,21 @@ public class TelaMaterias extends javax.swing.JFrame {
                 }
             }
         } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(TelaMaterias.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(TelaMateriasAluno.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(TelaMaterias.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(TelaMateriasAluno.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(TelaMaterias.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(TelaMateriasAluno.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(TelaMaterias.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(TelaMateriasAluno.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
+        //</editor-fold>
         //</editor-fold>
 
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new TelaMaterias().setVisible(true);
+                new TelaMateriasAluno().setVisible(true);
             }
         });
     }

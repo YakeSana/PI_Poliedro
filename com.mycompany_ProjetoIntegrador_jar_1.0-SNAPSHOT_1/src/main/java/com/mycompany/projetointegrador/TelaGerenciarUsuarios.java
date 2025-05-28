@@ -156,8 +156,8 @@ public class TelaGerenciarUsuarios extends javax.swing.JFrame {
 
     private void setaButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_setaButtonActionPerformed
         // TODO add your handling code here:
-        TelaMenu menuTela = new TelaMenu();
-        menuTela.setVisible(true);
+        AreaAdm admTela = new AreaAdm();
+        admTela.setVisible(true);
         dispose();
 
     }//GEN-LAST:event_setaButtonActionPerformed

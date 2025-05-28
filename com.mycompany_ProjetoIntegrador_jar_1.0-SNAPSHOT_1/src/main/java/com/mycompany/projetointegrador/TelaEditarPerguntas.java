@@ -14,12 +14,12 @@ import javax.swing.table.DefaultTableModel;
  *
  * @author conta
  */
-public class TelaRemoverPerguntas extends javax.swing.JFrame {
+public class TelaEditarPerguntas extends javax.swing.JFrame {
 
     /**
      * Creates new form AreaAdm
      */
-    public TelaRemoverPerguntas() {
+    public TelaEditarPerguntas() {
         initComponents();
         setaButton.setContentAreaFilled(false);
         setaButton.setBorderPainted(false);
@@ -81,13 +81,13 @@ public class TelaRemoverPerguntas extends javax.swing.JFrame {
         setaButton = new javax.swing.JButton();
         jLabel3 = new javax.swing.JLabel();
         jPanel1 = new javax.swing.JPanel();
-        txtIdExcluir = new javax.swing.JTextField();
+        txtEditarPerguntas = new javax.swing.JTextField();
         jScrollPane1 = new javax.swing.JScrollPane();
         tableId = new javax.swing.JTable();
         jScrollPane2 = new javax.swing.JScrollPane();
         tablePerguntas = new javax.swing.JTable();
         jLabel2 = new javax.swing.JLabel();
-        excluirButton = new javax.swing.JButton();
+        editarButton = new javax.swing.JButton();
         jLabel1 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
@@ -132,10 +132,10 @@ public class TelaRemoverPerguntas extends javax.swing.JFrame {
 
         jPanel1.setBackground(new java.awt.Color(255, 255, 255, 220));
 
-        txtIdExcluir.setFont(new java.awt.Font("Javanese Text", 0, 18)); // NOI18N
-        txtIdExcluir.addActionListener(new java.awt.event.ActionListener() {
+        txtEditarPerguntas.setFont(new java.awt.Font("Javanese Text", 0, 18)); // NOI18N
+        txtEditarPerguntas.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                txtIdExcluirActionPerformed(evt);
+                txtEditarPerguntasActionPerformed(evt);
             }
         });
 
@@ -168,13 +168,13 @@ public class TelaRemoverPerguntas extends javax.swing.JFrame {
         jLabel2.setFont(new java.awt.Font("Javanese Text", 0, 18)); // NOI18N
         jLabel2.setText("Insira o Id da pergunta:");
 
-        excluirButton.setBackground(new java.awt.Color(42, 122, 195));
-        excluirButton.setFont(new java.awt.Font("Javanese Text", 0, 18)); // NOI18N
-        excluirButton.setForeground(new java.awt.Color(255, 255, 255));
-        excluirButton.setText("Excluir");
-        excluirButton.addActionListener(new java.awt.event.ActionListener() {
+        editarButton.setBackground(new java.awt.Color(42, 122, 195));
+        editarButton.setFont(new java.awt.Font("Javanese Text", 0, 18)); // NOI18N
+        editarButton.setForeground(new java.awt.Color(255, 255, 255));
+        editarButton.setText("Editar");
+        editarButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                excluirButtonActionPerformed(evt);
+                editarButtonActionPerformed(evt);
             }
         });
 
@@ -191,10 +191,10 @@ public class TelaRemoverPerguntas extends javax.swing.JFrame {
                         .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 584, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                            .addComponent(txtIdExcluir, javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(txtEditarPerguntas, javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(jLabel2, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                         .addGap(158, 158, 158)
-                        .addComponent(excluirButton)))
+                        .addComponent(editarButton)))
                 .addContainerGap(34, Short.MAX_VALUE))
         );
         jPanel1Layout.setVerticalGroup(
@@ -208,8 +208,8 @@ public class TelaRemoverPerguntas extends javax.swing.JFrame {
                 .addComponent(jLabel2)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(txtIdExcluir, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(excluirButton))
+                    .addComponent(txtEditarPerguntas, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(editarButton))
                 .addContainerGap(93, Short.MAX_VALUE))
         );
 
@@ -229,20 +229,13 @@ public class TelaRemoverPerguntas extends javax.swing.JFrame {
 
     }//GEN-LAST:event_setaButtonActionPerformed
 
-    private void excluirButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_excluirButtonActionPerformed
+    private void editarButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_editarButtonActionPerformed
         // TODO add your handling code here:
-        int id = Integer.parseInt(txtIdExcluir.getText());
-        try{
-            Perguntas pergunta = new Perguntas(id); 
-            DAO dao = new DAO();
-        }catch(Exception e){
-            JOptionPane.showMessageDialog(null, "Não foi possível excluir, tente novamente.");
-    }
-    }//GEN-LAST:event_excluirButtonActionPerformed
+    }//GEN-LAST:event_editarButtonActionPerformed
 
-    private void txtIdExcluirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtIdExcluirActionPerformed
+    private void txtEditarPerguntasActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtEditarPerguntasActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_txtIdExcluirActionPerformed
+    }//GEN-LAST:event_txtEditarPerguntasActionPerformed
 
     /**
      * @param args the command line arguments
@@ -261,14 +254,22 @@ public class TelaRemoverPerguntas extends javax.swing.JFrame {
                 }
             }
         } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(TelaRemoverPerguntas.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(TelaEditarPerguntas.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(TelaRemoverPerguntas.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(TelaEditarPerguntas.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(TelaRemoverPerguntas.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(TelaEditarPerguntas.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(TelaRemoverPerguntas.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(TelaEditarPerguntas.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
         //</editor-fold>
         //</editor-fold>
         //</editor-fold>
@@ -281,13 +282,13 @@ public class TelaRemoverPerguntas extends javax.swing.JFrame {
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new TelaRemoverPerguntas().setVisible(true);
+                new TelaEditarPerguntas().setVisible(true);
             }
         });
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton excluirButton;
+    private javax.swing.JButton editarButton;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
@@ -298,6 +299,6 @@ public class TelaRemoverPerguntas extends javax.swing.JFrame {
     private javax.swing.JButton setaButton;
     private javax.swing.JTable tableId;
     private javax.swing.JTable tablePerguntas;
-    private javax.swing.JTextField txtIdExcluir;
+    private javax.swing.JTextField txtEditarPerguntas;
     // End of variables declaration//GEN-END:variables
 }
