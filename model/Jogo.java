@@ -16,7 +16,9 @@ public class Jogo{
     private List<Integer> id_perguntas_disponiveis = new ArrayList<>();
     private static Random random = new Random();
     private static int dificuldade = 1; 
-    
+    private static boolean dicaPulo = true;
+    private static boolean dica50 = true;
+    private static boolean dica75 = true;
     Scanner scanner = new Scanner(System.in);
     public Jogo(){
         PerguntasDAO db = new PerguntasDAO();
@@ -44,8 +46,104 @@ public class Jogo{
                 if(i.isCorreta()) correta = i;
                 System.out.println(i);
             }
-            System.out.println("Digite o número da questão.");
+            System.out.println("Digite o número da questão, 50 para 50/50, 75 para excluir uma errada, ou 99 para pular");
             int resposta = scanner.nextInt();
+            
+            if (resposta == 99){
+                if (pdPular) {
+                    pdPular = false;
+                    System.out.println ("Você pulou a pergunta!");
+                    continue;
+                }else{
+                    System.out.println ("Você já pulou uma pergunta.");
+                    resposta = scanner.nextInt();
+    }
+}
+           if (resposta == 75){
+               if (dica75) {
+                   dica75 = false;
+                   List<Alternativa> alternativas = new ArrayList<>(pergunta.getAlternativas());
+        List<Alternativa> incorretas = new ArrayList<>();
+        for (Alternativa i : alternativas) {
+            if (!i.isCorreta()) incorretas.add(i);
+        }
+        if (!incorretas.isEmpty()) {
+            Alternativa removida = incorretas.get(random.nextInt(incorretas.size()));
+            alternativas.remove(removida);
+            System.out.println("Uma alternativa incorreta foi removida.");
+        }
+        for (int i = 0; i < alternativas.size(); i++) {
+            System.out.println(i + ": " + alternativas.get(i));
+        }
+        System.out.println("Digite o número da questão:");
+        resposta = scanner.nextInt();
+        Alternativa alternativa_escolhida = alternativas.get(resposta);
+         //Tramento do Acerto
+            if(alternativa_escolhida == correta){
+                pontuacao += 10 * Math.pow(2.2, num_questao - 1);
+                num_questao++;
+                System.out.println("Resposta Correta\n");
+                checkpoint(true);
+            }
+            
+            //Tratamento do Erro
+            else{
+                for(int i =0;i<--num_questao-checkpoint;i++){
+                    pontuacao -= 10 * Math.pow(2.2, num_questao - 1);
+                }
+                pontuacao -= pontuacao*0.05;
+                System.out.println("Resposta Incorreta\n"); 
+                checkpoint(false);
+            }
+        continue;
+    } else {
+        System.out.println("Você já usou a exclusão.");
+        resposta = scanner.nextInt();
+    }
+}
+            if (resposta == 50) {
+    if (pd5050) {
+        pd5050 = false;
+        List<Alternativa> alternativas = new ArrayList<>(pergunta.getAlternativas());
+        List<Alternativa> incorretas = new ArrayList<>();
+        for (Alternativa i : alternativas) {
+            if (!i.isCorreta()) incorretas.add(i);
+        }
+        for (int i = 0; i < 2 && !incorretas.isEmpty(); i++) {
+            Alternativa removida = incorretas.remove(random.nextInt(incorretas.size()));
+            alternativas.remove(removida);
+        }
+        System.out.println("Duas alternativas incorretas foram removidas.");
+        for (int i = 0; i < alternativas.size(); i++) {
+            System.out.println(i + ": " + alternativas.get(i));
+        }
+        System.out.println("Digite o número da questão:");
+        resposta = scanner.nextInt();
+        Alternativa alternativa_escolhida = alternativas.get(resposta);
+        //Tramento do Acerto
+            if(alternativa_escolhida == correta){
+                pontuacao += 10 * Math.pow(2.2, num_questao - 1);
+                num_questao++;
+                System.out.println("Resposta Correta\n");
+                checkpoint(true);
+            }
+            
+            //Tratamento do Erro
+            else{
+                for(int i =0;i<--num_questao-checkpoint;i++){
+                    pontuacao -= 10 * Math.pow(2.2, num_questao - 1);
+                }
+                pontuacao -= pontuacao*0.05;
+                System.out.println("Resposta Incorreta\n"); 
+                checkpoint(false);
+            }
+        continue;
+    } else {
+        System.out.println("Você já usou o 50/50.");
+        resposta = scanner.nextInt();
+    }
+}
+
             Alternativa alternativa_escolhida = pergunta.getAlternativas().get(resposta);
 
             //Tramento do Acerto
