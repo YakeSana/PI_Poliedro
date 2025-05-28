@@ -56,19 +56,31 @@ public boolean cadastrarUsuario(Usuario usuario) throws Exception {
         return linhasAfetadas > 0; // retorna true se o cadastro foi bem-sucedido
     }
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
+public void editar(Usuario usuario)throws Exception{
+    String sql = "UPDATE usuario SET nome_real=?, senha=?, nome_usuario=? WHERE id=?";
+    try(Connection conn = ConexaoBD.obterConexao();
+            PreparedStatement ps = conn.prepareStatement(sql)){
+            ps.setString(1,usuario.getNomeReal());
+            ps.setString(2,usuario.getSenha());
+            ps.setString(3,usuario.getNomeUsuario());
+            ps.setInt(4,usuario.getId());
+            ps.execute();
+        }
+    }
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 

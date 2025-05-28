@@ -81,7 +81,7 @@ public class TelaEditarUsuario extends javax.swing.JFrame {
         setaButton = new javax.swing.JButton();
         jLabel3 = new javax.swing.JLabel();
         jPanel1 = new javax.swing.JPanel();
-        txtEditarNomeDeUsuario = new javax.swing.JTextField();
+        txtNovoNomeDeUsuario = new javax.swing.JTextField();
         jScrollPane1 = new javax.swing.JScrollPane();
         tableId = new javax.swing.JTable();
         jScrollPane2 = new javax.swing.JScrollPane();
@@ -89,11 +89,11 @@ public class TelaEditarUsuario extends javax.swing.JFrame {
         jLabel2 = new javax.swing.JLabel();
         editarUsuarioButton = new javax.swing.JButton();
         jLabel4 = new javax.swing.JLabel();
-        txtEditarUsuario1 = new javax.swing.JTextField();
+        txtId = new javax.swing.JTextField();
         jLabel5 = new javax.swing.JLabel();
-        txtEditarNomeUsuario = new javax.swing.JTextField();
+        txtNovoNome = new javax.swing.JTextField();
         jLabel6 = new javax.swing.JLabel();
-        txtEditarSenhaUsuario = new javax.swing.JTextField();
+        txtSenha = new javax.swing.JTextField();
         jLabel1 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
@@ -138,10 +138,10 @@ public class TelaEditarUsuario extends javax.swing.JFrame {
 
         jPanel1.setBackground(new java.awt.Color(255, 255, 255, 220));
 
-        txtEditarNomeDeUsuario.setFont(new java.awt.Font("Javanese Text", 0, 16)); // NOI18N
-        txtEditarNomeDeUsuario.addActionListener(new java.awt.event.ActionListener() {
+        txtNovoNomeDeUsuario.setFont(new java.awt.Font("Javanese Text", 0, 16)); // NOI18N
+        txtNovoNomeDeUsuario.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                txtEditarNomeDeUsuarioActionPerformed(evt);
+                txtNovoNomeDeUsuarioActionPerformed(evt);
             }
         });
 
@@ -187,30 +187,30 @@ public class TelaEditarUsuario extends javax.swing.JFrame {
         jLabel4.setFont(new java.awt.Font("Javanese Text", 0, 16)); // NOI18N
         jLabel4.setText("Insira a nova senha do usuário:");
 
-        txtEditarUsuario1.setFont(new java.awt.Font("Javanese Text", 0, 16)); // NOI18N
-        txtEditarUsuario1.addActionListener(new java.awt.event.ActionListener() {
+        txtId.setFont(new java.awt.Font("Javanese Text", 0, 16)); // NOI18N
+        txtId.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                txtEditarUsuario1ActionPerformed(evt);
+                txtIdActionPerformed(evt);
             }
         });
 
         jLabel5.setFont(new java.awt.Font("Javanese Text", 0, 16)); // NOI18N
         jLabel5.setText("Insira novo nome de usuário:");
 
-        txtEditarNomeUsuario.setFont(new java.awt.Font("Javanese Text", 0, 16)); // NOI18N
-        txtEditarNomeUsuario.addActionListener(new java.awt.event.ActionListener() {
+        txtNovoNome.setFont(new java.awt.Font("Javanese Text", 0, 16)); // NOI18N
+        txtNovoNome.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                txtEditarNomeUsuarioActionPerformed(evt);
+                txtNovoNomeActionPerformed(evt);
             }
         });
 
         jLabel6.setFont(new java.awt.Font("Javanese Text", 0, 16)); // NOI18N
         jLabel6.setText("Insira o novo nome:");
 
-        txtEditarSenhaUsuario.setFont(new java.awt.Font("Javanese Text", 0, 16)); // NOI18N
-        txtEditarSenhaUsuario.addActionListener(new java.awt.event.ActionListener() {
+        txtSenha.setFont(new java.awt.Font("Javanese Text", 0, 16)); // NOI18N
+        txtSenha.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                txtEditarSenhaUsuarioActionPerformed(evt);
+                txtSenhaActionPerformed(evt);
             }
         });
 
@@ -234,21 +234,21 @@ public class TelaEditarUsuario extends javax.swing.JFrame {
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addGap(0, 0, Short.MAX_VALUE)
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                            .addComponent(txtEditarUsuario1, javax.swing.GroupLayout.DEFAULT_SIZE, 211, Short.MAX_VALUE)
+                            .addComponent(txtId, javax.swing.GroupLayout.DEFAULT_SIZE, 211, Short.MAX_VALUE)
                             .addComponent(jLabel5, javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(jLabel2, javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(txtEditarNomeDeUsuario))
+                            .addComponent(txtNovoNomeDeUsuario))
                         .addGap(185, 185, 185)
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
                                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(txtEditarSenhaUsuario, javax.swing.GroupLayout.PREFERRED_SIZE, 211, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(txtSenha, javax.swing.GroupLayout.PREFERRED_SIZE, 211, javax.swing.GroupLayout.PREFERRED_SIZE)
                                     .addComponent(jLabel4))
                                 .addGap(112, 112, 112))
                             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
                                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
                                     .addComponent(jLabel6, javax.swing.GroupLayout.DEFAULT_SIZE, 211, Short.MAX_VALUE)
-                                    .addComponent(txtEditarNomeUsuario))
+                                    .addComponent(txtNovoNome))
                                 .addGap(115, 115, 115))))))
         );
         jPanel1Layout.setVerticalGroup(
@@ -264,16 +264,16 @@ public class TelaEditarUsuario extends javax.swing.JFrame {
                     .addComponent(jLabel6))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(txtEditarNomeUsuario, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(txtEditarUsuario1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(txtNovoNome, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(txtId, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 22, Short.MAX_VALUE)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jLabel4, javax.swing.GroupLayout.Alignment.TRAILING)
                     .addComponent(jLabel5, javax.swing.GroupLayout.Alignment.TRAILING))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(txtEditarNomeDeUsuario, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(txtEditarSenhaUsuario, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(txtNovoNomeDeUsuario, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(txtSenha, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(19, 19, 19)
                 .addComponent(editarUsuarioButton)
                 .addGap(32, 32, 32))
@@ -297,30 +297,35 @@ public class TelaEditarUsuario extends javax.swing.JFrame {
 
     private void editarUsuarioButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_editarUsuarioButtonActionPerformed
         // TODO add your handling code here:
-        int id = Integer.parseInt(txtEditarNomeDeUsuario.getText());
+        String id = txtId.getText();
+        String novoNome = txtNovoNome.getText();
+        String novoNomeDeUsuario = txtNovoNomeDeUsuario.getText();
+        String senha = txtSenha.getText();
         try{
-            Usuario usuarios = new Usuario(id); 
+            Usuario usuario = new Usuario(id, novoNome, novoNomeDeUsuario, senha);
             DAO dao = new DAO();
+            dao.editar(usuario);
+            JOptionPane.showMessageDialog(null, "Alterações cadastradas com sucesso!");
         }catch(Exception e){
-            JOptionPane.showMessageDialog(null, "Não foi possível excluir, tente novamente.");
-    }
+            JOptionPane.showMessageDialog(null, "Alterações não concluida, tente novamente.");
+        }
     }//GEN-LAST:event_editarUsuarioButtonActionPerformed
 
-    private void txtEditarNomeDeUsuarioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtEditarNomeDeUsuarioActionPerformed
+    private void txtNovoNomeDeUsuarioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtNovoNomeDeUsuarioActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_txtEditarNomeDeUsuarioActionPerformed
+    }//GEN-LAST:event_txtNovoNomeDeUsuarioActionPerformed
 
-    private void txtEditarUsuario1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtEditarUsuario1ActionPerformed
+    private void txtIdActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtIdActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_txtEditarUsuario1ActionPerformed
+    }//GEN-LAST:event_txtIdActionPerformed
 
-    private void txtEditarNomeUsuarioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtEditarNomeUsuarioActionPerformed
+    private void txtNovoNomeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtNovoNomeActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_txtEditarNomeUsuarioActionPerformed
+    }//GEN-LAST:event_txtNovoNomeActionPerformed
 
-    private void txtEditarSenhaUsuarioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtEditarSenhaUsuarioActionPerformed
+    private void txtSenhaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtSenhaActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_txtEditarSenhaUsuarioActionPerformed
+    }//GEN-LAST:event_txtSenhaActionPerformed
 
     /**
      * @param args the command line arguments
@@ -403,9 +408,9 @@ public class TelaEditarUsuario extends javax.swing.JFrame {
     private javax.swing.JButton setaButton;
     private javax.swing.JTable tableId;
     private javax.swing.JTable tablePerguntas;
-    private javax.swing.JTextField txtEditarNomeDeUsuario;
-    private javax.swing.JTextField txtEditarNomeUsuario;
-    private javax.swing.JTextField txtEditarSenhaUsuario;
-    private javax.swing.JTextField txtEditarUsuario1;
+    private javax.swing.JTextField txtId;
+    private javax.swing.JTextField txtNovoNome;
+    private javax.swing.JTextField txtNovoNomeDeUsuario;
+    private javax.swing.JTextField txtSenha;
     // End of variables declaration//GEN-END:variables
 }
