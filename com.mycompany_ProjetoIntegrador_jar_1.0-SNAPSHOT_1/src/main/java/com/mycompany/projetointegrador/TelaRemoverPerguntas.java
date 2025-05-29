@@ -235,6 +235,7 @@ public class TelaRemoverPerguntas extends javax.swing.JFrame {
         try{
             Perguntas pergunta = new Perguntas(id); 
             DAO dao = new DAO();
+            JOptionPane.showMessageDialog(null, "Exclusão feita com sucesso!");
         }catch(Exception e){
             JOptionPane.showMessageDialog(null, "Não foi possível excluir, tente novamente.");
     }

@@ -43,27 +43,27 @@ public class TelaEditarUsuario extends javax.swing.JFrame {
         DefaultTableModel model = (DefaultTableModel)tableId.getModel();
         model.setRowCount(0);
         
-        String sql = "SELECT * FROM pergunta";
+        String sql = "SELECT * FROM usuario";
         /* sql = "SELECT texto FROM pergunta ;"*/
         try(Connection conn = ConexaoBD.obterConexao();
             PreparedStatement ps = conn.prepareStatement(sql)){
             ResultSet rs = ps.executeQuery();
             while(rs.next()){
-                model.addRow(new String[]{rs.getString("id_pergunta")});
+                model.addRow(new String[]{rs.getString("id_usuario")});
             }
         }
     }
     private void consultaPerguntas() throws Exception{
-        DefaultTableModel model = (DefaultTableModel)tablePerguntas.getModel();
+        DefaultTableModel model = (DefaultTableModel)tableEditarUsuarios.getModel();
         model.setRowCount(0);
         
-        String sql = "SELECT * FROM pergunta";
+        String sql = "SELECT nome_usuario FROM usuario";
         /* sql = "SELECT texto FROM pergunta ;"*/
         try(Connection conn = ConexaoBD.obterConexao();
             PreparedStatement ps = conn.prepareStatement(sql)){
             ResultSet rs = ps.executeQuery();
             while(rs.next()){
-                model.addRow(new String[]{rs.getString("texto")});
+                model.addRow(new String[]{rs.getString("nome_usuario")});
             }
         }
     }
@@ -85,7 +85,7 @@ public class TelaEditarUsuario extends javax.swing.JFrame {
         jScrollPane1 = new javax.swing.JScrollPane();
         tableId = new javax.swing.JTable();
         jScrollPane2 = new javax.swing.JScrollPane();
-        tablePerguntas = new javax.swing.JTable();
+        tableEditarUsuarios = new javax.swing.JTable();
         jLabel2 = new javax.swing.JLabel();
         editarUsuarioButton = new javax.swing.JButton();
         jLabel4 = new javax.swing.JLabel();
@@ -158,7 +158,7 @@ public class TelaEditarUsuario extends javax.swing.JFrame {
         ));
         jScrollPane1.setViewportView(tableId);
 
-        tablePerguntas.setModel(new javax.swing.table.DefaultTableModel(
+        tableEditarUsuarios.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
                 {null},
                 {null},
@@ -166,10 +166,10 @@ public class TelaEditarUsuario extends javax.swing.JFrame {
                 {null}
             },
             new String [] {
-                "Perguntas:"
+                "Usuários:"
             }
         ));
-        jScrollPane2.setViewportView(tablePerguntas);
+        jScrollPane2.setViewportView(tableEditarUsuarios);
 
         jLabel2.setFont(new java.awt.Font("Javanese Text", 0, 16)); // NOI18N
         jLabel2.setText("Insira o Id do usuário:");
@@ -259,8 +259,8 @@ public class TelaEditarUsuario extends javax.swing.JFrame {
                     .addComponent(jScrollPane2, javax.swing.GroupLayout.DEFAULT_SIZE, 335, Short.MAX_VALUE)
                     .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE))
                 .addGap(18, 18, 18)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel2)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jLabel2, javax.swing.GroupLayout.Alignment.TRAILING)
                     .addComponent(jLabel6))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
@@ -271,7 +271,7 @@ public class TelaEditarUsuario extends javax.swing.JFrame {
                     .addComponent(jLabel4, javax.swing.GroupLayout.Alignment.TRAILING)
                     .addComponent(jLabel5, javax.swing.GroupLayout.Alignment.TRAILING))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(txtNovoNomeDeUsuario, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(txtSenha, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(19, 19, 19)
@@ -406,8 +406,8 @@ public class TelaEditarUsuario extends javax.swing.JFrame {
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JScrollPane jScrollPane2;
     private javax.swing.JButton setaButton;
+    private javax.swing.JTable tableEditarUsuarios;
     private javax.swing.JTable tableId;
-    private javax.swing.JTable tablePerguntas;
     private javax.swing.JTextField txtId;
     private javax.swing.JTextField txtNovoNome;
     private javax.swing.JTextField txtNovoNomeDeUsuario;

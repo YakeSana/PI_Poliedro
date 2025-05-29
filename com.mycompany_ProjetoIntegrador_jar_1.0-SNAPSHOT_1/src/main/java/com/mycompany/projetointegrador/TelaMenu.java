@@ -40,9 +40,9 @@ public class TelaMenu extends javax.swing.JFrame {
         jPanel2 = new javax.swing.JPanel();
         jLabel3 = new javax.swing.JLabel();
         buttonJogar = new javax.swing.JButton();
-        jButton2 = new javax.swing.JButton();
+        materiasAdmButton = new javax.swing.JButton();
         rankingButton = new javax.swing.JButton();
-        jButton4 = new javax.swing.JButton();
+        areaAdmButton = new javax.swing.JButton();
         jLabel1 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
@@ -88,13 +88,13 @@ public class TelaMenu extends javax.swing.JFrame {
             }
         });
 
-        jButton2.setBackground(new java.awt.Color(36, 96, 150));
-        jButton2.setFont(new java.awt.Font("Super Crumble", 0, 36)); // NOI18N
-        jButton2.setForeground(new java.awt.Color(255, 255, 255));
-        jButton2.setText("Matérias");
-        jButton2.addActionListener(new java.awt.event.ActionListener() {
+        materiasAdmButton.setBackground(new java.awt.Color(36, 96, 150));
+        materiasAdmButton.setFont(new java.awt.Font("Super Crumble", 0, 36)); // NOI18N
+        materiasAdmButton.setForeground(new java.awt.Color(255, 255, 255));
+        materiasAdmButton.setText("Matérias");
+        materiasAdmButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton2ActionPerformed(evt);
+                materiasAdmButtonActionPerformed(evt);
             }
         });
 
@@ -108,13 +108,13 @@ public class TelaMenu extends javax.swing.JFrame {
             }
         });
 
-        jButton4.setBackground(new java.awt.Color(36, 96, 150));
-        jButton4.setFont(new java.awt.Font("Super Crumble", 0, 36)); // NOI18N
-        jButton4.setForeground(new java.awt.Color(255, 255, 255));
-        jButton4.setText("Área do Administrador");
-        jButton4.addActionListener(new java.awt.event.ActionListener() {
+        areaAdmButton.setBackground(new java.awt.Color(36, 96, 150));
+        areaAdmButton.setFont(new java.awt.Font("Super Crumble", 0, 36)); // NOI18N
+        areaAdmButton.setForeground(new java.awt.Color(255, 255, 255));
+        areaAdmButton.setText("Área do Administrador");
+        areaAdmButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton4ActionPerformed(evt);
+                areaAdmButtonActionPerformed(evt);
             }
         });
 
@@ -129,9 +129,9 @@ public class TelaMenu extends javax.swing.JFrame {
             .addGroup(jPanel2Layout.createSequentialGroup()
                 .addGap(295, 295, 295)
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(jButton4, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(areaAdmButton, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(rankingButton, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(jButton2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(materiasAdmButton, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(buttonJogar, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addContainerGap(308, Short.MAX_VALUE))
         );
@@ -143,11 +143,11 @@ public class TelaMenu extends javax.swing.JFrame {
                 .addGap(39, 39, 39)
                 .addComponent(buttonJogar, javax.swing.GroupLayout.PREFERRED_SIZE, 75, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(55, 55, 55)
-                .addComponent(jButton2, javax.swing.GroupLayout.PREFERRED_SIZE, 74, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(materiasAdmButton, javax.swing.GroupLayout.PREFERRED_SIZE, 74, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(55, 55, 55)
                 .addComponent(rankingButton, javax.swing.GroupLayout.PREFERRED_SIZE, 75, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(55, 55, 55)
-                .addComponent(jButton4, javax.swing.GroupLayout.PREFERRED_SIZE, 75, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(areaAdmButton, javax.swing.GroupLayout.PREFERRED_SIZE, 75, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap(116, Short.MAX_VALUE))
         );
 
@@ -166,21 +166,21 @@ public class TelaMenu extends javax.swing.JFrame {
         dispose();
     }//GEN-LAST:event_buttonJogarActionPerformed
 
-    private void jButton4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton4ActionPerformed
+    private void areaAdmButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_areaAdmButtonActionPerformed
         // TODO add your handling code here:
         AreaAdm admTela = new AreaAdm();
         admTela.setVisible(true);
         dispose();
  
 
-    }//GEN-LAST:event_jButton4ActionPerformed
+    }//GEN-LAST:event_areaAdmButtonActionPerformed
 
-    private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
+    private void materiasAdmButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_materiasAdmButtonActionPerformed
         // TODO add your handling code here:
         TelaMaterias materiasTela = new TelaMaterias();
         materiasTela.setVisible(true);
         dispose();
-    }//GEN-LAST:event_jButton2ActionPerformed
+    }//GEN-LAST:event_materiasAdmButtonActionPerformed
 
     private void rankingButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_rankingButtonActionPerformed
         // TODO add your handling code here:
@@ -225,15 +225,15 @@ public class TelaMenu extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton areaAdmButton;
     private javax.swing.JButton buttonJogar;
-    private javax.swing.JButton jButton2;
-    private javax.swing.JButton jButton4;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
+    private javax.swing.JButton materiasAdmButton;
     private javax.swing.JButton rankingButton;
     // End of variables declaration//GEN-END:variables
 

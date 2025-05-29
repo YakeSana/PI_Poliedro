@@ -31,9 +31,9 @@ public class TelaMenuAluno extends javax.swing.JFrame {
         jLabel4 = new javax.swing.JLabel();
         jPanel2 = new javax.swing.JPanel();
         jLabel3 = new javax.swing.JLabel();
-        jButton1 = new javax.swing.JButton();
-        jButton2 = new javax.swing.JButton();
-        jButton3 = new javax.swing.JButton();
+        jogarAlunoButton = new javax.swing.JButton();
+        materiasAlunoButton = new javax.swing.JButton();
+        pontuacaoButton = new javax.swing.JButton();
         jLabel1 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
@@ -70,30 +70,35 @@ public class TelaMenuAluno extends javax.swing.JFrame {
         jLabel3.setForeground(new java.awt.Color(36, 96, 150));
         jLabel3.setText("Show da Aprovação");
 
-        jButton1.setBackground(new java.awt.Color(36, 96, 150));
-        jButton1.setFont(new java.awt.Font("Super Crumble", 0, 36)); // NOI18N
-        jButton1.setForeground(new java.awt.Color(255, 255, 255));
-        jButton1.setText("Jogar");
-        jButton1.addActionListener(new java.awt.event.ActionListener() {
+        jogarAlunoButton.setBackground(new java.awt.Color(36, 96, 150));
+        jogarAlunoButton.setFont(new java.awt.Font("Super Crumble", 0, 36)); // NOI18N
+        jogarAlunoButton.setForeground(new java.awt.Color(255, 255, 255));
+        jogarAlunoButton.setText("Jogar");
+        jogarAlunoButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton1ActionPerformed(evt);
+                jogarAlunoButtonActionPerformed(evt);
             }
         });
 
-        jButton2.setBackground(new java.awt.Color(36, 96, 150));
-        jButton2.setFont(new java.awt.Font("Super Crumble", 0, 36)); // NOI18N
-        jButton2.setForeground(new java.awt.Color(255, 255, 255));
-        jButton2.setText("Matérias");
-        jButton2.addActionListener(new java.awt.event.ActionListener() {
+        materiasAlunoButton.setBackground(new java.awt.Color(36, 96, 150));
+        materiasAlunoButton.setFont(new java.awt.Font("Super Crumble", 0, 36)); // NOI18N
+        materiasAlunoButton.setForeground(new java.awt.Color(255, 255, 255));
+        materiasAlunoButton.setText("Matérias");
+        materiasAlunoButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton2ActionPerformed(evt);
+                materiasAlunoButtonActionPerformed(evt);
             }
         });
 
-        jButton3.setBackground(new java.awt.Color(36, 96, 150));
-        jButton3.setFont(new java.awt.Font("Super Crumble", 0, 36)); // NOI18N
-        jButton3.setForeground(new java.awt.Color(255, 255, 255));
-        jButton3.setText("Pontuação");
+        pontuacaoButton.setBackground(new java.awt.Color(36, 96, 150));
+        pontuacaoButton.setFont(new java.awt.Font("Super Crumble", 0, 36)); // NOI18N
+        pontuacaoButton.setForeground(new java.awt.Color(255, 255, 255));
+        pontuacaoButton.setText("Pontuação");
+        pontuacaoButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                pontuacaoButtonActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
         jPanel2.setLayout(jPanel2Layout);
@@ -106,9 +111,9 @@ public class TelaMenuAluno extends javax.swing.JFrame {
             .addGroup(jPanel2Layout.createSequentialGroup()
                 .addGap(295, 295, 295)
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(jButton3, javax.swing.GroupLayout.DEFAULT_SIZE, 384, Short.MAX_VALUE)
-                    .addComponent(jButton2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(jButton1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                    .addComponent(pontuacaoButton, javax.swing.GroupLayout.DEFAULT_SIZE, 384, Short.MAX_VALUE)
+                    .addComponent(materiasAlunoButton, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(jogarAlunoButton, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addContainerGap(308, Short.MAX_VALUE))
         );
         jPanel2Layout.setVerticalGroup(
@@ -117,11 +122,11 @@ public class TelaMenuAluno extends javax.swing.JFrame {
                 .addGap(47, 47, 47)
                 .addComponent(jLabel3, javax.swing.GroupLayout.PREFERRED_SIZE, 104, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(60, 60, 60)
-                .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 75, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(jogarAlunoButton, javax.swing.GroupLayout.PREFERRED_SIZE, 75, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(100, 100, 100)
-                .addComponent(jButton2, javax.swing.GroupLayout.PREFERRED_SIZE, 74, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(materiasAlunoButton, javax.swing.GroupLayout.PREFERRED_SIZE, 74, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(100, 100, 100)
-                .addComponent(jButton3, javax.swing.GroupLayout.PREFERRED_SIZE, 75, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(pontuacaoButton, javax.swing.GroupLayout.PREFERRED_SIZE, 75, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap(135, Short.MAX_VALUE))
         );
 
@@ -133,19 +138,26 @@ public class TelaMenuAluno extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+    private void jogarAlunoButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jogarAlunoButtonActionPerformed
         // TODO add your handling code here:
         TelaJogo1 telaNova = new TelaJogo1();
         telaNova.setVisible(true);
         dispose();
-    }//GEN-LAST:event_jButton1ActionPerformed
+    }//GEN-LAST:event_jogarAlunoButtonActionPerformed
 
-    private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
+    private void materiasAlunoButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_materiasAlunoButtonActionPerformed
         // TODO add your handling code here:
         TelaMateriasAluno materiasTelaAl = new TelaMateriasAluno();
         materiasTelaAl.setVisible(true);
         dispose();
-    }//GEN-LAST:event_jButton2ActionPerformed
+    }//GEN-LAST:event_materiasAlunoButtonActionPerformed
+
+    private void pontuacaoButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_pontuacaoButtonActionPerformed
+        // TODO add your handling code here:
+        TelaPontuacao pontuacaoTela = new TelaPontuacao();
+        pontuacaoTela.setVisible(true);
+        dispose();
+    }//GEN-LAST:event_pontuacaoButtonActionPerformed
 
     /**
      * @param args the command line arguments
@@ -184,15 +196,15 @@ public class TelaMenuAluno extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton jButton1;
-    private javax.swing.JButton jButton2;
-    private javax.swing.JButton jButton3;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
+    private javax.swing.JButton jogarAlunoButton;
+    private javax.swing.JButton materiasAlunoButton;
+    private javax.swing.JButton pontuacaoButton;
     // End of variables declaration//GEN-END:variables
 
 }

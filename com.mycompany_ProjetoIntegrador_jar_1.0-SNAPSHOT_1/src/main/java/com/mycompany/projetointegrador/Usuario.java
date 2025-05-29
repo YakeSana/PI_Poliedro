@@ -25,6 +25,8 @@ public class Usuario {
     public int getId() {
         return id;
     }
+    
+    
 
 
     public Usuario(String nomeReal, String nomeUsuario, String senha, String tipo) {

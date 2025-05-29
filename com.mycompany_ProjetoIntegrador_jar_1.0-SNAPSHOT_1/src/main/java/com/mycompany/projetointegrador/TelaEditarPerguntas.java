@@ -352,13 +352,13 @@ public class TelaEditarPerguntas extends javax.swing.JFrame {
 
     private void editarButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_editarButtonActionPerformed
         // TODO add your handling code here:
-        String id = txtId.getText();
+        /*String id = txtId.getText();
         String novaPergunta = txtPergunta.getText();
         String alt1 = txtAlt1.getText();
         String alt2 = txtAlt2.getText();
         String alt3 = txtAlt3.getText();
         String alt4 = txtAlt4.getText();
-        String alt5 = txtAlt5.getText();
+        String alt5 = txtAlt5.getText();*/
     }//GEN-LAST:event_editarButtonActionPerformed
 
     private void txtAlt1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtAlt1ActionPerformed

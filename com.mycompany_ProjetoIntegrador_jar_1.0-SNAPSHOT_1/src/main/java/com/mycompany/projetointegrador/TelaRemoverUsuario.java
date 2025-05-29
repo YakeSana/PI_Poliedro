@@ -32,7 +32,7 @@ public class TelaRemoverUsuario extends javax.swing.JFrame {
             JOptionPane.showMessageDialog(null, "Não foi possível encontrar no banco de Dados");
         }
         try{
-            consultaPerguntas();
+            consultaUsuario();
         }catch(Exception ex){
             JOptionPane.showMessageDialog(null, "Não foi possível encontrar no banco de Dados");
         }
@@ -43,27 +43,27 @@ public class TelaRemoverUsuario extends javax.swing.JFrame {
         DefaultTableModel model = (DefaultTableModel)tableId.getModel();
         model.setRowCount(0);
         
-        String sql = "SELECT * FROM pergunta";
+        String sql = "SELECT * FROM usuario";
         /* sql = "SELECT texto FROM pergunta ;"*/
         try(Connection conn = ConexaoBD.obterConexao();
             PreparedStatement ps = conn.prepareStatement(sql)){
             ResultSet rs = ps.executeQuery();
             while(rs.next()){
-                model.addRow(new String[]{rs.getString("id_pergunta")});
+                model.addRow(new String[]{rs.getString("id_usuario")});
             }
         }
     }
-    private void consultaPerguntas() throws Exception{
-        DefaultTableModel model = (DefaultTableModel)tablePerguntas.getModel();
+    private void consultaUsuario() throws Exception{
+        DefaultTableModel model = (DefaultTableModel)tableUsuarios.getModel();
         model.setRowCount(0);
         
-        String sql = "SELECT * FROM pergunta";
+        String sql = "SELECT nome_usuario FROM usuario ";
         /* sql = "SELECT texto FROM pergunta ;"*/
         try(Connection conn = ConexaoBD.obterConexao();
             PreparedStatement ps = conn.prepareStatement(sql)){
             ResultSet rs = ps.executeQuery();
             while(rs.next()){
-                model.addRow(new String[]{rs.getString("texto")});
+                model.addRow(new String[]{rs.getString("nome_usuario")});
             }
         }
     }
@@ -85,7 +85,7 @@ public class TelaRemoverUsuario extends javax.swing.JFrame {
         jScrollPane1 = new javax.swing.JScrollPane();
         tableId = new javax.swing.JTable();
         jScrollPane2 = new javax.swing.JScrollPane();
-        tablePerguntas = new javax.swing.JTable();
+        tableUsuarios = new javax.swing.JTable();
         jLabel2 = new javax.swing.JLabel();
         excluirUsuarioButton = new javax.swing.JButton();
         jLabel1 = new javax.swing.JLabel();
@@ -152,7 +152,7 @@ public class TelaRemoverUsuario extends javax.swing.JFrame {
         ));
         jScrollPane1.setViewportView(tableId);
 
-        tablePerguntas.setModel(new javax.swing.table.DefaultTableModel(
+        tableUsuarios.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
                 {null},
                 {null},
@@ -160,10 +160,10 @@ public class TelaRemoverUsuario extends javax.swing.JFrame {
                 {null}
             },
             new String [] {
-                "Perguntas:"
+                "Usuários:"
             }
         ));
-        jScrollPane2.setViewportView(tablePerguntas);
+        jScrollPane2.setViewportView(tableUsuarios);
 
         jLabel2.setFont(new java.awt.Font("Javanese Text", 0, 18)); // NOI18N
         jLabel2.setText("Insira o Id do usuário:");
@@ -235,6 +235,7 @@ public class TelaRemoverUsuario extends javax.swing.JFrame {
         try{
             Usuario usuarios = new Usuario(id); 
             DAO dao = new DAO();
+            JOptionPane.showMessageDialog(null, "Exclusão feita com sucesso!");
         }catch(Exception e){
             JOptionPane.showMessageDialog(null, "Não foi possível excluir, tente novamente.");
     }
@@ -305,7 +306,7 @@ public class TelaRemoverUsuario extends javax.swing.JFrame {
     private javax.swing.JScrollPane jScrollPane2;
     private javax.swing.JButton setaButton;
     private javax.swing.JTable tableId;
-    private javax.swing.JTable tablePerguntas;
+    private javax.swing.JTable tableUsuarios;
     private javax.swing.JTextField txtEcluirUsuario;
     // End of variables declaration//GEN-END:variables
 }
