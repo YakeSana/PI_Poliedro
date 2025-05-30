@@ -91,6 +91,11 @@ public class TelaGerenciarPerguntas extends javax.swing.JFrame {
         editarPerguntasButton.setFont(new java.awt.Font("Javanese Text", 0, 18)); // NOI18N
         editarPerguntasButton.setForeground(new java.awt.Color(255, 255, 255));
         editarPerguntasButton.setText("Editar perguntas");
+        editarPerguntasButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                editarPerguntasButtonActionPerformed(evt);
+            }
+        });
 
         jLabel3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagens/Logo_Poliedro_Horiz_EDUCACAO_300x70.png"))); // NOI18N
 
@@ -170,6 +175,13 @@ public class TelaGerenciarPerguntas extends javax.swing.JFrame {
         removerTela.setVisible(true);
         dispose();
     }//GEN-LAST:event_removerPerguntasButtonActionPerformed
+
+    private void editarPerguntasButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_editarPerguntasButtonActionPerformed
+        // TODO add your handling code here:
+        TelaEditarPerguntas editarPerguntasTela = new TelaEditarPerguntas();
+        editarPerguntasTela.setVisible(true);
+        dispose();
+    }//GEN-LAST:event_editarPerguntasButtonActionPerformed
 
     /**
      * @param args the command line arguments
