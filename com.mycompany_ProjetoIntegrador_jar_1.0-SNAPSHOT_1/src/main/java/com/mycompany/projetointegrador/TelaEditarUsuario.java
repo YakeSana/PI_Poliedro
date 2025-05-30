@@ -57,7 +57,7 @@ public class TelaEditarUsuario extends javax.swing.JFrame {
         DefaultTableModel model = (DefaultTableModel)tableEditarUsuarios.getModel();
         model.setRowCount(0);
         
-        String sql = "SELECT nome_usuario FROM usuario";
+        String sql = "SELECT nome_usuario FROM usuario ORDER BY id_usuario";
         /* sql = "SELECT texto FROM pergunta ;"*/
         try(Connection conn = ConexaoBD.obterConexao();
             PreparedStatement ps = conn.prepareStatement(sql)){
@@ -166,7 +166,7 @@ public class TelaEditarUsuario extends javax.swing.JFrame {
                 {null}
             },
             new String [] {
-                "Usuários:"
+                "Nome De Usuário:"
             }
         ));
         jScrollPane2.setViewportView(tableEditarUsuarios);
@@ -297,7 +297,7 @@ public class TelaEditarUsuario extends javax.swing.JFrame {
 
     private void editarUsuarioButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_editarUsuarioButtonActionPerformed
         // TODO add your handling code here:
-        String id = txtId.getText();
+        int id = Integer.parseInt(txtId.getText());
         String novoNome = txtNovoNome.getText();
         String novoNomeDeUsuario = txtNovoNomeDeUsuario.getText();
         String senha = txtSenha.getText();
@@ -307,8 +307,12 @@ public class TelaEditarUsuario extends javax.swing.JFrame {
             dao.editar(usuario);
             JOptionPane.showMessageDialog(null, "Alterações cadastradas com sucesso!");
         }catch(Exception e){
-            JOptionPane.showMessageDialog(null, "Alterações não concluida, tente novamente.");
+            JOptionPane.showMessageDialog(null, "Erro ao editar, tente novamente.");
         }
+        txtId.setText("");
+        txtNovoNome.setText("");
+        txtNovoNomeDeUsuario.setText("");
+        txtSenha.setText("");
     }//GEN-LAST:event_editarUsuarioButtonActionPerformed
 
     private void txtNovoNomeDeUsuarioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtNovoNomeDeUsuarioActionPerformed

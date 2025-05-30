@@ -4,6 +4,10 @@
  */
 package com.mycompany.projetointegrador;
 
+import java.awt.Font;
+import java.awt.GraphicsEnvironment;
+import java.io.InputStream;
+
 /**
  *
  * @author conta
@@ -123,6 +127,14 @@ public class TelaPontuacao extends javax.swing.JFrame {
                 new TelaPontuacao().setVisible(true);
             }
         });
+        try { 
+            InputStream is = SuperCrumble.class.getResourceAsStream("/Imagens/Super Crumble.ttf");
+            Font customFont = Font.createFont(Font.TRUETYPE_FONT, is).deriveFont(24f);
+            GraphicsEnvironment ge = GraphicsEnvironment.getLocalGraphicsEnvironment();
+            ge.registerFont(customFont);
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables

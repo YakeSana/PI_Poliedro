@@ -25,6 +25,13 @@ public class Usuario {
     public int getId() {
         return id;
     }
+     public Usuario(int id, String NovoNome, String NovoNomeDeUsuario, String senha) {
+        this.id = id;
+        this.nomeReal = NovoNome;
+        this.nomeUsuario = NovoNomeDeUsuario;
+        this.senha = senha;
+        
+    }
     
     
 

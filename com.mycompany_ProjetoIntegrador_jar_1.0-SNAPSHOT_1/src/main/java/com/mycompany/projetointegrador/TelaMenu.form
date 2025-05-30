@@ -100,12 +100,12 @@
               <Group type="102" alignment="0" attributes="0">
                   <EmptySpace min="-2" pref="295" max="-2" attributes="0"/>
                   <Group type="103" groupAlignment="0" max="-2" attributes="0">
-                      <Component id="areaAdmButton" max="32767" attributes="0"/>
+                      <Component id="areaAdmButton" pref="395" max="32767" attributes="0"/>
                       <Component id="rankingButton" alignment="0" max="32767" attributes="0"/>
-                      <Component id="materiasAdmButton" max="32767" attributes="0"/>
+                      <Component id="materiasAdmButton" alignment="0" max="32767" attributes="0"/>
                       <Component id="buttonJogar" alignment="0" max="32767" attributes="0"/>
                   </Group>
-                  <EmptySpace pref="308" max="32767" attributes="0"/>
+                  <EmptySpace max="32767" attributes="0"/>
               </Group>
           </Group>
         </DimensionLayout>

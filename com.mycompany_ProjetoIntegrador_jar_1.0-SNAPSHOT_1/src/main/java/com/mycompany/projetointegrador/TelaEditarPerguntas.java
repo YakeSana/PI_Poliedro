@@ -7,6 +7,8 @@ package com.mycompany.projetointegrador;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
 
@@ -296,7 +298,7 @@ public class TelaEditarPerguntas extends javax.swing.JFrame {
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addGap(312, 312, 312)
                 .addComponent(editarButton)
-                .addGap(0, 0, Short.MAX_VALUE))
+                .addGap(0, 382, Short.MAX_VALUE))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -352,13 +354,31 @@ public class TelaEditarPerguntas extends javax.swing.JFrame {
 
     private void editarButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_editarButtonActionPerformed
         // TODO add your handling code here:
-        /*String id = txtId.getText();
+        int id = Integer.parseInt(txtId.getText());
         String novaPergunta = txtPergunta.getText();
         String alt1 = txtAlt1.getText();
         String alt2 = txtAlt2.getText();
         String alt3 = txtAlt3.getText();
         String alt4 = txtAlt4.getText();
-        String alt5 = txtAlt5.getText();*/
+        String alt5 = txtAlt5.getText();
+        try{
+            Perguntas perguntas = new Perguntas(id, novaPergunta);
+            DAO dao = new DAO();
+            dao.editarPerguntas(perguntas);
+            JOptionPane.showMessageDialog(null, "Alterações cadastradas com sucesso!");
+        }catch(Exception e){
+            JOptionPane.showMessageDialog(null, "Erro ao editar, tente novamente.");
+        }
+        Alternativas alternativas;
+        DAO dao = new DAO();
+ 
+        txtId.setText("");
+        txtPergunta.setText("");
+        txtAlt1.setText("");
+        txtAlt2.setText("");
+        txtAlt3.setText("");
+        txtAlt4.setText("");
+        txtAlt5.setText("");
     }//GEN-LAST:event_editarButtonActionPerformed
 
     private void txtAlt1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtAlt1ActionPerformed

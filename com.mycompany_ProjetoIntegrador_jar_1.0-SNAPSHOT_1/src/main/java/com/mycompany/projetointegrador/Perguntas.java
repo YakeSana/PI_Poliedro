@@ -23,10 +23,13 @@ public class Perguntas {
         this.disciplina = disciplina;
     }
     public Perguntas(int id) {
-    this.id = id;
-}
+        this.id = id;
+    }
     
-
+    public Perguntas(int id, String texto) {
+        this.id = id;
+        this.texto = texto;
+    }
     // Getters e Setters
     public int getId() {
         return id;

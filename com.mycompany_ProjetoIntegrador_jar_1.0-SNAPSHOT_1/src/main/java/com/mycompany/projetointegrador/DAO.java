@@ -57,13 +57,31 @@ public boolean cadastrarUsuario(Usuario usuario) throws Exception {
     }
 }
 public void editar(Usuario usuario)throws Exception{
-    String sql = "UPDATE usuario SET nome_real=?, senha=?, nome_usuario=? WHERE id=?";
+    String sql = "UPDATE usuario SET nome_real = ?, senha = ?, nome_usuario = ? WHERE id_usuario = ?";
     try(Connection conn = ConexaoBD.obterConexao();
             PreparedStatement ps = conn.prepareStatement(sql)){
             ps.setString(1,usuario.getNomeReal());
             ps.setString(2,usuario.getSenha());
             ps.setString(3,usuario.getNomeUsuario());
             ps.setInt(4,usuario.getId());
+            ps.execute();
+        }
+    }
+public void editarPerguntas(Perguntas perguntas)throws Exception{
+    String sql = "UPDATE pergunta SET texto = ? WHERE id_pergunta = ?";
+    try(Connection conn = ConexaoBD.obterConexao();
+            PreparedStatement ps = conn.prepareStatement(sql)){
+            ps.setString(1,perguntas.getTexto());
+            ps.setInt(2,perguntas.getId());
+            ps.execute();
+        }
+    }
+public void editarAlternativas(Alternativas alternativas)throws Exception{
+    String sql = "UPDATE alternativa SET texto = ? WHERE id_alternativa = ?";
+    try(Connection conn = ConexaoBD.obterConexao();
+            PreparedStatement ps = conn.prepareStatement(sql)){
+            ps.setString(1,alternativas.getTexto());
+            ps.setInt(2,alternativas.getId());
             ps.execute();
         }
     }
