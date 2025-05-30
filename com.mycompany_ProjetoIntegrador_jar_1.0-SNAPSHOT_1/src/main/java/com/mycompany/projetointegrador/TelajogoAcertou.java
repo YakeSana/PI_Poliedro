@@ -16,6 +16,7 @@ public class TelajogoAcertou extends javax.swing.JFrame {
     public TelajogoAcertou() {
         initComponents();
         this.setLocationRelativeTo(null);
+        this.setResizable(  false);  
     }
 
     /**

@@ -20,6 +20,7 @@ public class TelaGanhou extends javax.swing.JFrame {
     public TelaGanhou() {
         initComponents();
         this.setLocationRelativeTo(null);
+        this.setResizable(  false);  
     }
 
     /**

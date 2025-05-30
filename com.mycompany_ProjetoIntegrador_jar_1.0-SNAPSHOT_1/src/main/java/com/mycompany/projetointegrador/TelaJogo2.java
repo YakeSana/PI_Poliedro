@@ -20,6 +20,7 @@ public class TelaJogo2 extends javax.swing.JFrame {
     public TelaJogo2() {
         initComponents();
         this.setLocationRelativeTo(null);
+        this.setResizable(  false);  
     }
 
     /**

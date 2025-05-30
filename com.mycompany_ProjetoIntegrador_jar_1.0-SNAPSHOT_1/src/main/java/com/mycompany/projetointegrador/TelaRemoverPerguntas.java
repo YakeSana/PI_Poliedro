@@ -26,6 +26,7 @@ public class TelaRemoverPerguntas extends javax.swing.JFrame {
         setaButton.setFocusPainted(false);
         setaButton.setOpaque(false);
         this.setLocationRelativeTo(null);
+        this.setResizable(  false);  
         try{
             consultaId();
         }catch(Exception ex){

@@ -22,6 +22,7 @@ public class TelaMenu extends javax.swing.JFrame {
     public TelaMenu() {
         initComponents();
         this.setLocationRelativeTo(null);
+        this.setResizable(false);
         
     }
 

@@ -16,6 +16,7 @@ public class TelaPerguntas extends javax.swing.JFrame {
     public TelaPerguntas() {
         initComponents();
         this.setLocationRelativeTo(null);
+        this.setResizable(  false);  
     }
 
     /**

@@ -21,6 +21,7 @@ public class TelaMenuAluno extends javax.swing.JFrame {
     public TelaMenuAluno() {
         initComponents();
         this.setLocationRelativeTo(null);
+        this.setResizable(  false);  
     }
 
     /** This method is called from within the constructor to

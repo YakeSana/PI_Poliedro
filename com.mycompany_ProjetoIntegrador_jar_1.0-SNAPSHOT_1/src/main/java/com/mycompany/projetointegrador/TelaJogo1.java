@@ -28,6 +28,7 @@ public class TelaJogo1 extends javax.swing.JFrame {
     jButton2.setFocusPainted(false);
     jButton2.setOpaque(false);
     this.setLocationRelativeTo(null);
+    this.setResizable(  false);  
     }
 
     /**

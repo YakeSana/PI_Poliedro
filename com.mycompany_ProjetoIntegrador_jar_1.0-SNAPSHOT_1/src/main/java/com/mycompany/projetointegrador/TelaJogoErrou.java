@@ -15,6 +15,7 @@ public class TelaJogoErrou extends javax.swing.JFrame {
      */
     public TelaJogoErrou() {
         initComponents();
+        this.setResizable(  false);  
     }
 
     /**

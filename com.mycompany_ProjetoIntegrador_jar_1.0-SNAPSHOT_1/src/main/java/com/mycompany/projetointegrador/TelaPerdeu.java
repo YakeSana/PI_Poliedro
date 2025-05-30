@@ -20,6 +20,7 @@ public class TelaPerdeu extends javax.swing.JFrame {
     public TelaPerdeu() {
         initComponents();
         this.setLocationRelativeTo(null);
+        this.setResizable(  false);  
     }
 
     /**
