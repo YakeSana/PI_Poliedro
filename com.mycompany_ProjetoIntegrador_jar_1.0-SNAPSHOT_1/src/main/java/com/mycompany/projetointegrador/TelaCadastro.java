@@ -10,6 +10,7 @@ public class TelaCadastro extends javax.swing.JFrame {
     jButton2.setBorderPainted(false);
     jButton2.setFocusPainted(false);
     jButton2.setOpaque(false);
+    this.setLocationRelativeTo(null);
     }
 
     @SuppressWarnings("unchecked")

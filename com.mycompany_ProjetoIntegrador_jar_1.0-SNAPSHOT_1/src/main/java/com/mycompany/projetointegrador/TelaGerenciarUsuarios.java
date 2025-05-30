@@ -171,6 +171,9 @@ public class TelaGerenciarUsuarios extends javax.swing.JFrame {
 
     private void editarUsuariosButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_editarUsuariosButtonActionPerformed
         // TODO add your handling code here:
+        TelaEditarUsuario editarUsuarioTela = new TelaEditarUsuario();
+        editarUsuarioTela.setVisible(true);
+        dispose();
     }//GEN-LAST:event_editarUsuariosButtonActionPerformed
 
     private void removerUsuariosButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_removerUsuariosButtonActionPerformed
