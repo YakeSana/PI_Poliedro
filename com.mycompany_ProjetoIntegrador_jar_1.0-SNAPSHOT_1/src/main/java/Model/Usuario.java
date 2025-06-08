@@ -75,6 +75,15 @@ public class Usuario {
     public void setTipo(String tipo) {
         this.tipo = tipo;
     }
+    
+    public void setId(int id){
+        this.id = id;
+    }
+    
+    @Override
+    public String toString(){
+        return "id: "+id+", nome: "+nomeUsuario+", tipo: "+tipo;
+    }
 }
 
 

@@ -9,24 +9,32 @@ import Model.Jogo;
 import Model.Usuario;
 import java.awt.Color;
 import java.util.List;
+import javax.swing.Timer;
 
 /**
  *
  * @author conta
  */
 public class TelaJogo1 extends javax.swing.JFrame {
+
     List<Alternativa> alternativas;
     Jogo jogo;
     Usuario usuario;
+    Alternativa alternativa_escolhida;
+    javax.swing.JToggleButton botao_clicado;
 
     public Usuario getUsuario() {
         return usuario;
     }
+
     /**
      * Creates new form TelaJogo1
      */
     public TelaJogo1(Usuario usuario) {
         initComponents();
+        jPanel3.setVisible(false);
+        mascoteFeliz.setVisible(false);
+        mascoteTriste.setVisible(false);
         this.setVisible(true);
         jButton3.setContentAreaFilled(false);
         jButton3.setBorderPainted(false);
@@ -40,15 +48,14 @@ public class TelaJogo1 extends javax.swing.JFrame {
         jButton2.setBorderPainted(false);
         jButton2.setFocusPainted(false);
         jButton2.setOpaque(false);
+        jPanel3.setVisible(false);
         this.setLocationRelativeTo(null);
         this.setResizable(false);
         this.jogo = new Jogo(this);
         this.usuario = usuario;
+        System.out.println(usuario);
     }
-    
-    public TelaJogo1(){
-        this(null);
-    }
+
 
     /**
      * This method is called from within the constructor to initialize the form.
@@ -59,6 +66,10 @@ public class TelaJogo1 extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        jPanel3 = new javax.swing.JPanel();
+        jLabel9 = new javax.swing.JLabel();
+        simButton = new javax.swing.JButton();
+        naoButton = new javax.swing.JButton();
         jPanel1 = new javax.swing.JPanel();
         jLabel3 = new javax.swing.JLabel();
         jToggleButton6 = new javax.swing.JToggleButton();
@@ -74,12 +85,66 @@ public class TelaJogo1 extends javax.swing.JFrame {
         jButton2 = new javax.swing.JButton();
         jButton1 = new javax.swing.JButton();
         jButton3 = new javax.swing.JButton();
-        jLabel2 = new javax.swing.JLabel();
+        mascoteTriste = new javax.swing.JLabel();
+        mascote = new javax.swing.JLabel();
+        mascoteFeliz = new javax.swing.JLabel();
         jLabel1 = new javax.swing.JLabel();
-        jLabel9 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        jPanel3.setBackground(new java.awt.Color(255, 255, 255));
+
+        jLabel9.setFont(new java.awt.Font("Super Crumble", 0, 24)); // NOI18N
+        jLabel9.setText("Está certo disso?");
+
+        simButton.setBackground(new java.awt.Color(13, 255, 0));
+        simButton.setFont(new java.awt.Font("Super Crumble", 0, 18)); // NOI18N
+        simButton.setForeground(new java.awt.Color(255, 255, 255));
+        simButton.setText("Sim");
+        simButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                simButtonActionPerformed(evt);
+            }
+        });
+
+        naoButton.setBackground(new java.awt.Color(248, 17, 17));
+        naoButton.setFont(new java.awt.Font("Super Crumble", 0, 18)); // NOI18N
+        naoButton.setForeground(new java.awt.Color(255, 255, 255));
+        naoButton.setText("Não");
+        naoButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                naoButtonActionPerformed(evt);
+            }
+        });
+
+        javax.swing.GroupLayout jPanel3Layout = new javax.swing.GroupLayout(jPanel3);
+        jPanel3.setLayout(jPanel3Layout);
+        jPanel3Layout.setHorizontalGroup(
+            jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel3Layout.createSequentialGroup()
+                .addGap(55, 55, 55)
+                .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addGroup(jPanel3Layout.createSequentialGroup()
+                        .addComponent(simButton)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(naoButton))
+                    .addComponent(jLabel9))
+                .addContainerGap(60, Short.MAX_VALUE))
+        );
+        jPanel3Layout.setVerticalGroup(
+            jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel3Layout.createSequentialGroup()
+                .addGap(37, 37, 37)
+                .addComponent(jLabel9)
+                .addGap(65, 65, 65)
+                .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(simButton)
+                    .addComponent(naoButton))
+                .addContainerGap(57, Short.MAX_VALUE))
+        );
+
+        getContentPane().add(jPanel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(1070, 10, -1, -1));
 
         jPanel1.setBackground(new java.awt.Color(0, 0, 0, 100));
 
@@ -170,7 +235,7 @@ public class TelaJogo1 extends javax.swing.JFrame {
                             .addComponent(jToggleButton8, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                             .addComponent(jToggleButton9, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                             .addComponent(jToggleButton10, javax.swing.GroupLayout.DEFAULT_SIZE, 801, Short.MAX_VALUE))))
-                .addGap(28, 28, 28))
+                .addContainerGap(24, Short.MAX_VALUE))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -226,14 +291,17 @@ public class TelaJogo1 extends javax.swing.JFrame {
         });
         getContentPane().add(jButton3, new org.netbeans.lib.awtextra.AbsoluteConstraints(1280, 700, 80, 80));
 
-        jLabel2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagens/Mascote.png"))); // NOI18N
-        getContentPane().add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(1010, 180, 350, 510));
+        mascoteTriste.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagens/MascoteTriste.png"))); // NOI18N
+        getContentPane().add(mascoteTriste, new org.netbeans.lib.awtextra.AbsoluteConstraints(1030, 150, 360, 540));
+
+        mascote.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagens/Mascote.png"))); // NOI18N
+        getContentPane().add(mascote, new org.netbeans.lib.awtextra.AbsoluteConstraints(1010, 170, 380, 520));
+
+        mascoteFeliz.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagens/MascoteFeliz-removebg-preview.png"))); // NOI18N
+        getContentPane().add(mascoteFeliz, new org.netbeans.lib.awtextra.AbsoluteConstraints(1030, 180, 360, 510));
 
         jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagens/TelaDeFundo.png"))); // NOI18N
         getContentPane().add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, -6, 1430, 1030));
-
-        jLabel9.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagens/MascoteFeliz-removebg-preview.png"))); // NOI18N
-        getContentPane().add(jLabel9, new org.netbeans.lib.awtextra.AbsoluteConstraints(1030, 180, 350, 510));
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
@@ -254,37 +322,41 @@ public class TelaJogo1 extends javax.swing.JFrame {
 
     private void jToggleButton6ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jToggleButton6ActionPerformed
         // TODO add your handling code here:
-        if(alternativas.get(0).equals(jogo.getCorreta())) pintaBotoesVerde(jToggleButton6);
-        TelaJogo2 jogoTela = new TelaJogo2(jogo,alternativas.get(0),jToggleButton6);
-        jogoTela.setVisible(true);
+        alternativa_escolhida = alternativas.get(0);
+        botao_clicado = jToggleButton6;
+        jPanel3.setVisible(true);
 
     }//GEN-LAST:event_jToggleButton6ActionPerformed
 
     private void jToggleButton7ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jToggleButton7ActionPerformed
         // TODO add your handling code here:
-        TelaJogo2 jogoTela = new TelaJogo2(jogo,alternativas.get(1),jToggleButton7);
-        jogoTela.setVisible(true);
+        alternativa_escolhida = alternativas.get(1);
+        botao_clicado = jToggleButton7;
+        jPanel3.setVisible(true);
 
     }//GEN-LAST:event_jToggleButton7ActionPerformed
 
     private void jToggleButton8ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jToggleButton8ActionPerformed
         // TODO add your handling code here:
-        TelaJogo2 jogoTela = new TelaJogo2(jogo,alternativas.get(2),jToggleButton8);
-        jogoTela.setVisible(true);
+        alternativa_escolhida = alternativas.get(2);
+        botao_clicado = jToggleButton8;
+        jPanel3.setVisible(true);
 
     }//GEN-LAST:event_jToggleButton8ActionPerformed
 
     private void jToggleButton9ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jToggleButton9ActionPerformed
         // TODO add your handling code here:
-        TelaJogo2 jogoTela = new TelaJogo2(jogo,alternativas.get(3),jToggleButton9);
-        jogoTela.setVisible(true);
+        alternativa_escolhida = alternativas.get(3);
+        botao_clicado = jToggleButton9;
+        jPanel3.setVisible(true);
 
     }//GEN-LAST:event_jToggleButton9ActionPerformed
 
     private void jToggleButton10ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jToggleButton10ActionPerformed
         // TODO add your handling code here:
-        TelaJogo2 jogoTela = new TelaJogo2(jogo,alternativas.get(4),jToggleButton10);
-        jogoTela.setVisible(true);
+        alternativa_escolhida = alternativas.get(4);
+        botao_clicado = jToggleButton10;
+        jPanel3.setVisible(true);
 
     }//GEN-LAST:event_jToggleButton10ActionPerformed
 
@@ -293,47 +365,75 @@ public class TelaJogo1 extends javax.swing.JFrame {
         jButton2.setVisible(false);
     }//GEN-LAST:event_jButton2ActionPerformed
 
+    private void simButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_simButtonActionPerformed
+        // TODO add your handling code here:
+        botao_clicado.setSelected(false);
+        if (jogo.tratandoResposta(alternativa_escolhida)) {
+            botao_clicado.setBackground(new Color(46, 204, 113));
+            mascote.setVisible(false);
+            mascoteFeliz.setVisible(true);
+        } else {
+            botao_clicado.setBackground(new Color(231, 76, 60));
+            mascote.setVisible(false);
+            mascoteTriste.setVisible(true);
+        }
+        botao_clicado.setOpaque(true);
+        botao_clicado.setContentAreaFilled(true);
+        botao_clicado.repaint();
+        jPanel3.setVisible(false);
+        Timer timer = new Timer(2000, e -> {
+            mascoteTriste.setVisible(false);
+            mascoteFeliz.setVisible(false);
+            mascote.setVisible(true);
+            jogo.finalizaJogo();
+            jogo.gerarPergunta();
+        });
+        timer.setRepeats(false);
+        timer.start();
+    }//GEN-LAST:event_simButtonActionPerformed
+
+    private void naoButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_naoButtonActionPerformed
+        // TODO add your handling code here:
+        jPanel3.setVisible(false);
+    }//GEN-LAST:event_naoButtonActionPerformed
+
     /**
      * @param args the command line arguments
      */
-    public static void main(String args[]) {
-        /* Set the Nimbus look and feel */
-        //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
-        /* If Nimbus (introduced in Java SE 6) is not available, stay with the default look and feel.
-         * For details see http://download.oracle.com/javase/tutorial/uiswing/lookandfeel/plaf.html 
-         */
-        try {
-            for (javax.swing.UIManager.LookAndFeelInfo info : javax.swing.UIManager.getInstalledLookAndFeels()) {
-                if ("Nimbus".equals(info.getName())) {
-                    javax.swing.UIManager.setLookAndFeel(info.getClassName());
-                    break;
-                }
-            }
-        } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(TelaJogo1.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(TelaJogo1.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(TelaJogo1.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(TelaJogo1.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        }
-        //</editor-fold>
-
-        /* Create and display the form */
-        java.awt.EventQueue.invokeLater(new Runnable() {
-            public void run() {
-                new TelaJogo1().setVisible(true);
-            }
-        });
-    }
+//    public static void main(String args[]) {
+//        /* Set the Nimbus look and feel */
+//        //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
+//        /* If Nimbus (introduced in Java SE 6) is not available, stay with the default look and feel.
+//         * For details see http://download.oracle.com/javase/tutorial/uiswing/lookandfeel/plaf.html 
+//         */
+//        try {
+//            for (javax.swing.UIManager.LookAndFeelInfo info : javax.swing.UIManager.getInstalledLookAndFeels()) {
+//                if ("Nimbus".equals(info.getName())) {
+//                    javax.swing.UIManager.setLookAndFeel(info.getClassName());
+//                    break;
+//                }
+//            }
+//        } catch (ClassNotFoundException ex) {
+//            java.util.logging.Logger.getLogger(TelaJogo1.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+//        } catch (InstantiationException ex) {
+//            java.util.logging.Logger.getLogger(TelaJogo1.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+//        } catch (IllegalAccessException ex) {
+//            java.util.logging.Logger.getLogger(TelaJogo1.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+//        } catch (javax.swing.UnsupportedLookAndFeelException ex) {
+//            java.util.logging.Logger.getLogger(TelaJogo1.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+//        }
+//        //</editor-fold>
+//
+//        /* Create and display the form */
+//        java.awt.EventQueue.invokeLater(new Runnable() {
+//            public void run() {
+//                new TelaJogo1().setVisible(true);
+//            }
+//        });
+//    }
 
     public void exibePergunta(String pergunta) {
         jLabel3.setText(pergunta);
-    }
-    
-    public void pintaBotoesVerde(javax.swing.JToggleButton botao){
-        botao.setBackground(new java.awt.Color(13, 255, 0));
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
@@ -341,7 +441,6 @@ public class TelaJogo1 extends javax.swing.JFrame {
     private javax.swing.JButton jButton2;
     private javax.swing.JButton jButton3;
     private javax.swing.JLabel jLabel1;
-    private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
@@ -350,11 +449,17 @@ public class TelaJogo1 extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel8;
     private javax.swing.JLabel jLabel9;
     private javax.swing.JPanel jPanel1;
+    private javax.swing.JPanel jPanel3;
     private javax.swing.JToggleButton jToggleButton10;
     private javax.swing.JToggleButton jToggleButton6;
     private javax.swing.JToggleButton jToggleButton7;
     private javax.swing.JToggleButton jToggleButton8;
     private javax.swing.JToggleButton jToggleButton9;
+    private javax.swing.JLabel mascote;
+    private javax.swing.JLabel mascoteFeliz;
+    private javax.swing.JLabel mascoteTriste;
+    private javax.swing.JButton naoButton;
+    private javax.swing.JButton simButton;
     // End of variables declaration//GEN-END:variables
 
     public void exibeAlternativas(List<Alternativa> alternativas) {
@@ -364,19 +469,22 @@ public class TelaJogo1 extends javax.swing.JFrame {
         jToggleButton8.setBackground(Color.WHITE);
         jToggleButton9.setBackground(Color.WHITE);
         jToggleButton10.setBackground(Color.WHITE);
-        definirTextoBotao(jToggleButton6,0);
-        definirTextoBotao(jToggleButton7,1);
-        definirTextoBotao(jToggleButton8,2);
-        definirTextoBotao(jToggleButton9,3);
-        definirTextoBotao(jToggleButton10,4);
+        definirTextoBotao(jToggleButton6, 0);
+        definirTextoBotao(jToggleButton7, 1);
+        definirTextoBotao(jToggleButton8, 2);
+        definirTextoBotao(jToggleButton9, 3);
+        definirTextoBotao(jToggleButton10, 4);
     }
-    
-    private void definirTextoBotao(javax.swing.JToggleButton botao,int indice) {
-    if (alternativas.get(indice) != null) {
-        botao.setText(alternativas.get(indice).getTexto());
-    } else {
-        botao.setText("Alternativa Removida"); 
+
+    private void definirTextoBotao(javax.swing.JToggleButton botao, int indice) {
+        if (alternativas.get(indice) != null) {
+            botao.setText(alternativas.get(indice).getTexto());
+        } else {
+            botao.setText("Alternativa Removida");
+        }
+        botao.setOpaque(true);
+        botao.setContentAreaFilled(true);
+        botao.repaint();
     }
-}
 
 }

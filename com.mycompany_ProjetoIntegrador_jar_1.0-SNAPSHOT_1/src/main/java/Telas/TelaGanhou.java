@@ -23,7 +23,7 @@ public class TelaGanhou extends javax.swing.JFrame {
         this.setLocationRelativeTo(null);
         this.setResizable(  false);
         this.usuario = usuario;
-        if(usuario != null) jLabel2.setText("Parabéns "+usuario.getNomeReal());
+        if(usuario != null) jLabel2.setText("Parabéns "+usuario.getNomeReal().split(" ")[0]+"!");
     }
     
     public TelaGanhou(){
@@ -65,9 +65,9 @@ public class TelaGanhou extends javax.swing.JFrame {
         jPanel1Layout.setHorizontalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
-                .addGap(592, 592, 592)
-                .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 249, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(599, Short.MAX_VALUE))
+                .addGap(511, 511, 511)
+                .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 670, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(259, Short.MAX_VALUE))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -91,7 +91,7 @@ public class TelaGanhou extends javax.swing.JFrame {
 
         jLabel5.setFont(new java.awt.Font("Super Crumble", 0, 60)); // NOI18N
         jLabel5.setForeground(new java.awt.Color(36, 96, 150));
-        jLabel5.setText("1000");
+        jLabel5.setText("100000");
 
         jButton1.setBackground(new java.awt.Color(36, 96, 150));
         jButton1.setFont(new java.awt.Font("Super Crumble", 0, 48)); // NOI18N
@@ -126,15 +126,16 @@ public class TelaGanhou extends javax.swing.JFrame {
             .addGroup(jPanel2Layout.createSequentialGroup()
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel2Layout.createSequentialGroup()
-                        .addGap(0, 0, Short.MAX_VALUE)
-                        .addComponent(jLabel5)
-                        .addGap(169, 169, 169))
-                    .addGroup(jPanel2Layout.createSequentialGroup()
-                        .addGap(514, 514, 514)
+                        .addGap(501, 501, 501)
                         .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                            .addComponent(jLabel4, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(jButton1)
-                            .addComponent(jButton3, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
+                            .addComponent(jLabel4)
+                            .addComponent(jButton1, javax.swing.GroupLayout.DEFAULT_SIZE, 443, Short.MAX_VALUE)
+                            .addComponent(jButton3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 7, Short.MAX_VALUE))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
+                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(jLabel5)
+                        .addGap(122, 122, 122)))
                 .addComponent(jLabel6, javax.swing.GroupLayout.PREFERRED_SIZE, 362, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(127, 127, 127))
         );

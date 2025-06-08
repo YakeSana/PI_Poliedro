@@ -110,13 +110,14 @@ public class Jogo {
     }
 
 //        Alternativa alternativa_escolhida = pergunta.getAlternativas().get(resposta);
-    public void tratandoResposta(Alternativa alternativa_escolhida, javax.swing.JToggleButton botao) {
+    public boolean tratandoResposta(Alternativa alternativa_escolhida) {
         // Tramento do Acerto
         if (alternativa_escolhida == correta) {
             pontuacao += 10 * Math.pow(2.2, num_questao - 1);
             num_questao++;
             System.out.println("Resposta Correta\n");
             checkpoint(true);
+            return true;
         } // Tratamento do Erro
         else {
             for (int i = 0; i < --num_questao - checkpoint; i++) {
@@ -125,13 +126,17 @@ public class Jogo {
             pontuacao -= pontuacao * 0.05;
             System.out.println("Resposta Incorreta\n");
             checkpoint(false);
+            return false;
         }
 
-        System.out.println("Pontuação: " + pontuacao);
 
         // Finalização do jogo
+       
+    }
+    
+    public void finalizaJogo(){
         if (num_questao > 12) {
-            TelaGanhou telaNova = new TelaGanhou();
+            TelaGanhou telaNova = new TelaGanhou(tela.getUsuario());
             telaNova.setPontuacao(pontuacao);
             telaNova.setVisible(true);
             RankingDAO ranking = new RankingDAO();

@@ -287,7 +287,7 @@ public class TelaJogo2 extends javax.swing.JFrame {
         // TODO add your handling code here:
         
         dispose();
-        jogo.tratandoResposta(alternativa_escolhida,botao_clicado);
+        jogo.tratandoResposta(alternativa_escolhida);
         jogo.gerarPergunta();
         
     }//GEN-LAST:event_simButtonActionPerformed

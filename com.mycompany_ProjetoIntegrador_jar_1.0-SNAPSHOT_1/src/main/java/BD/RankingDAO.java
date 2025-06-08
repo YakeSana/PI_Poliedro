@@ -16,18 +16,20 @@ import java.sql.Timestamp;
 public class RankingDAO {
 
     public void atualizaRanking(Usuario usuario, int pontuacao) {
-        String sql = "INSERT INTO partida (id_usuario, data_hora, pontuacao_total) VALUES (?, ?, ?)";
+        if (usuario != null) {
+            String sql = "INSERT INTO partida (id_usuario, data_hora, pontuacao_total) VALUES (?, ?, ?)";
 
-        try (Connection conexao = new ConnectionFactory().obterConexao()) {
-            PreparedStatement stmt = conexao.prepareStatement(sql);
-            stmt.setInt(1, usuario.getId());
-            stmt.setTimestamp(2, new Timestamp(System.currentTimeMillis()));
-            stmt.setInt(3, pontuacao);
+            try (Connection conexao = new ConnectionFactory().obterConexao()) {
+                PreparedStatement stmt = conexao.prepareStatement(sql);
+                stmt.setInt(1, usuario.getId());
+                stmt.setTimestamp(2, new Timestamp(System.currentTimeMillis()));
+                stmt.setInt(3, pontuacao);
 
-            stmt.executeUpdate();
+                stmt.executeUpdate();
 
-        } catch (Exception e) {
-            e.printStackTrace();
+            } catch (Exception e) {
+                e.printStackTrace();
+            }
         }
     }
 

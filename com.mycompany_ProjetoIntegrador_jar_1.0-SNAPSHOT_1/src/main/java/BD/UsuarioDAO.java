@@ -13,7 +13,7 @@ public class UsuarioDAO {
     
     
     public boolean existe(Usuario usuario) throws Exception {
-    String sql = "SELECT nome_real, tipo_usuario FROM usuario WHERE nome_usuario = ? AND senha = ?";
+    String sql = "SELECT id_usuario, nome_real, tipo_usuario FROM usuario WHERE nome_usuario = ? AND senha = ?";
     try (Connection conn = ConnectionFactory.obterConexao();
          PreparedStatement ps = conn.prepareStatement(sql)) {
 
@@ -23,6 +23,7 @@ public class UsuarioDAO {
         try (ResultSet rs = ps.executeQuery()) {
             if (rs.next()) {
                 // Preenche o nome real e o tipo do usuário após o login com sucesso
+                usuario.setId(rs.getInt("id_usuario"));
                 usuario.setNomeReal(rs.getString("nome_real"));
                 usuario.setTipo(rs.getString("tipo_usuario"));
                 return true;
