@@ -12,20 +12,27 @@ import java.awt.Toolkit;
 import java.io.InputStream;
 import javax.swing.JOptionPane;
 import Model.Jogo;
+import Model.Usuario;
 
 /**
  *
  * @author conta
  */
 public class TelaMenu extends javax.swing.JFrame {
-
+    Usuario usuario;
     /** Creates new form TelaMenu */
-    public TelaMenu() {
+    public TelaMenu(Usuario usuario) {
         initComponents();
         this.setLocationRelativeTo(null);
         this.setResizable(false);
-        
+        this.usuario = usuario;
     }
+    
+    public TelaMenu() {
+        this(null);
+    }
+    
+    
 
     /** This method is called from within the constructor to
      * initialize the form.
@@ -124,10 +131,6 @@ public class TelaMenu extends javax.swing.JFrame {
         jPanel2.setLayout(jPanel2Layout);
         jPanel2Layout.setHorizontalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
-                .addContainerGap(84, Short.MAX_VALUE)
-                .addComponent(jLabel3, javax.swing.GroupLayout.PREFERRED_SIZE, 858, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(68, 68, 68))
             .addGroup(jPanel2Layout.createSequentialGroup()
                 .addGap(295, 295, 295)
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
@@ -135,7 +138,11 @@ public class TelaMenu extends javax.swing.JFrame {
                     .addComponent(rankingButton, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(materiasAdmButton, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(buttonJogar, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addContainerGap(320, Short.MAX_VALUE))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(jLabel3, javax.swing.GroupLayout.PREFERRED_SIZE, 874, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(52, 52, 52))
         );
         jPanel2Layout.setVerticalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -163,7 +170,7 @@ public class TelaMenu extends javax.swing.JFrame {
 
     private void buttonJogarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buttonJogarActionPerformed
         // TODO add your handling code here:
-        TelaJogo1 telaNova = new TelaJogo1();
+        TelaJogo1 telaNova = new TelaJogo1(usuario);
         dispose();
     }//GEN-LAST:event_buttonJogarActionPerformed
 

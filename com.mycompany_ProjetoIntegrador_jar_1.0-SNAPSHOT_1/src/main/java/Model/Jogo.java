@@ -14,6 +14,7 @@ import java.util.Random;
 import Telas.TelaJogo1;
 import BD.DisciplinasDAO;
 import BD.PerguntasDAO;
+import BD.RankingDAO;
 import Telas.TelaGanhou;
 import java.util.Arrays;
 
@@ -133,6 +134,8 @@ public class Jogo {
             TelaGanhou telaNova = new TelaGanhou();
             telaNova.setPontuacao(pontuacao);
             telaNova.setVisible(true);
+            RankingDAO ranking = new RankingDAO();
+            ranking.atualizaRanking(tela.getUsuario(),pontuacao);
             tela.dispose();
         }
     }

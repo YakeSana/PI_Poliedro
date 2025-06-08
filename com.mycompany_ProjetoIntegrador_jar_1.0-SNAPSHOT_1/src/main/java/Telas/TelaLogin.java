@@ -13,7 +13,7 @@ import javax.swing.JOptionPane;
  * @author 25.00768-3
  */
 public class TelaLogin extends javax.swing.JFrame {
-
+    Usuario usuario;
     /**
      * Creates new form TelaLogin
      */
@@ -163,7 +163,7 @@ public class TelaLogin extends javax.swing.JFrame {
 
         try {
             // Cria o objeto usuário com login e senha
-            Usuario usuario = new Usuario(nomeUsuario, senha);
+            usuario = new Usuario(nomeUsuario, senha);
 
             // Verifica se o usuário existe no banco
             UsuarioDAO dao = new UsuarioDAO();
@@ -174,12 +174,12 @@ public class TelaLogin extends javax.swing.JFrame {
                 // Abre a próxima tela
                 if (usuario.getTipo().equals("professor")) {
                     // Se for administrador, abre a tela de admin
-                    TelaMenu menuTela = new TelaMenu();
+                    TelaMenu menuTela = new TelaMenu(usuario);
                     menuTela.setVisible(true);
                     dispose();
                 } else if (usuario.getTipo().equals("aluno")) {
                     // Se for aluno, abre a tela do aluno
-                    TelaMenuAluno telaMenuAluno = new TelaMenuAluno();
+                    TelaMenuAluno telaMenuAluno = new TelaMenuAluno(usuario);
                     telaMenuAluno.setVisible(true);
                     dispose();
                 }

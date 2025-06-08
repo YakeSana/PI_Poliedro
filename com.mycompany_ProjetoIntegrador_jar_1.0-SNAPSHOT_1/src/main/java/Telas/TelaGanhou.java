@@ -4,6 +4,7 @@
  */
 package Telas;
 
+import Model.Usuario;
 import java.awt.Font;
 import java.awt.GraphicsEnvironment;
 import java.io.InputStream;
@@ -13,14 +14,20 @@ import java.io.InputStream;
  * @author conta
  */
 public class TelaGanhou extends javax.swing.JFrame {
-
+    Usuario usuario;
     /**
      * Creates new form TelaGanhou
      */
-    public TelaGanhou() {
+    public TelaGanhou(Usuario usuario) {
         initComponents();
         this.setLocationRelativeTo(null);
-        this.setResizable(  false);  
+        this.setResizable(  false);
+        this.usuario = usuario;
+        if(usuario != null) jLabel2.setText("Parabéns "+usuario.getNomeReal());
+    }
+    
+    public TelaGanhou(){
+        this(null);
     }
 
     /**
@@ -162,14 +169,14 @@ public class TelaGanhou extends javax.swing.JFrame {
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
         // TODO add your handling code here:
-        TelaJogo1 tela = new TelaJogo1();
+        TelaJogo1 tela = new TelaJogo1(usuario);
         tela.setVisible(true);
         dispose();
     }//GEN-LAST:event_jButton1ActionPerformed
 
     private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
         // TODO add your handling code here:
-        TelaMenuAluno tela = new TelaMenuAluno();
+        TelaMenuAluno tela = new TelaMenuAluno(usuario);
         tela.setVisible(true);
         dispose();
     }//GEN-LAST:event_jButton3ActionPerformed
@@ -220,6 +227,8 @@ public class TelaGanhou extends javax.swing.JFrame {
     public void setPontuacao(int pontuacao){
         jLabel5.setText(pontuacao + "");
     }
+    
+    
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton jButton1;

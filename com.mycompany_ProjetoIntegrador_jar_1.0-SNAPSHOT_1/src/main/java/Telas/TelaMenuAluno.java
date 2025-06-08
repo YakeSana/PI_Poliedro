@@ -6,6 +6,7 @@
 package Telas;
 
 import Model.Jogo;
+import Model.Usuario;
 import java.awt.Dimension;
 import java.awt.Font;
 import java.awt.GraphicsEnvironment;
@@ -17,8 +18,15 @@ import java.io.InputStream;
  * @author conta
  */
 public class TelaMenuAluno extends javax.swing.JFrame {
-
+    Usuario usuario;
     /** Creates new form TelaMenu */
+    public TelaMenuAluno(Usuario usuario) {
+        initComponents();
+        this.setLocationRelativeTo(null);
+        this.setResizable(  false);  
+        this.usuario = usuario;
+    }
+    
     public TelaMenuAluno() {
         initComponents();
         this.setLocationRelativeTo(null);
@@ -148,7 +156,7 @@ public class TelaMenuAluno extends javax.swing.JFrame {
 
     private void jogarAlunoButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jogarAlunoButtonActionPerformed
         // TODO add your handling code here:
-        TelaJogo1 telaNova = new TelaJogo1();
+        TelaJogo1 telaNova = new TelaJogo1(usuario);
         dispose();
     }//GEN-LAST:event_jogarAlunoButtonActionPerformed
 

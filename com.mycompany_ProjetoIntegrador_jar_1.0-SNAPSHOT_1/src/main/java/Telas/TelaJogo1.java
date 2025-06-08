@@ -6,6 +6,7 @@ package Telas;
 
 import Model.Alternativa;
 import Model.Jogo;
+import Model.Usuario;
 import java.awt.Color;
 import java.util.List;
 
@@ -16,10 +17,15 @@ import java.util.List;
 public class TelaJogo1 extends javax.swing.JFrame {
     List<Alternativa> alternativas;
     Jogo jogo;
+    Usuario usuario;
+
+    public Usuario getUsuario() {
+        return usuario;
+    }
     /**
      * Creates new form TelaJogo1
      */
-    public TelaJogo1() {
+    public TelaJogo1(Usuario usuario) {
         initComponents();
         this.setVisible(true);
         jButton3.setContentAreaFilled(false);
@@ -37,6 +43,11 @@ public class TelaJogo1 extends javax.swing.JFrame {
         this.setLocationRelativeTo(null);
         this.setResizable(false);
         this.jogo = new Jogo(this);
+        this.usuario = usuario;
+    }
+    
+    public TelaJogo1(){
+        this(null);
     }
 
     /**
