@@ -20,7 +20,7 @@ public class TelaLogin extends javax.swing.JFrame {
     public TelaLogin() {
         initComponents();
         this.setLocationRelativeTo(null);
-        this.setResizable(  false);  
+        this.setResizable(false);
     }
 
     /**
@@ -158,44 +158,40 @@ public class TelaLogin extends javax.swing.JFrame {
     private void entrarButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_entrarButtonActionPerformed
         // TODO add your handling code here:
         // Pega o nome de usuário e a senha
-    String nomeUsuario = usuarioTextField.getText();
-    String senha = new String(senhaPasswordField.getPassword());
+        String nomeUsuario = usuarioTextField.getText();
+        String senha = new String(senhaPasswordField.getPassword());
 
-    try {
-        // Cria o objeto usuário com login e senha
-        Usuario usuario = new Usuario(nomeUsuario, senha);
+        try {
+            // Cria o objeto usuário com login e senha
+            Usuario usuario = new Usuario(nomeUsuario, senha);
 
-        // Verifica se o usuário existe no banco
-        UsuarioDAO dao = new UsuarioDAO();
-        
-        if (dao.existe(usuario)) {
-            // Exibe o nome real e o tipo (se quiser)
-            JOptionPane.showMessageDialog(null, "Bem-vindo, " + usuario.getNomeReal() + "!");
-             // Abre a próxima tela
-            TelaMenuAluno telaMenuAl = new TelaMenuAluno();
-            telaMenuAl.setVisible(true);
-            dispose();
-            if (usuario.getTipo().equalsIgnoreCase("admin")) {
-        // Se for administrador, abre a tela de admin
-        TelaMenu menuTela = new TelaMenu();
-        menuTela.setVisible(true);
-        dispose();
-    } else if (usuario.getTipo().equalsIgnoreCase("aluno")) {
-        // Se for aluno, abre a tela do aluno
-        TelaMenuAluno telaMenuAluno = new TelaMenuAluno();
-        telaMenuAluno.setVisible(true);
-    }
-        } 
-        else {
-            JOptionPane.showMessageDialog(null, "Usuário ou senha inválidos.");
+            // Verifica se o usuário existe no banco
+            UsuarioDAO dao = new UsuarioDAO();
+
+            if (dao.existe(usuario)) {
+                // Exibe o nome real e o tipo (se quiser)
+                JOptionPane.showMessageDialog(null, "Bem-vindo, " + usuario.getNomeReal() + "!");
+                // Abre a próxima tela
+                if (usuario.getTipo().equals("professor")) {
+                    // Se for administrador, abre a tela de admin
+                    TelaMenu menuTela = new TelaMenu();
+                    menuTela.setVisible(true);
+                    dispose();
+                } else if (usuario.getTipo().equals("aluno")) {
+                    // Se for aluno, abre a tela do aluno
+                    TelaMenuAluno telaMenuAluno = new TelaMenuAluno();
+                    telaMenuAluno.setVisible(true);
+                    dispose();
+                }
+            } else {
+                JOptionPane.showMessageDialog(null, "Usuário ou senha inválidos.");
+            }
+
+        } catch (Exception e) {
+            JOptionPane.showMessageDialog(null, "Login indisponível. Tente novamente mais tarde.");
+            e.printStackTrace();
         }
 
-    } catch (Exception e) {
-        JOptionPane.showMessageDialog(null, "Problemas técnicos. Tente novamente mais tarde.");
-        e.printStackTrace();
-    }
-    
-       
 
     }//GEN-LAST:event_entrarButtonActionPerformed
 

@@ -6,6 +6,7 @@ package Telas;
 
 import Model.Alternativa;
 import Model.Jogo;
+import java.awt.Color;
 import java.util.List;
 
 /**
@@ -64,6 +65,7 @@ public class TelaJogo1 extends javax.swing.JFrame {
         jButton3 = new javax.swing.JButton();
         jLabel2 = new javax.swing.JLabel();
         jLabel1 = new javax.swing.JLabel();
+        jLabel9 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
@@ -73,7 +75,6 @@ public class TelaJogo1 extends javax.swing.JFrame {
         jLabel3.setBackground(new java.awt.Color(255, 255, 255));
         jLabel3.setFont(new java.awt.Font("Javanese Text", 0, 18)); // NOI18N
         jLabel3.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel3.setText("ASDFGHJKLÇ");
 
         jToggleButton6.setFont(new java.awt.Font("Javanese Text", 0, 14)); // NOI18N
         jToggleButton6.setText("ABSCDV");
@@ -220,58 +221,65 @@ public class TelaJogo1 extends javax.swing.JFrame {
         jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagens/TelaDeFundo.png"))); // NOI18N
         getContentPane().add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, -6, 1430, 1030));
 
+        jLabel9.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagens/MascoteFeliz-removebg-preview.png"))); // NOI18N
+        getContentPane().add(jLabel9, new org.netbeans.lib.awtextra.AbsoluteConstraints(1030, 180, 350, 510));
+
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
     private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
         // TODO add your handling code here:
-
+        jogo.dicaRemove2();
+        jButton3.setVisible(false);
 
     }//GEN-LAST:event_jButton3ActionPerformed
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
         // TODO add your handling code here:
-
+        jogo.pularQuestao();
+        jButton1.setVisible(false);
 
     }//GEN-LAST:event_jButton1ActionPerformed
 
     private void jToggleButton6ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jToggleButton6ActionPerformed
         // TODO add your handling code here:
-        TelaJogo2 jogoTela = new TelaJogo2(jogo,alternativas.get(0));
+        if(alternativas.get(0).equals(jogo.getCorreta())) pintaBotoesVerde(jToggleButton6);
+        TelaJogo2 jogoTela = new TelaJogo2(jogo,alternativas.get(0),jToggleButton6);
         jogoTela.setVisible(true);
 
     }//GEN-LAST:event_jToggleButton6ActionPerformed
 
     private void jToggleButton7ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jToggleButton7ActionPerformed
         // TODO add your handling code here:
-        TelaJogo2 jogoTela = new TelaJogo2(jogo,alternativas.get(1));
+        TelaJogo2 jogoTela = new TelaJogo2(jogo,alternativas.get(1),jToggleButton7);
         jogoTela.setVisible(true);
 
     }//GEN-LAST:event_jToggleButton7ActionPerformed
 
     private void jToggleButton8ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jToggleButton8ActionPerformed
         // TODO add your handling code here:
-        TelaJogo2 jogoTela = new TelaJogo2(jogo,alternativas.get(2));
+        TelaJogo2 jogoTela = new TelaJogo2(jogo,alternativas.get(2),jToggleButton8);
         jogoTela.setVisible(true);
 
     }//GEN-LAST:event_jToggleButton8ActionPerformed
 
     private void jToggleButton9ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jToggleButton9ActionPerformed
         // TODO add your handling code here:
-        TelaJogo2 jogoTela = new TelaJogo2(jogo,alternativas.get(3));
+        TelaJogo2 jogoTela = new TelaJogo2(jogo,alternativas.get(3),jToggleButton9);
         jogoTela.setVisible(true);
 
     }//GEN-LAST:event_jToggleButton9ActionPerformed
 
     private void jToggleButton10ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jToggleButton10ActionPerformed
         // TODO add your handling code here:
-        TelaJogo2 jogoTela = new TelaJogo2(jogo,alternativas.get(4));
+        TelaJogo2 jogoTela = new TelaJogo2(jogo,alternativas.get(4),jToggleButton10);
         jogoTela.setVisible(true);
 
     }//GEN-LAST:event_jToggleButton10ActionPerformed
 
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
-        // TODO add your handling code here:
+        jogo.dicaUniversitarios();
+        jButton2.setVisible(false);
     }//GEN-LAST:event_jButton2ActionPerformed
 
     /**
@@ -312,6 +320,10 @@ public class TelaJogo1 extends javax.swing.JFrame {
     public void exibePergunta(String pergunta) {
         jLabel3.setText(pergunta);
     }
+    
+    public void pintaBotoesVerde(javax.swing.JToggleButton botao){
+        botao.setBackground(new java.awt.Color(13, 255, 0));
+    }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton jButton1;
@@ -325,6 +337,7 @@ public class TelaJogo1 extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel6;
     private javax.swing.JLabel jLabel7;
     private javax.swing.JLabel jLabel8;
+    private javax.swing.JLabel jLabel9;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JToggleButton jToggleButton10;
     private javax.swing.JToggleButton jToggleButton6;
@@ -335,10 +348,24 @@ public class TelaJogo1 extends javax.swing.JFrame {
 
     public void exibeAlternativas(List<Alternativa> alternativas) {
         this.alternativas = alternativas;
-        jToggleButton6.setText(alternativas.get(0).getTexto());
-        jToggleButton7.setText(alternativas.get(1).getTexto());
-        jToggleButton8.setText(alternativas.get(2).getTexto());
-        jToggleButton9.setText(alternativas.get(3).getTexto());
-        jToggleButton10.setText(alternativas.get(4).getTexto());
+        jToggleButton6.setBackground(Color.WHITE);
+        jToggleButton7.setBackground(Color.WHITE);
+        jToggleButton8.setBackground(Color.WHITE);
+        jToggleButton9.setBackground(Color.WHITE);
+        jToggleButton10.setBackground(Color.WHITE);
+        definirTextoBotao(jToggleButton6,0);
+        definirTextoBotao(jToggleButton7,1);
+        definirTextoBotao(jToggleButton8,2);
+        definirTextoBotao(jToggleButton9,3);
+        definirTextoBotao(jToggleButton10,4);
     }
+    
+    private void definirTextoBotao(javax.swing.JToggleButton botao,int indice) {
+    if (alternativas.get(indice) != null) {
+        botao.setText(alternativas.get(indice).getTexto());
+    } else {
+        botao.setText("Alternativa Removida"); 
+    }
+}
+
 }

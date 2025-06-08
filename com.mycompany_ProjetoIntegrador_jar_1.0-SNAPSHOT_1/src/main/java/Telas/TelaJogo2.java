@@ -17,15 +17,17 @@ import java.io.InputStream;
 public class TelaJogo2 extends javax.swing.JFrame {
     private Jogo jogo;
     private Alternativa alternativa_escolhida;
+    private javax.swing.JToggleButton botao_clicado;
     /**
      * Creates new form TelaJogo2
      */
-    public TelaJogo2(Jogo jogo,Alternativa alternativa_escolhida) {
+    public TelaJogo2(Jogo jogo,Alternativa alternativa_escolhida,javax.swing.JToggleButton botao_clicado) {
         initComponents();
         this.setLocationRelativeTo(null);
         this.setResizable(  false);  
         this.jogo = jogo;
         this.alternativa_escolhida = alternativa_escolhida;
+        this.botao_clicado = botao_clicado;
     }
     
     public TelaJogo2() {
@@ -283,9 +285,11 @@ public class TelaJogo2 extends javax.swing.JFrame {
 
     private void simButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_simButtonActionPerformed
         // TODO add your handling code here:
-        jogo.tratandoResposta(alternativa_escolhida);
-        jogo.gerarPergunta();
+        
         dispose();
+        jogo.tratandoResposta(alternativa_escolhida,botao_clicado);
+        jogo.gerarPergunta();
+        
     }//GEN-LAST:event_simButtonActionPerformed
 
     /**

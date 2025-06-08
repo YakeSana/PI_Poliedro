@@ -14,13 +14,14 @@ import java.util.Random;
 import Telas.TelaJogo1;
 import BD.DisciplinasDAO;
 import BD.PerguntasDAO;
+import Telas.TelaGanhou;
+import java.util.Arrays;
 
 public class Jogo {
 
     private static int pontuacao;
     private static int num_questao = 1;
     private static int checkpoint = 1;
-    private static boolean jogo_rodando = true;
     private static int dificuldade = 1;
     private List<Integer> id_perguntas_feitas = new ArrayList<>();
     private List<Integer> id_perguntas_disponiveis = new ArrayList<>();
@@ -71,9 +72,8 @@ public class Jogo {
             gerarPergunta();
         }
     }
-    
 
-    public void dica75() {
+    public void dicaRemove2() {
         if (dicas[1]) {
             dicas[1] = false;
             for (Alternativa i : alternativas) {
@@ -82,47 +82,34 @@ public class Jogo {
                 }
             }
             if (!incorretas.isEmpty()) {
-                Alternativa removida = incorretas.get(random.nextInt(incorretas.size()));
-                alternativas.remove(removida);
-                System.out.println("Uma alternativa incorreta foi removida.");
+                Alternativa removida1 = incorretas.get(random.nextInt(incorretas.size()));
+                Alternativa removida2;
+                do {
+                    removida2 = incorretas.get(random.nextInt(incorretas.size()));
+                } while (removida1.equals(removida2));
+
+                alternativas.set(alternativas.indexOf(removida1), null);
+                alternativas.set(alternativas.indexOf(removida2), null);
+                tela.exibeAlternativas(alternativas);
             }
-            for (int i = 0; i < alternativas.size(); i++) {
-                System.out.println(i + ": " + alternativas.get(i));
-            }
-            System.out.println("Digite o número da questão:");
-//                resposta = scanner.nextInt();
-        } else {
-            System.out.println("Você já usou a exclusão.");
-//                resposta = scanner.nextInt();
         }
     }
 
-    public void dica50() {
+    public void dicaUniversitarios() {
         if (dicas[2]) {
             dicas[2] = false;
-            for (Alternativa i : alternativas) {
-                if (!i.isCorreta()) {
-                    incorretas.add(i);
-                }
+            int indiceCorreta = alternativas.indexOf(correta);
+            double[] porcentagens = generateRiggedArray(indiceCorreta);
+            for (int i = 0; i < 5; i++) {
+                Alternativa alternativa = alternativas.get(i);
+                alternativa.setTexto(alternativa.getTexto() + " / " + aredonda(porcentagens[i]) + " por cento escolheram");
             }
-            for (int i = 0; i < 2 && !incorretas.isEmpty(); i++) {
-                Alternativa removida = incorretas.remove(random.nextInt(incorretas.size()));
-                alternativas.remove(removida);
-            }
-            System.out.println("Duas alternativas incorretas foram removidas.");
-            for (int i = 0; i < alternativas.size(); i++) {
-                System.out.println(i + ": " + alternativas.get(i));
-            }
-            System.out.println("Digite o número da questão:");
-//                resposta = scanner.nextInt();;
-        } else {
-            System.out.println("Você já usou o 50/50.");
-//                resposta = scanner.nextInt();
+            tela.exibeAlternativas(alternativas);
         }
     }
 
 //        Alternativa alternativa_escolhida = pergunta.getAlternativas().get(resposta);
-    public void tratandoResposta(Alternativa alternativa_escolhida) {
+    public void tratandoResposta(Alternativa alternativa_escolhida, javax.swing.JToggleButton botao) {
         // Tramento do Acerto
         if (alternativa_escolhida == correta) {
             pontuacao += 10 * Math.pow(2.2, num_questao - 1);
@@ -143,8 +130,10 @@ public class Jogo {
 
         // Finalização do jogo
         if (num_questao > 12) {
-            System.out.println("Parabéns, você venceu.");
-            jogo_rodando = false;
+            TelaGanhou telaNova = new TelaGanhou();
+            telaNova.setPontuacao(pontuacao);
+            telaNova.setVisible(true);
+            tela.dispose();
         }
     }
 
@@ -191,4 +180,68 @@ public class Jogo {
     public void setResposta(int resposta) {
         this.resposta = resposta;
     }
+
+    public Alternativa getCorreta() {
+        return correta;
+    }
+
+    public double[] generateRiggedArray(int riggedIndex) {
+        if (riggedIndex < 0 || riggedIndex >= 5) {
+            throw new IllegalArgumentException("riggedIndex must be between 0 and 4.");
+        }
+
+        double[] result = new double[5];
+        Random random = new Random();
+        boolean rig = random.nextDouble() < 0.75; // 75% chance to rig
+
+        double total = 0.0;
+
+        // Step 1: Generate random values between 1 and 90
+        for (int i = 0; i < 5; i++) {
+            result[i] = 1 + random.nextDouble() * 89; // [1, 90)
+            total += result[i];
+        }
+
+        // Step 2: Normalize to sum 100.0
+        for (int i = 0; i < 5; i++) {
+            result[i] = result[i] * 100.0 / total;
+        }
+
+        // Step 3: Apply rigging if chosen
+        if (rig) {
+            double maxOther = 0.0;
+            for (int i = 0; i < 5; i++) {
+                if (i != riggedIndex && result[i] > maxOther) {
+                    maxOther = result[i];
+                }
+            }
+
+            if (result[riggedIndex] <= maxOther) {
+                double diff = maxOther - result[riggedIndex] + 0.01;
+
+                // Take value from others to make riggedIndex the highest
+                for (int i = 0; i < 5 && diff > 0.0001; i++) {
+                    if (i != riggedIndex && result[i] > 0.5) {
+                        double give = Math.min(diff, result[i] - 0.5);
+                        result[i] -= give;
+                        result[riggedIndex] += give;
+                        diff -= give;
+                    }
+                }
+            }
+        }
+
+        // Step 4: Re-normalize to correct small floating point drift
+        total = Arrays.stream(result).sum();
+        for (int i = 0; i < 5; i++) {
+            result[i] = result[i] * 100.0 / total;
+        }
+
+        return result;
+    }
+    
+    public static double aredonda(double numero) {
+        return Math.round(numero * 10) / 10.0;
+    }
+
 }
