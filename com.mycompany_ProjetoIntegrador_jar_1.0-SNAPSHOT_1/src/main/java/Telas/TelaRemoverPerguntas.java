@@ -7,6 +7,7 @@ package Telas;
 import Model.Pergunta;
 import BD.UsuarioDAO;
 import BD.ConnectionFactory;
+import BD.PerguntasDAO;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
@@ -241,7 +242,7 @@ public class TelaRemoverPerguntas extends javax.swing.JFrame {
         // TODO add your handling code here:
         int id = Integer.parseInt(txtIdExcluir.getText());
         try{ 
-            UsuarioDAO dao = new UsuarioDAO();
+            PerguntasDAO dao = new PerguntasDAO();
             JOptionPane.showMessageDialog(null, "Exclusão feita com sucesso!");
         }catch(Exception e){
             JOptionPane.showMessageDialog(null, "Não foi possível excluir, tente novamente.");

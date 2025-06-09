@@ -142,8 +142,19 @@ public class PerguntasDAO {
         }
     }
 }
+    public void excluirPerguntas(Pergunta pergunta) throws Exception{
     
+    String sql = "DELETE FROM pergunta WHERE id_pergunta = ?";
     
+    try(Connection conn = ConnectionFactory.obterConexao();
+            PreparedStatement ps = conn.prepareStatement(sql)){
+        
+        ps.setInt(1, pergunta.getId());
+        ps.execute();
+    }
+}
+
+  
 }
 
 
