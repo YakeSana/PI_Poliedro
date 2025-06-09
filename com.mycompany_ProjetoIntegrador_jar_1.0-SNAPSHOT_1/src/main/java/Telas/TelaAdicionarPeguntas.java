@@ -208,9 +208,8 @@ public class TelaAdicionarPeguntas extends javax.swing.JFrame {
 
     }//GEN-LAST:event_setaButtonActionPerformed
 
-    private void adicionarPerguntasButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_adicionarPerguntasButtonActionPerformed
-        // TODO add your handling code here:
-       try {
+    private void adicionarPerguntasButtonActionPerformed(java.awt.event.ActionEvent evt) {
+    try {
         String textoPergunta = txtAddPergunta.getText();
 
         List<String> alternativas = new ArrayList<>();
@@ -219,6 +218,12 @@ public class TelaAdicionarPeguntas extends javax.swing.JFrame {
         alternativas.add(txtAddRespC.getText());
         alternativas.add(txtAddRespD.getText());
         alternativas.add(txtAddRespE.getText());
+
+        // Validação simples
+        if (textoPergunta.trim().isEmpty() || alternativas.stream().anyMatch(a -> a.trim().isEmpty())) {
+            JOptionPane.showMessageDialog(null, "Preencha todos os campos antes de adicionar.");
+            return;
+        }
 
         PerguntasDAO dao = new PerguntasDAO();
         boolean sucesso = dao.adicionarPerguntaEAlternativas(textoPergunta, alternativas);
@@ -236,12 +241,11 @@ public class TelaAdicionarPeguntas extends javax.swing.JFrame {
         txtAddRespC.setText("");
         txtAddRespD.setText("");
         txtAddRespE.setText("");
-    } catch (NumberFormatException e) {
-        JOptionPane.showMessageDialog(null, "ID inválido.");
     } catch (Exception e) {
         JOptionPane.showMessageDialog(null, "Erro inesperado: " + e.getMessage());
-    } 
-    }//GEN-LAST:event_adicionarPerguntasButtonActionPerformed
+    }
+}
+//GEN-LAST:event_adicionarPerguntasButtonActionPerformed
 
     private void txtAddPerguntaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtAddPerguntaActionPerformed
         // TODO add your handling code here:
