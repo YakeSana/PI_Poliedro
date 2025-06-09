@@ -12,6 +12,7 @@ import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import Model.Pergunta;
+import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -78,7 +79,71 @@ public class PerguntasDAO {
     
         return lista;
     }
+    public boolean atualizarPerguntaEAlternativas(int idPergunta, String novoTextoPergunta, List<String> novasAlternativas) throws Exception {
+    Connection con = null;
+    PreparedStatement psPergunta = null;
+    PreparedStatement psAlternativa = null;
+    try {
+        con = ConnectionFactory.obterConexao();
+        con.setAutoCommit(false); // Garantir atomicidade
+
+        // Atualiza o texto da pergunta
+        String sqlPergunta = "UPDATE pergunta SET texto = ? WHERE id_pergunta = ?";
+        psPergunta = con.prepareStatement(sqlPergunta);
+        psPergunta.setString(1, novoTextoPergunta);
+        psPergunta.setInt(2, idPergunta);
+        psPergunta.executeUpdate();
+
+        // Busca os IDs das alternativas associadas à pergunta
+        String sqlBuscaAlt = "SELECT id_alternativa FROM alternativa WHERE id_pergunta = ? ORDER BY id_alternativa";
+        PreparedStatement psBuscaAlt = con.prepareStatement(sqlBuscaAlt);
+        psBuscaAlt.setInt(1, idPergunta);
+        ResultSet rs = psBuscaAlt.executeQuery();
+
+        List<Integer> idsAlternativas = new ArrayList<>();
+        while (rs.next()) {
+            idsAlternativas.add(rs.getInt("id_alternativa"));
+        }
+        rs.close();
+        psBuscaAlt.close();
+
+        // Atualiza texto e campo 'correta' das alternativas
+        String sqlAlt = "UPDATE alternativa SET texto = ?, correta = ? WHERE id_alternativa = ?";
+        psAlternativa = con.prepareStatement(sqlAlt);
+
+        for (int i = 0; i < idsAlternativas.size() && i < novasAlternativas.size(); i++) {
+            psAlternativa.setString(1, novasAlternativas.get(i));
+            psAlternativa.setBoolean(2, i == 0); // true apenas para a primeira alternativa
+            psAlternativa.setInt(3, idsAlternativas.get(i));
+            psAlternativa.executeUpdate();
+        }
+
+        con.commit();
+        return true;
+
+    } catch (SQLException e) {
+        e.printStackTrace();
+        if (con != null) {
+            try {
+                con.rollback();
+            } catch (SQLException ex) {
+                ex.printStackTrace();
+            }
+        }
+        return false;
+    } finally {
+        try {
+            if (psPergunta != null) psPergunta.close();
+            if (psAlternativa != null) psAlternativa.close();
+            if (con != null) con.setAutoCommit(true);
+            if (con != null) con.close();
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+    }
+}
     
     
 }
+
 
