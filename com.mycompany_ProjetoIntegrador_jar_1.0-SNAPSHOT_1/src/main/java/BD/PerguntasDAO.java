@@ -13,6 +13,7 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import Model.Pergunta;
 import java.sql.SQLException;
+import java.sql.Statement;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -153,6 +154,71 @@ public class PerguntasDAO {
         ps.execute();
     }
 }
+    public boolean adicionarPerguntaEAlternativas(String textoPergunta, List<String> alternativas) throws Exception {
+    Connection con = null;
+    PreparedStatement psPergunta = null;
+    PreparedStatement psAlternativa = null;
+    ResultSet rs = null;
+
+    try {
+        con = ConnectionFactory.obterConexao();
+        con.setAutoCommit(false); // Garantir atomicidade
+
+        // Inserir a nova pergunta
+        String sqlInserirPergunta = "INSERT INTO pergunta (texto) VALUES (?)";
+        psPergunta = con.prepareStatement(sqlInserirPergunta, Statement.RETURN_GENERATED_KEYS);
+        psPergunta.setString(1, textoPergunta);
+        psPergunta.executeUpdate();
+
+        // Obter o ID gerado da pergunta
+        rs = psPergunta.getGeneratedKeys();
+        int idPergunta = -1;
+        if (rs.next()) {
+            idPergunta = rs.getInt(1);
+        } else {
+            throw new SQLException("Falha ao obter o ID da nova pergunta.");
+        }
+
+        rs.close();
+        psPergunta.close();
+
+        // Inserir alternativas associadas à pergunta
+        String sqlInserirAlternativa = "INSERT INTO alternativa (texto, correta, id_pergunta) VALUES (?, ?, ?)";
+        psAlternativa = con.prepareStatement(sqlInserirAlternativa);
+
+        for (int i = 0; i < alternativas.size(); i++) {
+            psAlternativa.setString(1, alternativas.get(i));
+            psAlternativa.setBoolean(2, i == 0); // Marca a primeira como correta
+            psAlternativa.setInt(3, idPergunta);
+            psAlternativa.executeUpdate();
+        }
+
+        con.commit();
+        return true;
+
+    } catch (SQLException e) {
+        e.printStackTrace();
+        if (con != null) {
+            try {
+                con.rollback();
+            } catch (SQLException ex) {
+                ex.printStackTrace();
+            }
+        }
+        return false;
+    } finally {
+        try {
+            if (rs != null) rs.close();
+            if (psPergunta != null) psPergunta.close();
+            if (psAlternativa != null) psAlternativa.close();
+            if (con != null) con.setAutoCommit(true);
+            if (con != null) con.close();
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+    }
+}
+
 
   
 }

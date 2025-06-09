@@ -40,5 +40,12 @@ public class Pergunta {
     public int getId() {
         return id;
     }
+    public Pergunta() {
+   
+}
+
+public void setId(int id) {
+    this.id = id;
+}
     
 }

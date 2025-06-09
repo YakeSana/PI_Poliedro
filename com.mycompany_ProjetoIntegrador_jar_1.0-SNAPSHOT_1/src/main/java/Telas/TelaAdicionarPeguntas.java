@@ -4,6 +4,12 @@
  */
 package Telas;
 
+import BD.PerguntasDAO;
+import Model.Pergunta;
+import java.util.ArrayList;
+import java.util.List;
+import javax.swing.JOptionPane;
+
 /**
  *
  * @author conta
@@ -121,7 +127,7 @@ public class TelaAdicionarPeguntas extends javax.swing.JFrame {
         jLabel2.setText("Pergunta:");
 
         jLabel4.setFont(new java.awt.Font("Javanese Text", 0, 18)); // NOI18N
-        jLabel4.setText("Resposta:");
+        jLabel4.setText("Alternativas:");
 
         dificuldadeComboBox.setFont(new java.awt.Font("Javanese Text", 0, 14)); // NOI18N
         dificuldadeComboBox.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Fácil", "Médio", "Difícil", " " }));
@@ -134,10 +140,13 @@ public class TelaAdicionarPeguntas extends javax.swing.JFrame {
         jPanel1Layout.setHorizontalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
+                .addGap(159, 159, 159)
+                .addComponent(dificuldadeComboBox, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 180, Short.MAX_VALUE)
+                .addComponent(materiasComboBox, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(175, 175, 175))
+            .addGroup(jPanel1Layout.createSequentialGroup()
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGap(247, 247, 247)
-                        .addComponent(adicionarPerguntasButton, javax.swing.GroupLayout.PREFERRED_SIZE, 230, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addGap(52, 52, 52)
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -149,14 +158,11 @@ public class TelaAdicionarPeguntas extends javax.swing.JFrame {
                                 .addComponent(txtAddRespD)
                                 .addComponent(txtAddRespE, javax.swing.GroupLayout.DEFAULT_SIZE, 635, Short.MAX_VALUE)
                                 .addComponent(txtAddPergunta, javax.swing.GroupLayout.Alignment.TRAILING))
-                            .addComponent(jLabel4))))
+                            .addComponent(jLabel4)))
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addGap(229, 229, 229)
+                        .addComponent(adicionarPerguntasButton, javax.swing.GroupLayout.PREFERRED_SIZE, 230, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-            .addGroup(jPanel1Layout.createSequentialGroup()
-                .addGap(159, 159, 159)
-                .addComponent(dificuldadeComboBox, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 183, Short.MAX_VALUE)
-                .addComponent(materiasComboBox, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(175, 175, 175))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -181,12 +187,12 @@ public class TelaAdicionarPeguntas extends javax.swing.JFrame {
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(dificuldadeComboBox, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(materiasComboBox, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 45, Short.MAX_VALUE)
+                .addGap(18, 18, 18)
                 .addComponent(adicionarPerguntasButton)
-                .addGap(38, 38, 38))
+                .addContainerGap(65, Short.MAX_VALUE))
         );
 
-        getContentPane().add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(350, 200, 730, 740));
+        getContentPane().add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(350, 130, 730, 740));
 
         jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagens/img corredor - png.png"))); // NOI18N
         getContentPane().add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 1560, 1030));
@@ -204,6 +210,37 @@ public class TelaAdicionarPeguntas extends javax.swing.JFrame {
 
     private void adicionarPerguntasButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_adicionarPerguntasButtonActionPerformed
         // TODO add your handling code here:
+       try {
+        String textoPergunta = txtAddPergunta.getText();
+
+        List<String> alternativas = new ArrayList<>();
+        alternativas.add(txtAddRespA.getText()); // correta
+        alternativas.add(txtAddRespB.getText());
+        alternativas.add(txtAddRespC.getText());
+        alternativas.add(txtAddRespD.getText());
+        alternativas.add(txtAddRespE.getText());
+
+        PerguntasDAO dao = new PerguntasDAO();
+        boolean sucesso = dao.adicionarPerguntaEAlternativas(textoPergunta, alternativas);
+
+        if (sucesso) {
+            JOptionPane.showMessageDialog(null, "Pergunta adicionada com sucesso!");
+        } else {
+            JOptionPane.showMessageDialog(null, "Erro ao adicionar pergunta, tente novamente.");
+        }
+
+        // Limpar campos
+        txtAddPergunta.setText("");
+        txtAddRespA.setText("");
+        txtAddRespB.setText("");
+        txtAddRespC.setText("");
+        txtAddRespD.setText("");
+        txtAddRespE.setText("");
+    } catch (NumberFormatException e) {
+        JOptionPane.showMessageDialog(null, "ID inválido.");
+    } catch (Exception e) {
+        JOptionPane.showMessageDialog(null, "Erro inesperado: " + e.getMessage());
+    } 
     }//GEN-LAST:event_adicionarPerguntasButtonActionPerformed
 
     private void txtAddPerguntaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtAddPerguntaActionPerformed

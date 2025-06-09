@@ -211,15 +211,15 @@ public class TelaRemoverPerguntas extends javax.swing.JFrame {
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addGap(24, 24, 24)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(jScrollPane2, javax.swing.GroupLayout.DEFAULT_SIZE, 310, Short.MAX_VALUE)
-                    .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE))
-                .addGap(54, 54, 54)
+                    .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 358, Short.MAX_VALUE)
+                    .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jLabel2)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(txtIdExcluir, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(56, 56, 56)
+                .addGap(44, 44, 44)
                 .addComponent(excluirButton)
-                .addContainerGap(95, Short.MAX_VALUE))
+                .addContainerGap(107, Short.MAX_VALUE))
         );
 
         getContentPane().add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(340, 110, 770, 690));
@@ -240,14 +240,22 @@ public class TelaRemoverPerguntas extends javax.swing.JFrame {
 
     private void excluirButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_excluirButtonActionPerformed
         // TODO add your handling code here:
-        int id = Integer.parseInt(txtIdExcluir.getText());
-        try{ 
-            PerguntasDAO dao = new PerguntasDAO();
-            JOptionPane.showMessageDialog(null, "Exclusão feita com sucesso!");
-        }catch(Exception e){
-            JOptionPane.showMessageDialog(null, "Não foi possível excluir, tente novamente.");
+         int id = Integer.parseInt(txtIdExcluir.getText());
+
+    try {
+        Pergunta pergunta = new Pergunta();
+        pergunta.setId(id); // define o ID da pergunta a ser excluída
+
+        PerguntasDAO dao = new PerguntasDAO();
+        dao.excluirPerguntas(pergunta); // AQUI você chama o método que realmente exclui
+
+        JOptionPane.showMessageDialog(null, "Exclusão feita com sucesso!");
+    } catch (Exception e) {
+        JOptionPane.showMessageDialog(null, "Não foi possível excluir, tente novamente.");
     }
-        txtIdExcluir.setText("");
+
+    txtIdExcluir.setText(""); // limpa o campo de ID
+
     }//GEN-LAST:event_excluirButtonActionPerformed
 
     private void txtIdExcluirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtIdExcluirActionPerformed

@@ -85,15 +85,13 @@ public class TelaRemoverUsuario extends javax.swing.JFrame {
         setaButton = new javax.swing.JButton();
         jLabel3 = new javax.swing.JLabel();
         jPanel1 = new javax.swing.JPanel();
-        txtEcluirUsuario = new javax.swing.JTextField();
+        txtExcluirUsuario = new javax.swing.JTextField();
         jScrollPane1 = new javax.swing.JScrollPane();
         tableId = new javax.swing.JTable();
         jScrollPane2 = new javax.swing.JScrollPane();
         tableUsuarios = new javax.swing.JTable();
         jLabel2 = new javax.swing.JLabel();
         excluirUsuarioButton = new javax.swing.JButton();
-        jScrollPane3 = new javax.swing.JScrollPane();
-        tableUsuarios1 = new javax.swing.JTable();
         jLabel1 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
@@ -138,10 +136,10 @@ public class TelaRemoverUsuario extends javax.swing.JFrame {
 
         jPanel1.setBackground(new java.awt.Color(255, 255, 255, 220));
 
-        txtEcluirUsuario.setFont(new java.awt.Font("Javanese Text", 0, 18)); // NOI18N
-        txtEcluirUsuario.addActionListener(new java.awt.event.ActionListener() {
+        txtExcluirUsuario.setFont(new java.awt.Font("Javanese Text", 0, 18)); // NOI18N
+        txtExcluirUsuario.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                txtEcluirUsuarioActionPerformed(evt);
+                txtExcluirUsuarioActionPerformed(evt);
             }
         });
 
@@ -155,7 +153,15 @@ public class TelaRemoverUsuario extends javax.swing.JFrame {
             new String [] {
                 "Id"
             }
-        ));
+        ) {
+            boolean[] canEdit = new boolean [] {
+                false
+            };
+
+            public boolean isCellEditable(int rowIndex, int columnIndex) {
+                return canEdit [columnIndex];
+            }
+        });
         jScrollPane1.setViewportView(tableId);
 
         tableUsuarios.setModel(new javax.swing.table.DefaultTableModel(
@@ -168,7 +174,15 @@ public class TelaRemoverUsuario extends javax.swing.JFrame {
             new String [] {
                 "Usuários:"
             }
-        ));
+        ) {
+            boolean[] canEdit = new boolean [] {
+                false
+            };
+
+            public boolean isCellEditable(int rowIndex, int columnIndex) {
+                return canEdit [columnIndex];
+            }
+        });
         jScrollPane2.setViewportView(tableUsuarios);
 
         jLabel2.setFont(new java.awt.Font("Javanese Text", 0, 18)); // NOI18N
@@ -184,39 +198,27 @@ public class TelaRemoverUsuario extends javax.swing.JFrame {
             }
         });
 
-        tableUsuarios1.setModel(new javax.swing.table.DefaultTableModel(
-            new Object [][] {
-                {null},
-                {null},
-                {null},
-                {null}
-            },
-            new String [] {
-                "Usuários:"
-            }
-        ));
-        jScrollPane3.setViewportView(tableUsuarios1);
-
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
-                .addGap(24, 24, 24)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 97, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(31, 31, 31)
-                        .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 584, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(24, 24, 24)
+                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(jPanel1Layout.createSequentialGroup()
+                                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 97, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(31, 31, 31)
+                                .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 584, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addGroup(jPanel1Layout.createSequentialGroup()
+                                .addGap(258, 258, 258)
+                                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                                    .addComponent(jLabel2)
+                                    .addComponent(txtExcluirUsuario, javax.swing.GroupLayout.PREFERRED_SIZE, 176, javax.swing.GroupLayout.PREFERRED_SIZE)))))
                     .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                            .addComponent(txtEcluirUsuario, javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jLabel2, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                        .addGap(158, 158, 158)
-                        .addComponent(excluirUsuarioButton))
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGap(128, 128, 128)
-                        .addComponent(jScrollPane3, javax.swing.GroupLayout.PREFERRED_SIZE, 584, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addGap(320, 320, 320)
+                        .addComponent(excluirUsuarioButton)))
                 .addContainerGap(34, Short.MAX_VALUE))
         );
         jPanel1Layout.setVerticalGroup(
@@ -224,18 +226,15 @@ public class TelaRemoverUsuario extends javax.swing.JFrame {
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addGap(43, 43, 43)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(jScrollPane1)
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addComponent(jScrollPane2)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jScrollPane3)))
-                .addGap(30, 30, 30)
+                    .addComponent(jScrollPane2, javax.swing.GroupLayout.DEFAULT_SIZE, 350, Short.MAX_VALUE)
+                    .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE))
+                .addGap(18, 18, 18)
                 .addComponent(jLabel2)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(txtEcluirUsuario, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(excluirUsuarioButton))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addComponent(txtExcluirUsuario, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(39, 39, 39)
+                .addComponent(excluirUsuarioButton)
+                .addContainerGap(95, Short.MAX_VALUE))
         );
 
         getContentPane().add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(340, 220, 770, 690));
@@ -256,19 +255,26 @@ public class TelaRemoverUsuario extends javax.swing.JFrame {
 
     private void excluirUsuarioButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_excluirUsuarioButtonActionPerformed
         // TODO add your handling code here:
-        int id = Integer.parseInt(txtEcluirUsuario.getText());
-        try{
-            Usuario usuarios = new Usuario(id); 
-            UsuarioDAO dao = new UsuarioDAO();
-            JOptionPane.showMessageDialog(null, "Exclusão feita com sucesso!");
-        }catch(Exception e){
-            JOptionPane.showMessageDialog(null, "Não foi possível excluir, tente novamente.");
+           int id = Integer.parseInt(txtExcluirUsuario.getText());
+
+    try {
+        Usuario usuario = new Usuario(id,"","","");
+        usuario.setId(id); // define o ID do usuario a ser excluído
+
+        UsuarioDAO dao = new UsuarioDAO();
+        dao.excluirUsuario(usuario); // AQUI você chama o método que realmente exclui
+
+        JOptionPane.showMessageDialog(null, "Exclusão feita com sucesso!");
+    } catch (Exception e) {
+        JOptionPane.showMessageDialog(null, "Não foi possível excluir, tente novamente.");
     }
+
+    txtExcluirUsuario.setText("");
     }//GEN-LAST:event_excluirUsuarioButtonActionPerformed
 
-    private void txtEcluirUsuarioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtEcluirUsuarioActionPerformed
+    private void txtExcluirUsuarioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtExcluirUsuarioActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_txtEcluirUsuarioActionPerformed
+    }//GEN-LAST:event_txtExcluirUsuarioActionPerformed
 
     /**
      * @param args the command line arguments
@@ -329,11 +335,9 @@ public class TelaRemoverUsuario extends javax.swing.JFrame {
     private javax.swing.JPanel jPanel2;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JScrollPane jScrollPane2;
-    private javax.swing.JScrollPane jScrollPane3;
     private javax.swing.JButton setaButton;
     private javax.swing.JTable tableId;
     private javax.swing.JTable tableUsuarios;
-    private javax.swing.JTable tableUsuarios1;
-    private javax.swing.JTextField txtEcluirUsuario;
+    private javax.swing.JTextField txtExcluirUsuario;
     // End of variables declaration//GEN-END:variables
 }

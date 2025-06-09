@@ -72,7 +72,18 @@ public void editar(Usuario usuario)throws Exception{
             ps.execute();
         }
     }
-public void editarPerguntas(Pergunta pergunta)throws Exception{
+public void excluirUsuario(Usuario usuario) throws Exception{
+    
+    String sql = "DELETE FROM usuario WHERE id_usuario = ?";
+    
+    try(Connection conn = ConnectionFactory.obterConexao();
+            PreparedStatement ps = conn.prepareStatement(sql)){
+        
+        ps.setInt(1, usuario.getId());
+        ps.execute();
+    }
+}
+/*public void editarPerguntas(Pergunta pergunta)throws Exception{
     String sql = "UPDATE pergunta SET texto = ? WHERE id_pergunta = ?";
     try(Connection conn = ConnectionFactory.obterConexao();
             PreparedStatement ps = conn.prepareStatement(sql)){
@@ -89,7 +100,7 @@ public void editarAlternativas(Alternativa alternativa)throws Exception{
             ps.setInt(2,alternativa.getId());
             ps.execute();
         }
-    }
+    }*/
 
 }
 
