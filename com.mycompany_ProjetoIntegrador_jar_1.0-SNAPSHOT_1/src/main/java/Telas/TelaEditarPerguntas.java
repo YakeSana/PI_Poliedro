@@ -107,6 +107,12 @@ public class TelaEditarPerguntas extends javax.swing.JFrame {
         txtAlt4 = new javax.swing.JTextField();
         txtAlt5 = new javax.swing.JTextField();
         txtAlt2 = new javax.swing.JTextField();
+        jScrollPane3 = new javax.swing.JScrollPane();
+        tableId1 = new javax.swing.JTable();
+        jScrollPane4 = new javax.swing.JScrollPane();
+        tableId2 = new javax.swing.JTable();
+        jScrollPane5 = new javax.swing.JScrollPane();
+        tableId3 = new javax.swing.JTable();
         jLabel1 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
@@ -257,6 +263,45 @@ public class TelaEditarPerguntas extends javax.swing.JFrame {
             }
         });
 
+        tableId1.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
+                {null},
+                {null},
+                {null},
+                {null}
+            },
+            new String [] {
+                "Id"
+            }
+        ));
+        jScrollPane3.setViewportView(tableId1);
+
+        tableId2.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
+                {null},
+                {null},
+                {null},
+                {null}
+            },
+            new String [] {
+                "Id"
+            }
+        ));
+        jScrollPane4.setViewportView(tableId2);
+
+        tableId3.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
+                {null},
+                {null},
+                {null},
+                {null}
+            },
+            new String [] {
+                "Id"
+            }
+        ));
+        jScrollPane5.setViewportView(tableId3);
+
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
@@ -264,11 +309,6 @@ public class TelaEditarPerguntas extends javax.swing.JFrame {
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addGap(24, 24, 24)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 97, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(31, 31, 31)
-                        .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 584, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addContainerGap(34, Short.MAX_VALUE))
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(jPanel1Layout.createSequentialGroup()
@@ -299,7 +339,17 @@ public class TelaEditarPerguntas extends javax.swing.JFrame {
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                             .addComponent(jLabel8, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                             .addComponent(txtAlt5))
-                        .addGap(0, 0, Short.MAX_VALUE))))
+                        .addGap(0, 0, Short.MAX_VALUE))
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(jPanel1Layout.createSequentialGroup()
+                                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 97, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(31, 31, 31)
+                                .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 584, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addComponent(jScrollPane3, javax.swing.GroupLayout.PREFERRED_SIZE, 97, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jScrollPane4, javax.swing.GroupLayout.PREFERRED_SIZE, 97, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jScrollPane5, javax.swing.GroupLayout.PREFERRED_SIZE, 97, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addContainerGap(34, Short.MAX_VALUE))))
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addGap(312, 312, 312)
                 .addComponent(editarButton)
@@ -311,7 +361,14 @@ public class TelaEditarPerguntas extends javax.swing.JFrame {
                 .addGap(43, 43, 43)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                     .addComponent(jScrollPane2, javax.swing.GroupLayout.DEFAULT_SIZE, 310, Short.MAX_VALUE)
-                    .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE))
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(jScrollPane3, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(jScrollPane4, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(jScrollPane5, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE)))
                 .addGap(21, 21, 21)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel2)
@@ -359,14 +416,14 @@ public class TelaEditarPerguntas extends javax.swing.JFrame {
 
     private void editarButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_editarButtonActionPerformed
         // TODO add your handling code here:
-        int id = Integer.parseInt(txtId.getText());
+        /*int id = Integer.parseInt(txtId.getText());
         String novaPergunta = txtPergunta.getText();
         String alt1 = txtAlt1.getText();
         String alt2 = txtAlt2.getText();
         String alt3 = txtAlt3.getText();
         String alt4 = txtAlt4.getText();
         String alt5 = txtAlt5.getText();
-        try{
+        /*try{
             Pergunta perguntas = new Pergunta(id, novaPergunta);
             UsuarioDAO dao = new UsuarioDAO();
             dao.editarPerguntas(perguntas);
@@ -376,6 +433,21 @@ public class TelaEditarPerguntas extends javax.swing.JFrame {
         }
         Alternativa alternativas;
         UsuarioDAO dao = new UsuarioDAO();
+        /*WITH Alternativa AS (
+            SELECT id_alternativa,
+                ROW_NUMBER() OVER (PARTITION BY id_pergunta ORDER BY id_alternativa) AS pos
+            FROM Alternativa
+            WHERE id_pergunta = 5
+        )
+        UPDATE Alternativa
+        SET texto = CASE enumeradas.pos
+            WHEN 1 THEN 'Novo texto A'
+            WHEN 2 THEN 'Novo texto B'
+            WHEN 3 THEN 'Novo texto C'
+            ELSE texto
+        END
+        FROM alternativas_enumeradas enumeradas
+        WHERE Alternativa.id_alternativa = enumeradas.id_alternativa;*/
  
         txtId.setText("");
         txtPergunta.setText("");
@@ -479,8 +551,14 @@ public class TelaEditarPerguntas extends javax.swing.JFrame {
     private javax.swing.JPanel jPanel2;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JScrollPane jScrollPane2;
+    private javax.swing.JScrollPane jScrollPane3;
+    private javax.swing.JScrollPane jScrollPane4;
+    private javax.swing.JScrollPane jScrollPane5;
     private javax.swing.JButton setaButton;
     private javax.swing.JTable tableId;
+    private javax.swing.JTable tableId1;
+    private javax.swing.JTable tableId2;
+    private javax.swing.JTable tableId3;
     private javax.swing.JTable tablePerguntas;
     private javax.swing.JTextField txtAlt1;
     private javax.swing.JTextField txtAlt2;

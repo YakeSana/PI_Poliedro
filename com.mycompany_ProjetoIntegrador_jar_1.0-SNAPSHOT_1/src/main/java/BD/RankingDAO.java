@@ -32,5 +32,37 @@ public class RankingDAO {
             }
         }
     }
+    /*public List<RankingEntry> obterRanking() {
+    List<RankingEntry> ranking = new ArrayList<>();
+    String sql = "SELECT pontuacao_total, nome_real " +
+                 "FROM partida " +
+                 "JOIN usuario ON partida.id_usuario = usuario.id " +
+                 "ORDER BY pontuacao_total DESC";
 
+    try (Connection conexao = new ConnectionFactory().obterConexao()) {
+         PreparedStatement stmt = conn.prepareStatement(sql);
+         ResultSet rs = stmt.executeQuery()) {
+
+        while (rs.next()) {
+            int pontuacao = rs.getInt("pontuacao_total");
+            String nome = rs.getString("nome_real");
+            ranking.add(new RankingEntry(nome, pontuacao));
+        }
+
+    } catch (SQLException e) {
+        e.printStackTrace(); // ou logar erro
+    }
+
+    return ranking;
+}
+
+}
+    List<RankingEntry> ranking = dao.obterRanking();
+DefaultTableModel model = new DefaultTableModel(new Object[]{"Nome", "Pontuação"}, 0);
+
+for (RankingEntry entry : ranking) {
+    model.addRow(new Object[]{entry.getNomeReal(), entry.getPontuacaoTotal()});
+}
+
+tabelaRanking.setModel(model); // tabelaRanking é sua JTable*/
 }

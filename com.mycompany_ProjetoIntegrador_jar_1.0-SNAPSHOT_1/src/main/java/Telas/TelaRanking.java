@@ -4,9 +4,15 @@
  */
 package Telas;
 
+import BD.ConnectionFactory;
 import java.awt.Font;
 import java.awt.GraphicsEnvironment;
 import java.io.InputStream;
+import java.sql.Connection;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+import javax.swing.JOptionPane;
+import javax.swing.table.DefaultTableModel;
 
 /**
  *
@@ -25,8 +31,32 @@ public class TelaRanking extends javax.swing.JFrame {
     setaButton.setOpaque(false);
     this.setLocationRelativeTo(null);
     this.setResizable(  false);  
+    try{
+            consultaRanking();
+        }catch(Exception ex){
+            JOptionPane.showMessageDialog(null, "Não foi possível encontrar no banco de Dados");
+        }
+        try{
+            consultaRanking();
+        }catch(Exception ex){
+            JOptionPane.showMessageDialog(null, "Não foi possível encontrar no banco de Dados");
+        }
+    
     }
-
+    private void consultaRanking() throws Exception{
+        DefaultTableModel model = (DefaultTableModel)tableRanking.getModel();
+        model.setRowCount(0);
+        
+        String sql = "SELECT pontuacao_total, nome_real FROM partida join usuario using (id_usuario) order by pontuacao_total desc";
+        
+        try(Connection conn = ConnectionFactory.obterConexao();
+            PreparedStatement ps = conn.prepareStatement(sql)){
+            ResultSet rs = ps.executeQuery();
+            while(rs.next()){
+                model.addRow(new String[]{rs.getString("")});
+            }
+        }
+    }
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -39,6 +69,8 @@ public class TelaRanking extends javax.swing.JFrame {
         setaButton = new javax.swing.JButton();
         jPanel1 = new javax.swing.JPanel();
         jLabel2 = new javax.swing.JLabel();
+        jScrollPane1 = new javax.swing.JScrollPane();
+        tableRanking = new javax.swing.JTable();
         jLabel3 = new javax.swing.JLabel();
         jLabel1 = new javax.swing.JLabel();
 
@@ -59,21 +91,41 @@ public class TelaRanking extends javax.swing.JFrame {
         jLabel2.setForeground(new java.awt.Color(36, 96, 150));
         jLabel2.setText("Ranking");
 
+        tableRanking.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
+                {null, null},
+                {null, null},
+                {null, null},
+                {null, null}
+            },
+            new String [] {
+                "Nome do Aluno", "Pontuação"
+            }
+        ));
+        jScrollPane1.setViewportView(tableRanking);
+
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
-                .addContainerGap(233, Short.MAX_VALUE)
-                .addComponent(jLabel2)
-                .addGap(232, 232, 232))
+            .addGroup(jPanel1Layout.createSequentialGroup()
+                .addContainerGap(112, Short.MAX_VALUE)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
+                        .addComponent(jLabel2)
+                        .addGap(232, 232, 232))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
+                        .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 418, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(110, 110, 110))))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addGap(27, 27, 27)
                 .addComponent(jLabel2)
-                .addContainerGap(341, Short.MAX_VALUE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 322, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(13, Short.MAX_VALUE))
         );
 
         getContentPane().add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(400, 110, 640, 430));
@@ -144,6 +196,8 @@ public class TelaRanking extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JPanel jPanel1;
+    private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JButton setaButton;
+    private javax.swing.JTable tableRanking;
     // End of variables declaration//GEN-END:variables
 }

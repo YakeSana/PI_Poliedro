@@ -92,6 +92,8 @@ public class TelaRemoverPerguntas extends javax.swing.JFrame {
         tablePerguntas = new javax.swing.JTable();
         jLabel2 = new javax.swing.JLabel();
         excluirButton = new javax.swing.JButton();
+        jScrollPane3 = new javax.swing.JScrollPane();
+        tableId1 = new javax.swing.JTable();
         jLabel1 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
@@ -182,6 +184,19 @@ public class TelaRemoverPerguntas extends javax.swing.JFrame {
             }
         });
 
+        tableId1.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
+                {null},
+                {null},
+                {null},
+                {null}
+            },
+            new String [] {
+                "Id"
+            }
+        ));
+        jScrollPane3.setViewportView(tableId1);
+
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
@@ -198,7 +213,8 @@ public class TelaRemoverPerguntas extends javax.swing.JFrame {
                             .addComponent(txtIdExcluir, javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(jLabel2, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                         .addGap(158, 158, 158)
-                        .addComponent(excluirButton)))
+                        .addComponent(excluirButton))
+                    .addComponent(jScrollPane3, javax.swing.GroupLayout.PREFERRED_SIZE, 97, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addContainerGap(34, Short.MAX_VALUE))
         );
         jPanel1Layout.setVerticalGroup(
@@ -206,7 +222,10 @@ public class TelaRemoverPerguntas extends javax.swing.JFrame {
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addGap(43, 43, 43)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(jScrollPane1)
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addComponent(jScrollPane1)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(jScrollPane3))
                     .addComponent(jScrollPane2))
                 .addGap(30, 30, 30)
                 .addComponent(jLabel2)
@@ -214,7 +233,7 @@ public class TelaRemoverPerguntas extends javax.swing.JFrame {
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(txtIdExcluir, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(excluirButton))
-                .addContainerGap(93, Short.MAX_VALUE))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
         getContentPane().add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(340, 220, 770, 690));
@@ -299,8 +318,10 @@ public class TelaRemoverPerguntas extends javax.swing.JFrame {
     private javax.swing.JPanel jPanel2;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JScrollPane jScrollPane2;
+    private javax.swing.JScrollPane jScrollPane3;
     private javax.swing.JButton setaButton;
     private javax.swing.JTable tableId;
+    private javax.swing.JTable tableId1;
     private javax.swing.JTable tablePerguntas;
     private javax.swing.JTextField txtIdExcluir;
     // End of variables declaration//GEN-END:variables
