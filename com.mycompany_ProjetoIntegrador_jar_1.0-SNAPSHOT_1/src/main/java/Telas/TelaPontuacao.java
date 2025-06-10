@@ -4,9 +4,15 @@
  */
 package Telas;
 
+import BD.ConnectionFactory;
 import java.awt.Font;
 import java.awt.GraphicsEnvironment;
 import java.io.InputStream;
+import java.sql.Connection;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+import javax.swing.JOptionPane;
+import javax.swing.table.DefaultTableModel;
 
 /**
  *
@@ -25,7 +31,34 @@ public class TelaPontuacao extends javax.swing.JFrame {
     setaButton.setOpaque(false);
     this.setLocationRelativeTo(null);
     this.setResizable(  false);  
+    try{
+        consultaPontuacao();
+    }catch(Exception ex){
+            JOptionPane.showMessageDialog(null, "Não foi possível encontrar no banco de Dados");
+        }
+    
     }
+    private int idUsuarioLogado; // Atribuído no login, por exemplo
+
+private void consultaPontuacao() throws Exception {
+    DefaultTableModel model = (DefaultTableModel) tablePontuacao.getModel();
+    model.setRowCount(0);
+
+    String sql = "SELECT pontuacao_total FROM partida WHERE id_usuario = ? ORDER BY pontuacao_total DESC";
+
+    try (Connection conn = ConnectionFactory.obterConexao();
+         PreparedStatement ps = conn.prepareStatement(sql)) {
+        ps.setInt(1, idUsuarioLogado); // Define o valor do parâmetro ?
+
+        ResultSet rs = ps.executeQuery();
+        while (rs.next()) {
+            model.addRow(new String[]{rs.getString("pontuacao_total")});
+        }
+    }
+}
+
+        
+    
 
     /**
      * This method is called from within the constructor to initialize the form.
@@ -39,6 +72,8 @@ public class TelaPontuacao extends javax.swing.JFrame {
         setaButton = new javax.swing.JButton();
         jPanel1 = new javax.swing.JPanel();
         jLabel2 = new javax.swing.JLabel();
+        jScrollPane1 = new javax.swing.JScrollPane();
+        tablePontuacao = new javax.swing.JTable();
         jLabel3 = new javax.swing.JLabel();
         jLabel1 = new javax.swing.JLabel();
 
@@ -59,21 +94,49 @@ public class TelaPontuacao extends javax.swing.JFrame {
         jLabel2.setForeground(new java.awt.Color(36, 96, 150));
         jLabel2.setText("Sua Pontuação:");
 
+        tablePontuacao.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
+                {null},
+                {null},
+                {null},
+                {null}
+            },
+            new String [] {
+                ""
+            }
+        ) {
+            boolean[] canEdit = new boolean [] {
+                false
+            };
+
+            public boolean isCellEditable(int rowIndex, int columnIndex) {
+                return canEdit [columnIndex];
+            }
+        });
+        jScrollPane1.setViewportView(tablePontuacao);
+
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
-                .addGap(150, 150, 150)
-                .addComponent(jLabel2)
-                .addContainerGap(159, Short.MAX_VALUE))
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addGap(150, 150, 150)
+                        .addComponent(jLabel2))
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addGap(47, 47, 47)
+                        .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 543, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addContainerGap(50, Short.MAX_VALUE))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addGap(23, 23, 23)
                 .addComponent(jLabel2)
-                .addContainerGap(349, Short.MAX_VALUE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 337, Short.MAX_VALUE)
+                .addContainerGap())
         );
 
         getContentPane().add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(400, 110, 640, 430));
@@ -143,6 +206,8 @@ public class TelaPontuacao extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JPanel jPanel1;
+    private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JButton setaButton;
+    private javax.swing.JTable tablePontuacao;
     // End of variables declaration//GEN-END:variables
 }

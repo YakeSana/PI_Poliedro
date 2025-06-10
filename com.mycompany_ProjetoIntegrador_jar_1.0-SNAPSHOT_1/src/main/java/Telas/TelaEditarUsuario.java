@@ -159,7 +159,15 @@ public class TelaEditarUsuario extends javax.swing.JFrame {
             new String [] {
                 "Id"
             }
-        ));
+        ) {
+            boolean[] canEdit = new boolean [] {
+                false
+            };
+
+            public boolean isCellEditable(int rowIndex, int columnIndex) {
+                return canEdit [columnIndex];
+            }
+        });
         jScrollPane1.setViewportView(tableId);
 
         tableEditarUsuarios.setModel(new javax.swing.table.DefaultTableModel(
@@ -172,7 +180,15 @@ public class TelaEditarUsuario extends javax.swing.JFrame {
             new String [] {
                 "Nome De Usuário:"
             }
-        ));
+        ) {
+            boolean[] canEdit = new boolean [] {
+                false
+            };
+
+            public boolean isCellEditable(int rowIndex, int columnIndex) {
+                return canEdit [columnIndex];
+            }
+        });
         jScrollPane2.setViewportView(tableEditarUsuarios);
 
         jLabel2.setFont(new java.awt.Font("Javanese Text", 0, 16)); // NOI18N

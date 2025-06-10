@@ -171,7 +171,15 @@ public class TelaEditarPerguntas extends javax.swing.JFrame {
             new String [] {
                 "Id"
             }
-        ));
+        ) {
+            boolean[] canEdit = new boolean [] {
+                false
+            };
+
+            public boolean isCellEditable(int rowIndex, int columnIndex) {
+                return canEdit [columnIndex];
+            }
+        });
         jScrollPane1.setViewportView(tableId);
 
         tablePerguntas.setModel(new javax.swing.table.DefaultTableModel(
@@ -184,7 +192,15 @@ public class TelaEditarPerguntas extends javax.swing.JFrame {
             new String [] {
                 "Perguntas:"
             }
-        ));
+        ) {
+            boolean[] canEdit = new boolean [] {
+                false
+            };
+
+            public boolean isCellEditable(int rowIndex, int columnIndex) {
+                return canEdit [columnIndex];
+            }
+        });
         jScrollPane2.setViewportView(tablePerguntas);
 
         jLabel2.setFont(new java.awt.Font("Javanese Text", 0, 16)); // NOI18N

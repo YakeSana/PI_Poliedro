@@ -34,11 +34,7 @@ public class TelaRanking extends javax.swing.JFrame {
     try{
             consultaRanking();
         }catch(Exception ex){
-            JOptionPane.showMessageDialog(null, "Não foi possível encontrar no banco de Dados");
-        }
-        try{
-            consultaRanking();
-        }catch(Exception ex){
+             ex.printStackTrace();
             JOptionPane.showMessageDialog(null, "Não foi possível encontrar no banco de Dados");
         }
     
@@ -53,7 +49,8 @@ public class TelaRanking extends javax.swing.JFrame {
             PreparedStatement ps = conn.prepareStatement(sql)){
             ResultSet rs = ps.executeQuery();
             while(rs.next()){
-                model.addRow(new String[]{rs.getString("")});
+                model.addRow(new String[]{rs.getString("nome_real"),
+                rs.getString("pontuacao_total")});
             }
         }
     }
@@ -101,7 +98,15 @@ public class TelaRanking extends javax.swing.JFrame {
             new String [] {
                 "Nome do Aluno", "Pontuação"
             }
-        ));
+        ) {
+            boolean[] canEdit = new boolean [] {
+                false, false
+            };
+
+            public boolean isCellEditable(int rowIndex, int columnIndex) {
+                return canEdit [columnIndex];
+            }
+        });
         jScrollPane1.setViewportView(tableRanking);
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
