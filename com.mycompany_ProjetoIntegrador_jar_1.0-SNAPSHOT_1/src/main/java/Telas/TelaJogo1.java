@@ -56,7 +56,6 @@ public class TelaJogo1 extends javax.swing.JFrame {
         System.out.println(usuario);
     }
 
-
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -71,7 +70,6 @@ public class TelaJogo1 extends javax.swing.JFrame {
         simButton = new javax.swing.JButton();
         naoButton = new javax.swing.JButton();
         jPanel1 = new javax.swing.JPanel();
-        jLabel3 = new javax.swing.JLabel();
         jToggleButton6 = new javax.swing.JToggleButton();
         jToggleButton7 = new javax.swing.JToggleButton();
         jToggleButton8 = new javax.swing.JToggleButton();
@@ -82,13 +80,19 @@ public class TelaJogo1 extends javax.swing.JFrame {
         jLabel6 = new javax.swing.JLabel();
         jLabel7 = new javax.swing.JLabel();
         jLabel8 = new javax.swing.JLabel();
+        jScrollPane1 = new javax.swing.JScrollPane();
+        jTextArea1 = new javax.swing.JTextArea();
         jButton2 = new javax.swing.JButton();
         jButton1 = new javax.swing.JButton();
         jButton3 = new javax.swing.JButton();
         mascoteTriste = new javax.swing.JLabel();
         mascote = new javax.swing.JLabel();
         mascoteFeliz = new javax.swing.JLabel();
+        barraVerdeFacil = new javax.swing.JProgressBar();
+        barraAmarelaMedio = new javax.swing.JProgressBar();
+        barraVermelhaDificil = new javax.swing.JProgressBar();
         jLabel1 = new javax.swing.JLabel();
+        jPanel2 = new javax.swing.JPanel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
@@ -148,10 +152,6 @@ public class TelaJogo1 extends javax.swing.JFrame {
 
         jPanel1.setBackground(new java.awt.Color(0, 0, 0, 100));
 
-        jLabel3.setBackground(new java.awt.Color(255, 255, 255));
-        jLabel3.setFont(new java.awt.Font("Javanese Text", 0, 18)); // NOI18N
-        jLabel3.setForeground(new java.awt.Color(255, 255, 255));
-
         jToggleButton6.setFont(new java.awt.Font("Javanese Text", 0, 14)); // NOI18N
         jToggleButton6.setText("ABSCDV");
         jToggleButton6.addActionListener(new java.awt.event.ActionListener() {
@@ -210,39 +210,62 @@ public class TelaJogo1 extends javax.swing.JFrame {
 
         jLabel8.setFont(new java.awt.Font("Javanese Text", 0, 14)); // NOI18N
         jLabel8.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel8.setText("     E");
+        jLabel8.setText("  E");
+
+        jScrollPane1.setBackground(new java.awt.Color(255, 255, 255));
+        jScrollPane1.setBorder(null);
+        jScrollPane1.setForeground(new java.awt.Color(255, 255, 255));
+        jScrollPane1.setHorizontalScrollBarPolicy(javax.swing.ScrollPaneConstants.HORIZONTAL_SCROLLBAR_NEVER);
+        jScrollPane1.setVerticalScrollBarPolicy(javax.swing.ScrollPaneConstants.VERTICAL_SCROLLBAR_NEVER);
+        jScrollPane1.setEnabled(false);
+        jScrollPane1.setFocusable(false);
+        jScrollPane1.setOpaque(false);
+        jScrollPane1.setWheelScrollingEnabled(false);
+
+        jTextArea1.setEditable(false);
+        jTextArea1.setBackground(new java.awt.Color(255, 255, 255));
+        jTextArea1.setColumns(3);
+        jTextArea1.setFont(new java.awt.Font("Javanese Text", 0, 19)); // NOI18N
+        jTextArea1.setForeground(new java.awt.Color(248, 250, 252));
+        jTextArea1.setRows(5);
+        jTextArea1.setAutoscrolls(false);
+        jTextArea1.setBorder(null);
+        jTextArea1.setFocusable(false);
+        jTextArea1.setOpaque(false);
+        jScrollPane1.setViewportView(jTextArea1);
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addComponent(jLabel3, javax.swing.GroupLayout.PREFERRED_SIZE, 831, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                    .addComponent(jLabel4, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(jLabel5, javax.swing.GroupLayout.DEFAULT_SIZE, 59, Short.MAX_VALUE)
+                    .addComponent(jLabel6, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(jLabel7, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                            .addComponent(jLabel4, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(jLabel5, javax.swing.GroupLayout.DEFAULT_SIZE, 59, Short.MAX_VALUE)
-                            .addComponent(jLabel6, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(jLabel7, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addGroup(jPanel1Layout.createSequentialGroup()
-                                .addContainerGap()
-                                .addComponent(jLabel8, javax.swing.GroupLayout.DEFAULT_SIZE, 53, Short.MAX_VALUE)))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addContainerGap()
+                        .addComponent(jLabel8, javax.swing.GroupLayout.DEFAULT_SIZE, 53, Short.MAX_VALUE)))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jToggleButton6, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addGroup(jPanel1Layout.createSequentialGroup()
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addComponent(jToggleButton6, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                             .addComponent(jToggleButton7, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                             .addComponent(jToggleButton8, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                             .addComponent(jToggleButton9, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(jToggleButton10, javax.swing.GroupLayout.DEFAULT_SIZE, 801, Short.MAX_VALUE))))
-                .addContainerGap(24, Short.MAX_VALUE))
+                            .addComponent(jToggleButton10, javax.swing.GroupLayout.DEFAULT_SIZE, 801, Short.MAX_VALUE))
+                        .addGap(0, 0, Short.MAX_VALUE))
+                    .addComponent(jScrollPane1))
+                .addGap(60, 60, 60))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
-                .addGap(22, 22, 22)
-                .addComponent(jLabel3, javax.swing.GroupLayout.PREFERRED_SIZE, 187, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(49, 49, 49)
+                .addGap(90, 90, 90)
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 118, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(50, 50, 50)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jToggleButton6, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel4))
@@ -300,8 +323,39 @@ public class TelaJogo1 extends javax.swing.JFrame {
         mascoteFeliz.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagens/MascoteFeliz-removebg-preview.png"))); // NOI18N
         getContentPane().add(mascoteFeliz, new org.netbeans.lib.awtextra.AbsoluteConstraints(1030, 180, 360, 510));
 
+        barraVerdeFacil.setForeground(new Color(57, 144, 156));
+        barraVerdeFacil.setOrientation(1);
+        barraVerdeFacil.setOpaque(true);
+        barraVerdeFacil.setPreferredSize(new java.awt.Dimension(4, 150));
+        getContentPane().add(barraVerdeFacil, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 530, 80, 233));
+
+        barraAmarelaMedio.setForeground(new Color(255, 193, 7));
+        barraAmarelaMedio.setOrientation(1);
+        barraAmarelaMedio.setOpaque(true);
+        barraAmarelaMedio.setPreferredSize(new java.awt.Dimension(4, 150));
+        getContentPane().add(barraAmarelaMedio, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 300, 80, 233));
+
+        barraVermelhaDificil.setForeground(new Color(244, 67, 54));
+        barraVermelhaDificil.setOrientation(1);
+        barraVermelhaDificil.setOpaque(true);
+        barraVermelhaDificil.setPreferredSize(new java.awt.Dimension(4, 150));
+        getContentPane().add(barraVermelhaDificil, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 70, 80, 233));
+
         jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagens/TelaDeFundo.png"))); // NOI18N
         getContentPane().add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, -6, 1430, 1030));
+
+        javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
+        jPanel2.setLayout(jPanel2Layout);
+        jPanel2Layout.setHorizontalGroup(
+            jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 74, Short.MAX_VALUE)
+        );
+        jPanel2Layout.setVerticalGroup(
+            jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 684, Short.MAX_VALUE)
+        );
+
+        getContentPane().add(jPanel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 70, 80, 690));
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
@@ -431,17 +485,27 @@ public class TelaJogo1 extends javax.swing.JFrame {
 //            }
 //        });
 //    }
-
     public void exibePergunta(String pergunta) {
-        jLabel3.setText(pergunta);
+        jTextArea1.setText(pergunta);
+        jTextArea1.setEditable(false);            
+        jTextArea1.setFocusable(false); 
+        jTextArea1.setLineWrap(true);            
+        jTextArea1.setWrapStyleWord(true);
+        jScrollPane1.getViewport().setOpaque(false);
+        jTextArea1.setHighlighter(null); 
+        jTextArea1.enableInputMethods(false);
+        jTextArea1.setDragEnabled(false);
+        jTextArea1.repaint();
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JProgressBar barraAmarelaMedio;
+    private javax.swing.JProgressBar barraVerdeFacil;
+    private javax.swing.JProgressBar barraVermelhaDificil;
     private javax.swing.JButton jButton1;
     private javax.swing.JButton jButton2;
     private javax.swing.JButton jButton3;
     private javax.swing.JLabel jLabel1;
-    private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel6;
@@ -449,7 +513,10 @@ public class TelaJogo1 extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel8;
     private javax.swing.JLabel jLabel9;
     private javax.swing.JPanel jPanel1;
+    private javax.swing.JPanel jPanel2;
     private javax.swing.JPanel jPanel3;
+    private javax.swing.JScrollPane jScrollPane1;
+    private javax.swing.JTextArea jTextArea1;
     private javax.swing.JToggleButton jToggleButton10;
     private javax.swing.JToggleButton jToggleButton6;
     private javax.swing.JToggleButton jToggleButton7;
@@ -461,6 +528,30 @@ public class TelaJogo1 extends javax.swing.JFrame {
     private javax.swing.JButton naoButton;
     private javax.swing.JButton simButton;
     // End of variables declaration//GEN-END:variables
+
+    public void atualizaBarraVerde(boolean acertou) {
+        if (acertou) {
+            barraVerdeFacil.setValue(barraVerdeFacil.getValue() + 25);
+        } else {
+            barraVerdeFacil.setValue(0);
+        }
+    }
+
+    public void atualizaBarraAmarela(boolean acertou) {
+        if (acertou) {
+            barraAmarelaMedio.setValue(barraAmarelaMedio.getValue() + 25);
+        } else {
+            barraAmarelaMedio.setValue(0);
+        }
+    }
+
+    public void atualizaBarraVermelha(boolean acertou) {
+        if (acertou) {
+            barraVermelhaDificil.setValue(barraVermelhaDificil.getValue() + 25);
+        } else {
+            barraVermelhaDificil.setValue(0);
+        }
+    }
 
     public void exibeAlternativas(List<Alternativa> alternativas) {
         this.alternativas = alternativas;

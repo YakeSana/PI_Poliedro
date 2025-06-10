@@ -116,37 +116,53 @@ public class Jogo {
             pontuacao += 10 * Math.pow(2.2, num_questao - 1);
             num_questao++;
             System.out.println("Resposta Correta\n");
+            System.out.println("antes: "+dificuldade);
+            atualizaBarra(true);
             checkpoint(true);
+            System.out.println("depois: "+dificuldade);
             return true;
-        } // Tratamento do Erro
-        else {
+            
+        } else {
             for (int i = 0; i < --num_questao - checkpoint; i++) {
                 pontuacao -= 10 * Math.pow(2.2, num_questao - 1);
             }
             pontuacao -= pontuacao * 0.05;
             System.out.println("Resposta Incorreta\n");
+            atualizaBarra(false);
             checkpoint(false);
             return false;
         }
 
-
         // Finalização do jogo
-       
     }
     
-    public void finalizaJogo(){
+    public void atualizaBarra(boolean acertou){
+        switch (dificuldade) {
+                case 1:
+                    tela.atualizaBarraVerde(acertou);
+                    break;
+                case 2:
+                    tela.atualizaBarraAmarela(acertou);
+                    break;
+                case 3:
+                    tela.atualizaBarraVermelha(acertou);
+                    break;
+            }
+    }
+
+    public void finalizaJogo() {
         if (num_questao > 12) {
             TelaGanhou telaNova = new TelaGanhou(tela.getUsuario());
             telaNova.setPontuacao(pontuacao);
             telaNova.setVisible(true);
             RankingDAO ranking = new RankingDAO();
-            ranking.atualizaRanking(tela.getUsuario(),pontuacao);
+            ranking.atualizaRanking(tela.getUsuario(), pontuacao);
             tela.dispose();
         }
     }
 
     private void checkpoint(boolean acertou) {
-        final int[] checkPoints = {1, 4, 8};
+        final int[] checkPoints = {1, 5, 9};
 
         if (acertou) {
             for (int i : checkPoints) {
@@ -174,10 +190,10 @@ public class Jogo {
             case 0:
                 dificuldade = 1;
                 break;
-            case 4:
+            case 5:
                 dificuldade = 2;
                 break;
-            case 8:
+            case 9:
                 dificuldade = 3;
                 break;
             default:
@@ -198,24 +214,35 @@ public class Jogo {
             throw new IllegalArgumentException("riggedIndex must be between 0 and 4.");
         }
 
+        double[] raw = new double[5];
         double[] result = new double[5];
         Random random = new Random();
-        boolean rig = random.nextDouble() < 0.75; // 75% chance to rig
+
+        boolean allowOutliers = random.nextDouble() < 0.75; // 75% chance to allow outliers
+        boolean rig = random.nextDouble() < 0.75; // 75% chance to rig highest
 
         double total = 0.0;
 
-        // Step 1: Generate random values between 1 and 90
+        // Step 1: Generate raw values
         for (int i = 0; i < 5; i++) {
-            result[i] = 1 + random.nextDouble() * 89; // [1, 90)
-            total += result[i];
+            double base = 1 + random.nextDouble() * 89; // [1, 90)
+
+            // Allow outliers with exaggerated distribution
+            if (allowOutliers) {
+                raw[i] = Math.pow(base, 1.5); // exaggerates differences
+            } else {
+                raw[i] = base; // flatter values
+            }
+
+            total += raw[i];
         }
 
         // Step 2: Normalize to sum 100.0
         for (int i = 0; i < 5; i++) {
-            result[i] = result[i] * 100.0 / total;
+            result[i] = raw[i] * 100.0 / total;
         }
 
-        // Step 3: Apply rigging if chosen
+        // Step 3: Apply rigging if needed
         if (rig) {
             double maxOther = 0.0;
             for (int i = 0; i < 5; i++) {
@@ -227,7 +254,6 @@ public class Jogo {
             if (result[riggedIndex] <= maxOther) {
                 double diff = maxOther - result[riggedIndex] + 0.01;
 
-                // Take value from others to make riggedIndex the highest
                 for (int i = 0; i < 5 && diff > 0.0001; i++) {
                     if (i != riggedIndex && result[i] > 0.5) {
                         double give = Math.min(diff, result[i] - 0.5);
@@ -239,15 +265,15 @@ public class Jogo {
             }
         }
 
-        // Step 4: Re-normalize to correct small floating point drift
-        total = Arrays.stream(result).sum();
+        // Step 4: Final normalization (to correct any drift)
+        double sum = Arrays.stream(result).sum();
         for (int i = 0; i < 5; i++) {
-            result[i] = result[i] * 100.0 / total;
+            result[i] = result[i] * 100.0 / sum;
         }
 
         return result;
     }
-    
+
     public static double aredonda(double numero) {
         return Math.round(numero * 10) / 10.0;
     }
