@@ -224,7 +224,7 @@ public class TelaMenu extends javax.swing.JFrame {
                 new TelaMenu().setVisible(true);
             }
         });
-        try { 
+       try { 
             InputStream is = SuperCrumble.class.getResourceAsStream("/Imagens/Super Crumble.ttf");
             Font customFont = Font.createFont(Font.TRUETYPE_FONT, is).deriveFont(24f);
             GraphicsEnvironment ge = GraphicsEnvironment.getLocalGraphicsEnvironment();
@@ -233,7 +233,6 @@ public class TelaMenu extends javax.swing.JFrame {
             e.printStackTrace();
         }
     }
-
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton areaAdmButton;
     private javax.swing.JButton buttonJogar;
