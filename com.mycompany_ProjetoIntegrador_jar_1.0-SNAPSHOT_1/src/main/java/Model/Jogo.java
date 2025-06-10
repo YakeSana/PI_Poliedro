@@ -28,7 +28,7 @@ public class Jogo {
     private List<Integer> id_perguntas_disponiveis = new ArrayList<>();
     private List<Integer> disciplinas;
     private static Random random = new Random();
-    public boolean[] dicas = {true, true, true};//{Pular, 50/50, 75}
+    public  boolean[] dicas = {true, true, true};//{Pular, 50/50, 75}
     private int resposta;
     private TelaJogo1 tela;
     private PerguntasDAO db = new PerguntasDAO();
@@ -38,20 +38,23 @@ public class Jogo {
 
     public Jogo(TelaJogo1 tela) {
         this.tela = tela;
-        if (disciplinas == null) {
+        if (disciplinas == null || disciplinas.isEmpty()) {
             disciplinas = new ArrayList<>();
             for (int i = 1; i < 10; i++) {
                 disciplinas.add(i);
             }
+            setIdPerguntasDisponiveis();
+            atualiza_dificuldade();
+            gerarPergunta();
         }
-        atualiza_dificuldade();
-        setIdPerguntasDisponiveis();
-        gerarPergunta();
     }
 
     public Jogo(TelaJogo1 tela, List<Integer> disciplinas) {
-        this.disciplinas = disciplinas;
         this(tela);
+        if(disciplinas != null)this.disciplinas = disciplinas;
+        setIdPerguntasDisponiveis();
+        atualiza_dificuldade();
+        gerarPergunta();
     }
 
     public void gerarPergunta() {
@@ -164,12 +167,13 @@ public class Jogo {
 
     public void finalizaJogo() {
         if (num_questao > 12) {
-            TelaGanhou telaNova = new TelaGanhou(tela.getUsuario());
+            TelaGanhou telaNova = new TelaGanhou(tela.getUsuario(),disciplinas);
             telaNova.setPontuacao(pontuacao);
-            telaNova.setVisible(true);
             RankingDAO ranking = new RankingDAO();
             ranking.atualizaRanking(tela.getUsuario(), pontuacao);
+            telaNova.setVisible(true);
             tela.dispose();
+            
         }
     }
 

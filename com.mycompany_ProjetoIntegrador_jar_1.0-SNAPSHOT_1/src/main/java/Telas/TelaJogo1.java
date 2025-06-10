@@ -36,7 +36,6 @@ public class TelaJogo1 extends javax.swing.JFrame {
         jPanel3.setVisible(false);
         mascoteFeliz.setVisible(false);
         mascoteTriste.setVisible(false);
-        this.setVisible(true);
         jButton3.setContentAreaFilled(false);
         jButton3.setBorderPainted(false);
         jButton3.setFocusPainted(false);
@@ -52,14 +51,16 @@ public class TelaJogo1 extends javax.swing.JFrame {
         jPanel3.setVisible(false);
         this.setLocationRelativeTo(null);
         this.setResizable(false);
-        this.jogo = new Jogo(this,disciplinas);
         this.usuario = usuario;
         System.out.println(usuario);
+        
     }
     
     public TelaJogo1(Usuario usuario,List<Integer> disciplinas){
-        this.disciplinas = disciplinas;
         this(usuario);
+        this.disciplinas = disciplinas;
+        this.jogo = new Jogo(this,disciplinas);
+        this.setVisible(true);
     }
 
     /**

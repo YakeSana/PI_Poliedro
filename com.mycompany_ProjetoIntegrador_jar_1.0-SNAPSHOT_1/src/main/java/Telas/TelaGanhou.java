@@ -8,6 +8,7 @@ import Model.Usuario;
 import java.awt.Font;
 import java.awt.GraphicsEnvironment;
 import java.io.InputStream;
+import java.util.List;
 
 /**
  *
@@ -15,6 +16,7 @@ import java.io.InputStream;
  */
 public class TelaGanhou extends javax.swing.JFrame {
     Usuario usuario;
+    List<Integer> disciplinas;
     /**
      * Creates new form TelaGanhou
      */
@@ -28,6 +30,11 @@ public class TelaGanhou extends javax.swing.JFrame {
     
     public TelaGanhou(){
         this(null);
+    }
+    
+    public TelaGanhou(Usuario usuario,List<Integer> disciplinas){
+        this(usuario);
+        this.disciplinas = disciplinas;
     }
 
     /**
@@ -170,7 +177,7 @@ public class TelaGanhou extends javax.swing.JFrame {
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
         // TODO add your handling code here:
-        TelaJogo1 tela = new TelaJogo1(usuario);
+        TelaJogo1 tela = new TelaJogo1(usuario,disciplinas);
         tela.setVisible(true);
         dispose();
     }//GEN-LAST:event_jButton1ActionPerformed

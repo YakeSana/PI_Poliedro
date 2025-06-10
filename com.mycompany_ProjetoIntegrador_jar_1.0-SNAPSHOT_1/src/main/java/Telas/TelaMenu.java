@@ -14,6 +14,7 @@ import javax.swing.JOptionPane;
 import Model.Jogo;
 import Model.Usuario;
 import java.util.List;
+import javax.swing.Timer;
 
 /**
  *
@@ -25,6 +26,7 @@ public class TelaMenu extends javax.swing.JFrame {
     /** Creates new form TelaMenu */
     public TelaMenu(Usuario usuario) {
         initComponents();
+        jPanel3.setVisible(false);
         this.setLocationRelativeTo(null);
         this.setResizable(false);
         this.usuario = usuario;
@@ -54,6 +56,8 @@ public class TelaMenu extends javax.swing.JFrame {
         jPanel1 = new javax.swing.JPanel();
         jLabel2 = new javax.swing.JLabel();
         jLabel4 = new javax.swing.JLabel();
+        jPanel3 = new javax.swing.JPanel();
+        jLabel5 = new javax.swing.JLabel();
         jPanel2 = new javax.swing.JPanel();
         jLabel3 = new javax.swing.JLabel();
         buttonJogar = new javax.swing.JButton();
@@ -88,6 +92,29 @@ public class TelaMenu extends javax.swing.JFrame {
 
         jLabel4.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagens/Mascote.png"))); // NOI18N
         getContentPane().add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(930, 260, 370, 500));
+
+        jPanel3.setBackground(new java.awt.Color(255, 255, 255));
+        jPanel3.setForeground(new java.awt.Color(36, 96, 150));
+        jPanel3.setToolTipText("");
+        jPanel3.setFocusable(false);
+        jPanel3.setOpaque(false);
+
+        jLabel5.setFont(new java.awt.Font("Super Crumble", 1, 90)); // NOI18N
+        jLabel5.setForeground(new java.awt.Color(0, 51, 51));
+        jLabel5.setText("Carregando...");
+
+        javax.swing.GroupLayout jPanel3Layout = new javax.swing.GroupLayout(jPanel3);
+        jPanel3.setLayout(jPanel3Layout);
+        jPanel3Layout.setHorizontalGroup(
+            jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(jLabel5, javax.swing.GroupLayout.DEFAULT_SIZE, 590, Short.MAX_VALUE)
+        );
+        jPanel3Layout.setVerticalGroup(
+            jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(jLabel5, javax.swing.GroupLayout.DEFAULT_SIZE, 230, Short.MAX_VALUE)
+        );
+
+        getContentPane().add(jPanel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(370, 290, 590, 230));
 
         jPanel2.setBackground(new java.awt.Color(255, 255, 255, 220));
 
@@ -146,9 +173,9 @@ public class TelaMenu extends javax.swing.JFrame {
                     .addComponent(rankingButton, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(materiasAdmButton, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(buttonJogar, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                .addContainerGap(320, Short.MAX_VALUE))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addContainerGap(84, Short.MAX_VALUE)
                 .addComponent(jLabel3, javax.swing.GroupLayout.PREFERRED_SIZE, 874, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(52, 52, 52))
         );
@@ -159,13 +186,13 @@ public class TelaMenu extends javax.swing.JFrame {
                 .addComponent(jLabel3, javax.swing.GroupLayout.PREFERRED_SIZE, 104, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(39, 39, 39)
                 .addComponent(buttonJogar, javax.swing.GroupLayout.PREFERRED_SIZE, 75, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(55, 55, 55)
+                .addGap(61, 61, 61)
                 .addComponent(materiasAdmButton, javax.swing.GroupLayout.PREFERRED_SIZE, 74, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(55, 55, 55)
                 .addComponent(rankingButton, javax.swing.GroupLayout.PREFERRED_SIZE, 75, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(55, 55, 55)
                 .addComponent(areaAdmButton, javax.swing.GroupLayout.PREFERRED_SIZE, 75, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(116, Short.MAX_VALUE))
+                .addContainerGap(110, Short.MAX_VALUE))
         );
 
         getContentPane().add(jPanel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(220, 110, 1010, 770));
@@ -178,8 +205,19 @@ public class TelaMenu extends javax.swing.JFrame {
 
     private void buttonJogarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buttonJogarActionPerformed
         // TODO add your handling code here:
-        TelaJogo1 telaNova = new TelaJogo1(usuario,disciplinas);
-        dispose();
+        jPanel2.setVisible(false);
+        jPanel3.setVisible(true);
+        jPanel2.revalidate();
+        jPanel2.repaint();
+        jPanel3.revalidate();
+        jPanel3.repaint();
+        Timer timer = new javax.swing.Timer(200, e -> {
+        TelaJogo1 telaNova = new TelaJogo1(usuario, disciplinas);
+        dispose();});
+        timer.setRepeats(false);
+        timer.start();
+        
+        
     }//GEN-LAST:event_buttonJogarActionPerformed
 
     private void areaAdmButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_areaAdmButtonActionPerformed
@@ -256,8 +294,10 @@ public class TelaMenu extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
+    private javax.swing.JLabel jLabel5;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
+    private javax.swing.JPanel jPanel3;
     private javax.swing.JButton materiasAdmButton;
     private javax.swing.JButton rankingButton;
     // End of variables declaration//GEN-END:variables
