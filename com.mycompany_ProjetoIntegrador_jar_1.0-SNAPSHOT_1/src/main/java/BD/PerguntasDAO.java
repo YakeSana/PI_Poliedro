@@ -154,7 +154,7 @@ public class PerguntasDAO {
         ps.execute();
     }
 }
-    public boolean adicionarPerguntaEAlternativas(String textoPergunta, List<String> alternativas) throws Exception {
+    public boolean adicionarPerguntaEAlternativas(String textoPergunta, List<String> alternativas, int idDisciplina, int idDificuldade) throws Exception {
     Connection con = null;
     PreparedStatement psPergunta = null;
     PreparedStatement psAlternativa = null;
@@ -164,10 +164,12 @@ public class PerguntasDAO {
         con = ConnectionFactory.obterConexao();
         con.setAutoCommit(false); // Garantir atomicidade
 
-        // Inserir a nova pergunta
-        String sqlInserirPergunta = "INSERT INTO pergunta (texto) VALUES (?)";
+        // Inserir a nova pergunta com disciplina e dificuldade
+        String sqlInserirPergunta = "INSERT INTO pergunta (texto, id_disciplina, id_dificuldade) VALUES (?, ?, ?)";
         psPergunta = con.prepareStatement(sqlInserirPergunta, Statement.RETURN_GENERATED_KEYS);
         psPergunta.setString(1, textoPergunta);
+        psPergunta.setInt(2, idDisciplina);
+        psPergunta.setInt(3, idDificuldade);
         psPergunta.executeUpdate();
 
         // Obter o ID gerado da pergunta
@@ -178,9 +180,6 @@ public class PerguntasDAO {
         } else {
             throw new SQLException("Falha ao obter o ID da nova pergunta.");
         }
-
-        rs.close();
-        psPergunta.close();
 
         // Inserir alternativas associadas à pergunta
         String sqlInserirAlternativa = "INSERT INTO alternativa (texto, correta, id_pergunta) VALUES (?, ?, ?)";
@@ -218,6 +217,7 @@ public class PerguntasDAO {
         }
     }
 }
+
 
 
   

@@ -225,8 +225,32 @@ public class TelaAdicionarPeguntas extends javax.swing.JFrame {
             return;
         }
 
+        // Mapeamento da disciplina selecionada para o ID (ordem corrigida)
+        String disciplinaSelecionada = materiasComboBox.getSelectedItem().toString();
+        int idDisciplina = switch (disciplinaSelecionada) {
+            case "Matemática" -> 1;
+            case "Física" -> 2;
+            case "Química" -> 3;
+            case "Biologia" -> 4;
+            case "Português" -> 5;
+            case "História" -> 6;
+            case "Geografia" -> 7;
+            case "Filosofia" -> 8;
+            case "Sociologia" -> 9;
+            default -> throw new IllegalArgumentException("Disciplina inválida");
+        };
+
+        // Mapeamento da dificuldade selecionada para o ID
+        String dificuldadeSelecionada = dificuldadeComboBox.getSelectedItem().toString();
+        int idDificuldade = switch (dificuldadeSelecionada) {
+            case "Fácil" -> 1;
+            case "Médio" -> 2;
+            case "Difícil" -> 3;
+            default -> throw new IllegalArgumentException("Dificuldade inválida");
+        };
+
         PerguntasDAO dao = new PerguntasDAO();
-        boolean sucesso = dao.adicionarPerguntaEAlternativas(textoPergunta, alternativas);
+        boolean sucesso = dao.adicionarPerguntaEAlternativas(textoPergunta, alternativas, idDisciplina, idDificuldade);
 
         if (sucesso) {
             JOptionPane.showMessageDialog(null, "Pergunta adicionada com sucesso!");
@@ -241,10 +265,14 @@ public class TelaAdicionarPeguntas extends javax.swing.JFrame {
         txtAddRespC.setText("");
         txtAddRespD.setText("");
         txtAddRespE.setText("");
+        materiasComboBox.setSelectedIndex(0);
+        dificuldadeComboBox.setSelectedIndex(0);
+
     } catch (Exception e) {
         JOptionPane.showMessageDialog(null, "Erro inesperado: " + e.getMessage());
     }
 }
+
 //GEN-LAST:event_adicionarPerguntasButtonActionPerformed
 
     private void txtAddPerguntaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtAddPerguntaActionPerformed
