@@ -20,14 +20,15 @@ import java.util.Arrays;
 
 public class Jogo {
 
-    private static int pontuacao;
-    private static int num_questao = 1;
-    private static int checkpoint = 1;
-    private static int dificuldade = 1;
+    private int pontuacao;
+    private int num_questao = 1;
+    private int checkpoint = 1;
+    private int dificuldade = 1;
     private List<Integer> id_perguntas_feitas = new ArrayList<>();
     private List<Integer> id_perguntas_disponiveis = new ArrayList<>();
+    private List<Integer> disciplinas;
     private static Random random = new Random();
-    public static boolean[] dicas = {true, true, true};//{Pular, 50/50, 75}
+    public boolean[] dicas = {true, true, true};//{Pular, 50/50, 75}
     private int resposta;
     private TelaJogo1 tela;
     private PerguntasDAO db = new PerguntasDAO();
@@ -37,9 +38,20 @@ public class Jogo {
 
     public Jogo(TelaJogo1 tela) {
         this.tela = tela;
+        if (disciplinas == null) {
+            disciplinas = new ArrayList<>();
+            for (int i = 1; i < 10; i++) {
+                disciplinas.add(i);
+            }
+        }
         atualiza_dificuldade();
         setIdPerguntasDisponiveis();
         gerarPergunta();
+    }
+
+    public Jogo(TelaJogo1 tela, List<Integer> disciplinas) {
+        this.disciplinas = disciplinas;
+        this(tela);
     }
 
     public void gerarPergunta() {
@@ -116,12 +128,12 @@ public class Jogo {
             pontuacao += 10 * Math.pow(2.2, num_questao - 1);
             num_questao++;
             System.out.println("Resposta Correta\n");
-            System.out.println("antes: "+dificuldade);
+            System.out.println("antes: " + dificuldade);
             atualizaBarra(true);
             checkpoint(true);
-            System.out.println("depois: "+dificuldade);
+            System.out.println("depois: " + dificuldade);
             return true;
-            
+
         } else {
             for (int i = 0; i < --num_questao - checkpoint; i++) {
                 pontuacao -= 10 * Math.pow(2.2, num_questao - 1);
@@ -135,19 +147,19 @@ public class Jogo {
 
         // Finalização do jogo
     }
-    
-    public void atualizaBarra(boolean acertou){
+
+    public void atualizaBarra(boolean acertou) {
         switch (dificuldade) {
-                case 1:
-                    tela.atualizaBarraVerde(acertou);
-                    break;
-                case 2:
-                    tela.atualizaBarraAmarela(acertou);
-                    break;
-                case 3:
-                    tela.atualizaBarraVermelha(acertou);
-                    break;
-            }
+            case 1:
+                tela.atualizaBarraVerde(acertou);
+                break;
+            case 2:
+                tela.atualizaBarraAmarela(acertou);
+                break;
+            case 3:
+                tela.atualizaBarraVermelha(acertou);
+                break;
+        }
     }
 
     public void finalizaJogo() {
@@ -182,7 +194,7 @@ public class Jogo {
     private void setIdPerguntasDisponiveis() {
         DisciplinasDAO dis = new DisciplinasDAO();
         PerguntasDAO db = new PerguntasDAO();
-        id_perguntas_disponiveis = db.ids_disponiveis(dificuldade, dis.getListaDisciplinas());
+        id_perguntas_disponiveis = db.ids_disponiveis(dificuldade, disciplinas);
     }
 
     private void atualiza_dificuldade() {

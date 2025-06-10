@@ -18,6 +18,7 @@ import javax.swing.Timer;
 public class TelaJogo1 extends javax.swing.JFrame {
 
     List<Alternativa> alternativas;
+    List<Integer> disciplinas;
     Jogo jogo;
     Usuario usuario;
     Alternativa alternativa_escolhida;
@@ -51,9 +52,14 @@ public class TelaJogo1 extends javax.swing.JFrame {
         jPanel3.setVisible(false);
         this.setLocationRelativeTo(null);
         this.setResizable(false);
-        this.jogo = new Jogo(this);
+        this.jogo = new Jogo(this,disciplinas);
         this.usuario = usuario;
         System.out.println(usuario);
+    }
+    
+    public TelaJogo1(Usuario usuario,List<Integer> disciplinas){
+        this.disciplinas = disciplinas;
+        this(usuario);
     }
 
     /**

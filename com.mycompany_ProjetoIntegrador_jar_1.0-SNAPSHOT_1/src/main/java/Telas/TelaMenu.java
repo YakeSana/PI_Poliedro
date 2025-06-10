@@ -13,6 +13,7 @@ import java.io.InputStream;
 import javax.swing.JOptionPane;
 import Model.Jogo;
 import Model.Usuario;
+import java.util.List;
 
 /**
  *
@@ -20,6 +21,7 @@ import Model.Usuario;
  */
 public class TelaMenu extends javax.swing.JFrame {
     Usuario usuario;
+    List<Integer> disciplinas;
     /** Creates new form TelaMenu */
     public TelaMenu(Usuario usuario) {
         initComponents();
@@ -31,6 +33,11 @@ public class TelaMenu extends javax.swing.JFrame {
     
     public TelaMenu() {
         this(null);
+    }
+    
+    public TelaMenu(Usuario usuario,List<Integer> disciplinas){
+        this(usuario);
+        this.disciplinas = disciplinas;
     }
     
     
@@ -171,7 +178,7 @@ public class TelaMenu extends javax.swing.JFrame {
 
     private void buttonJogarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buttonJogarActionPerformed
         // TODO add your handling code here:
-        TelaJogo1 telaNova = new TelaJogo1(usuario);
+        TelaJogo1 telaNova = new TelaJogo1(usuario,disciplinas);
         dispose();
     }//GEN-LAST:event_buttonJogarActionPerformed
 
@@ -186,7 +193,7 @@ public class TelaMenu extends javax.swing.JFrame {
 
     private void materiasAdmButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_materiasAdmButtonActionPerformed
         // TODO add your handling code here:
-        TelaMaterias materiasTela = new TelaMaterias();
+        TelaMaterias materiasTela = new TelaMaterias(usuario);
         materiasTela.setVisible(true);
         dispose();
     }//GEN-LAST:event_materiasAdmButtonActionPerformed

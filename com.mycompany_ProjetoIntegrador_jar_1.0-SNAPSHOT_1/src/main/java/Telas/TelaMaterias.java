@@ -4,9 +4,13 @@
  */
 package Telas;
 
+import Model.Usuario;
+import java.awt.Color;
 import java.awt.Font;
 import java.awt.GraphicsEnvironment;
 import java.io.InputStream;
+import java.util.ArrayList;
+import java.util.List;
 
 /**
  *
@@ -14,17 +18,21 @@ import java.io.InputStream;
  */
 public class TelaMaterias extends javax.swing.JFrame {
 
+    List<Integer> disciplinas = new ArrayList<>();
+    Usuario usuario;
+
     /**
      * Creates new form TelaMaterias
      */
-    public TelaMaterias() {
+    public TelaMaterias(Usuario usuario) {
         initComponents();
         setaButton.setContentAreaFilled(false);
-    setaButton.setBorderPainted(false);
-    setaButton.setFocusPainted(false);
-    setaButton.setOpaque(false);
-    this.setLocationRelativeTo(null);
-    this.setResizable(  false);  
+        setaButton.setBorderPainted(false);
+        setaButton.setFocusPainted(false);
+        setaButton.setOpaque(false);
+        this.setLocationRelativeTo(null);
+        this.setResizable(false);
+        this.usuario = usuario;
     }
 
     /**
@@ -39,15 +47,15 @@ public class TelaMaterias extends javax.swing.JFrame {
         setaButton = new javax.swing.JButton();
         jLabel2 = new javax.swing.JLabel();
         jPanel1 = new javax.swing.JPanel();
-        jToggleButton1 = new javax.swing.JToggleButton();
-        jToggleButton2 = new javax.swing.JToggleButton();
-        jToggleButton3 = new javax.swing.JToggleButton();
-        jToggleButton4 = new javax.swing.JToggleButton();
-        jToggleButton5 = new javax.swing.JToggleButton();
-        jToggleButton6 = new javax.swing.JToggleButton();
-        jToggleButton7 = new javax.swing.JToggleButton();
-        jToggleButton8 = new javax.swing.JToggleButton();
-        jToggleButton9 = new javax.swing.JToggleButton();
+        biologia = new javax.swing.JToggleButton();
+        filosofia = new javax.swing.JToggleButton();
+        fisica = new javax.swing.JToggleButton();
+        geografia = new javax.swing.JToggleButton();
+        historia = new javax.swing.JToggleButton();
+        matematica = new javax.swing.JToggleButton();
+        portugues = new javax.swing.JToggleButton();
+        quimica = new javax.swing.JToggleButton();
+        sociologia = new javax.swing.JToggleButton();
         jLabel3 = new javax.swing.JLabel();
         jLabel1 = new javax.swing.JLabel();
 
@@ -67,65 +75,95 @@ public class TelaMaterias extends javax.swing.JFrame {
 
         jPanel1.setBackground(new java.awt.Color(255, 255, 255, 230));
 
-        jToggleButton1.setBackground(new java.awt.Color(95, 18, 140));
-        jToggleButton1.setFont(new java.awt.Font("Super Crumble", 0, 18)); // NOI18N
-        jToggleButton1.setForeground(new java.awt.Color(255, 255, 255));
-        jToggleButton1.setText("Biologia");
-        jToggleButton1.addActionListener(new java.awt.event.ActionListener() {
+        biologia.setBackground(new java.awt.Color(146, 146, 204));
+        biologia.setFont(new java.awt.Font("Super Crumble", 0, 18)); // NOI18N
+        biologia.setForeground(new java.awt.Color(128, 0, 0));
+        biologia.setText("Biologia");
+        biologia.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jToggleButton1ActionPerformed(evt);
+                biologiaActionPerformed(evt);
             }
         });
 
-        jToggleButton2.setBackground(new java.awt.Color(95, 18, 140));
-        jToggleButton2.setFont(new java.awt.Font("Super Crumble", 0, 18)); // NOI18N
-        jToggleButton2.setForeground(new java.awt.Color(255, 255, 255));
-        jToggleButton2.setText("Filosofia");
-
-        jToggleButton3.setBackground(new java.awt.Color(95, 18, 140));
-        jToggleButton3.setFont(new java.awt.Font("Super Crumble", 0, 18)); // NOI18N
-        jToggleButton3.setForeground(new java.awt.Color(255, 255, 255));
-        jToggleButton3.setText("Física");
-
-        jToggleButton4.setBackground(new java.awt.Color(95, 18, 140));
-        jToggleButton4.setFont(new java.awt.Font("Super Crumble", 0, 18)); // NOI18N
-        jToggleButton4.setForeground(new java.awt.Color(255, 255, 255));
-        jToggleButton4.setText("Geografia");
-
-        jToggleButton5.setBackground(new java.awt.Color(95, 18, 140));
-        jToggleButton5.setFont(new java.awt.Font("Super Crumble", 0, 18)); // NOI18N
-        jToggleButton5.setForeground(new java.awt.Color(255, 255, 255));
-        jToggleButton5.setText("História");
-        jToggleButton5.addActionListener(new java.awt.event.ActionListener() {
+        filosofia.setBackground(new java.awt.Color(146, 146, 204));
+        filosofia.setFont(new java.awt.Font("Super Crumble", 0, 18)); // NOI18N
+        filosofia.setForeground(new java.awt.Color(128, 0, 0));
+        filosofia.setText("Filosofia");
+        filosofia.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jToggleButton5ActionPerformed(evt);
+                filosofiaActionPerformed(evt);
             }
         });
 
-        jToggleButton6.setBackground(new java.awt.Color(95, 18, 140));
-        jToggleButton6.setFont(new java.awt.Font("Super Crumble", 0, 18)); // NOI18N
-        jToggleButton6.setForeground(new java.awt.Color(255, 255, 255));
-        jToggleButton6.setText("Matemática");
-
-        jToggleButton7.setBackground(new java.awt.Color(95, 18, 140));
-        jToggleButton7.setFont(new java.awt.Font("Super Crumble", 0, 18)); // NOI18N
-        jToggleButton7.setForeground(new java.awt.Color(255, 255, 255));
-        jToggleButton7.setText("Português");
-        jToggleButton7.addActionListener(new java.awt.event.ActionListener() {
+        fisica.setBackground(new java.awt.Color(146, 146, 204));
+        fisica.setFont(new java.awt.Font("Super Crumble", 0, 18)); // NOI18N
+        fisica.setForeground(new java.awt.Color(128, 0, 0));
+        fisica.setText("Física");
+        fisica.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jToggleButton7ActionPerformed(evt);
+                fisicaActionPerformed(evt);
             }
         });
 
-        jToggleButton8.setBackground(new java.awt.Color(95, 18, 140));
-        jToggleButton8.setFont(new java.awt.Font("Super Crumble", 0, 18)); // NOI18N
-        jToggleButton8.setForeground(new java.awt.Color(255, 255, 255));
-        jToggleButton8.setText("Química");
+        geografia.setBackground(new java.awt.Color(146, 146, 204));
+        geografia.setFont(new java.awt.Font("Super Crumble", 0, 18)); // NOI18N
+        geografia.setForeground(new java.awt.Color(128, 0, 0));
+        geografia.setText("Geografia");
+        geografia.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                geografiaActionPerformed(evt);
+            }
+        });
 
-        jToggleButton9.setBackground(new java.awt.Color(95, 18, 140));
-        jToggleButton9.setFont(new java.awt.Font("Super Crumble", 0, 18)); // NOI18N
-        jToggleButton9.setForeground(new java.awt.Color(255, 255, 255));
-        jToggleButton9.setText("Sociologia");
+        historia.setBackground(new java.awt.Color(146, 146, 204));
+        historia.setFont(new java.awt.Font("Super Crumble", 0, 18)); // NOI18N
+        historia.setForeground(new java.awt.Color(128, 0, 0));
+        historia.setText("História");
+        historia.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                historiaActionPerformed(evt);
+            }
+        });
+
+        matematica.setBackground(new java.awt.Color(146, 146, 204));
+        matematica.setFont(new java.awt.Font("Super Crumble", 0, 18)); // NOI18N
+        matematica.setForeground(new java.awt.Color(128, 0, 0));
+        matematica.setText("Matemática");
+        matematica.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                matematicaActionPerformed(evt);
+            }
+        });
+
+        portugues.setBackground(new java.awt.Color(146, 146, 204));
+        portugues.setFont(new java.awt.Font("Super Crumble", 0, 18)); // NOI18N
+        portugues.setForeground(new java.awt.Color(128, 0, 0));
+        portugues.setText("Português");
+        portugues.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                portuguesActionPerformed(evt);
+            }
+        });
+
+        quimica.setBackground(new java.awt.Color(146, 146, 204));
+        quimica.setFont(new java.awt.Font("Super Crumble", 0, 18)); // NOI18N
+        quimica.setForeground(new java.awt.Color(128, 0, 0));
+        quimica.setText("Química");
+        quimica.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                quimicaActionPerformed(evt);
+            }
+        });
+
+        sociologia.setBackground(new java.awt.Color(146, 146, 204));
+        sociologia.setFont(new java.awt.Font("Super Crumble", 0, 18)); // NOI18N
+        sociologia.setForeground(new java.awt.Color(128, 0, 0));
+        sociologia.setText("Sociologia");
+        sociologia.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                sociologiaActionPerformed(evt);
+            }
+        });
 
         jLabel3.setFont(new java.awt.Font("Super Crumble", 0, 48)); // NOI18N
         jLabel3.setForeground(new java.awt.Color(36, 96, 150));
@@ -138,19 +176,19 @@ public class TelaMaterias extends javax.swing.JFrame {
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addGap(66, 66, 66)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jToggleButton4, javax.swing.GroupLayout.PREFERRED_SIZE, 124, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jToggleButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 124, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jToggleButton7, javax.swing.GroupLayout.PREFERRED_SIZE, 124, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(geografia, javax.swing.GroupLayout.PREFERRED_SIZE, 124, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(biologia, javax.swing.GroupLayout.PREFERRED_SIZE, 124, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(portugues, javax.swing.GroupLayout.PREFERRED_SIZE, 124, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 62, Short.MAX_VALUE)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jToggleButton5, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 124, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jToggleButton2, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 124, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jToggleButton8, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 124, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(historia, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 124, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(filosofia, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 124, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(quimica, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 124, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(75, 75, 75)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(jToggleButton6, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(jToggleButton9, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(jToggleButton3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                    .addComponent(matematica, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(sociologia, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(fisica, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addGap(62, 62, 62))
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
@@ -164,19 +202,19 @@ public class TelaMaterias extends javax.swing.JFrame {
                 .addComponent(jLabel3, javax.swing.GroupLayout.PREFERRED_SIZE, 60, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 27, Short.MAX_VALUE)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jToggleButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jToggleButton2, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jToggleButton3, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(biologia, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(filosofia, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(fisica, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(55, 55, 55)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jToggleButton4, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jToggleButton5, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jToggleButton6, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(geografia, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(historia, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(matematica, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(55, 55, 55)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jToggleButton7, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jToggleButton8, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jToggleButton9, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(portugues, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(quimica, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(sociologia, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(68, 68, 68))
         );
 
@@ -188,82 +226,138 @@ public class TelaMaterias extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void jToggleButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jToggleButton1ActionPerformed
+    private void biologiaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_biologiaActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jToggleButton1ActionPerformed
+        atualizarDisciplinaSelecionada(biologia, 4);
+    }//GEN-LAST:event_biologiaActionPerformed
 
-    private void jToggleButton5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jToggleButton5ActionPerformed
+    private void historiaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_historiaActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jToggleButton5ActionPerformed
+        atualizarDisciplinaSelecionada(historia, 6);
+    }//GEN-LAST:event_historiaActionPerformed
 
     private void setaButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_setaButtonActionPerformed
         // TODO add your handling code here:
-        TelaMenu menuTela = new TelaMenu();
-        menuTela.setVisible(true);
-        dispose();
+        if (usuario.getTipo().equals("professor")) {
+            TelaMenu menuTela = new TelaMenu(usuario,disciplinas);
+            menuTela.setVisible(true);
+            dispose();
+        }
+        else{
+            TelaMenuAluno menuTela = new TelaMenuAluno(usuario,disciplinas);
+            menuTela.setVisible(true);
+            dispose();
+        }
+        System.out.println(disciplinas);
     }//GEN-LAST:event_setaButtonActionPerformed
 
-    private void jToggleButton7ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jToggleButton7ActionPerformed
+    private void portuguesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_portuguesActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jToggleButton7ActionPerformed
+        atualizarDisciplinaSelecionada(portugues,5);
+    }//GEN-LAST:event_portuguesActionPerformed
+
+    private void filosofiaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_filosofiaActionPerformed
+        // TODO add your handling code here:
+        atualizarDisciplinaSelecionada(filosofia,8);
+    }//GEN-LAST:event_filosofiaActionPerformed
+
+    private void fisicaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_fisicaActionPerformed
+        // TODO add your handling code here:
+        atualizarDisciplinaSelecionada(fisica,2);
+    }//GEN-LAST:event_fisicaActionPerformed
+
+    private void geografiaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_geografiaActionPerformed
+        // TODO add your handling code here:
+        atualizarDisciplinaSelecionada(geografia,7);
+    }//GEN-LAST:event_geografiaActionPerformed
+
+    private void matematicaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_matematicaActionPerformed
+        // TODO add your handling code here:
+        atualizarDisciplinaSelecionada(matematica,1);
+    }//GEN-LAST:event_matematicaActionPerformed
+
+    private void quimicaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_quimicaActionPerformed
+        // TODO add your handling code here:
+        atualizarDisciplinaSelecionada(quimica,3);
+    }//GEN-LAST:event_quimicaActionPerformed
+
+    private void sociologiaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_sociologiaActionPerformed
+        // TODO add your handling code here:
+        atualizarDisciplinaSelecionada(sociologia,9);
+    }//GEN-LAST:event_sociologiaActionPerformed
+
+    public void atualizarDisciplinaSelecionada(javax.swing.JToggleButton button, int valor) {
+        if (button.isSelected()) {
+            if (!disciplinas.contains(valor)) {
+                disciplinas.add(valor);
+                System.out.println(valor + " foi adicionado.");
+            }
+            button.setForeground(new Color(0, 128, 0)); 
+        } else {
+            disciplinas.remove(Integer.valueOf(valor)); 
+            System.out.println(valor + " foi removido.");
+            button.setForeground(new Color(128,0,0));
+        }
+        button.repaint();
+    }
 
     /**
      * @param args the command line arguments
      */
-    public static void main(String args[]) {
-        /* Set the Nimbus look and feel */
-        //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
-        /* If Nimbus (introduced in Java SE 6) is not available, stay with the default look and feel.
-         * For details see http://download.oracle.com/javase/tutorial/uiswing/lookandfeel/plaf.html 
-         */
-        try {
-            for (javax.swing.UIManager.LookAndFeelInfo info : javax.swing.UIManager.getInstalledLookAndFeels()) {
-                if ("Nimbus".equals(info.getName())) {
-                    javax.swing.UIManager.setLookAndFeel(info.getClassName());
-                    break;
-                }
-            }
-        } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(TelaMaterias.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(TelaMaterias.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(TelaMaterias.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(TelaMaterias.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        }
-        //</editor-fold>
-
-        /* Create and display the form */
-        java.awt.EventQueue.invokeLater(new Runnable() {
-            public void run() {
-                new TelaMaterias().setVisible(true);
-            }
-        });
-        try { 
-            InputStream is = SuperCrumble.class.getResourceAsStream("/Imagens/Super Crumble.ttf");
-            Font customFont = Font.createFont(Font.TRUETYPE_FONT, is).deriveFont(24f);
-            GraphicsEnvironment ge = GraphicsEnvironment.getLocalGraphicsEnvironment();
-            ge.registerFont(customFont);
-        } catch (Exception e) {
-            e.printStackTrace();
-        }
-    }
+//    public static void main(String args[]) {
+//        /* Set the Nimbus look and feel */
+//        //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
+//        /* If Nimbus (introduced in Java SE 6) is not available, stay with the default look and feel.
+//         * For details see http://download.oracle.com/javase/tutorial/uiswing/lookandfeel/plaf.html 
+//         */
+//        try {
+//            for (javax.swing.UIManager.LookAndFeelInfo info : javax.swing.UIManager.getInstalledLookAndFeels()) {
+//                if ("Nimbus".equals(info.getName())) {
+//                    javax.swing.UIManager.setLookAndFeel(info.getClassName());
+//                    break;
+//                }
+//            }
+//        } catch (ClassNotFoundException ex) {
+//            java.util.logging.Logger.getLogger(TelaMaterias.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+//        } catch (InstantiationException ex) {
+//            java.util.logging.Logger.getLogger(TelaMaterias.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+//        } catch (IllegalAccessException ex) {
+//            java.util.logging.Logger.getLogger(TelaMaterias.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+//        } catch (javax.swing.UnsupportedLookAndFeelException ex) {
+//            java.util.logging.Logger.getLogger(TelaMaterias.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+//        }
+//        //</editor-fold>
+//
+//        /* Create and display the form */
+//        java.awt.EventQueue.invokeLater(new Runnable() {
+//            public void run() {
+//                new TelaMaterias().setVisible(true);
+//            }
+//        });
+//        try {
+//            InputStream is = SuperCrumble.class.getResourceAsStream("/Imagens/Super Crumble.ttf");
+//            Font customFont = Font.createFont(Font.TRUETYPE_FONT, is).deriveFont(24f);
+//            GraphicsEnvironment ge = GraphicsEnvironment.getLocalGraphicsEnvironment();
+//            ge.registerFont(customFont);
+//        } catch (Exception e) {
+//            e.printStackTrace();
+//        }
+//    }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JToggleButton biologia;
+    private javax.swing.JToggleButton filosofia;
+    private javax.swing.JToggleButton fisica;
+    private javax.swing.JToggleButton geografia;
+    private javax.swing.JToggleButton historia;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JPanel jPanel1;
-    private javax.swing.JToggleButton jToggleButton1;
-    private javax.swing.JToggleButton jToggleButton2;
-    private javax.swing.JToggleButton jToggleButton3;
-    private javax.swing.JToggleButton jToggleButton4;
-    private javax.swing.JToggleButton jToggleButton5;
-    private javax.swing.JToggleButton jToggleButton6;
-    private javax.swing.JToggleButton jToggleButton7;
-    private javax.swing.JToggleButton jToggleButton8;
-    private javax.swing.JToggleButton jToggleButton9;
+    private javax.swing.JToggleButton matematica;
+    private javax.swing.JToggleButton portugues;
+    private javax.swing.JToggleButton quimica;
     private javax.swing.JButton setaButton;
+    private javax.swing.JToggleButton sociologia;
     // End of variables declaration//GEN-END:variables
 }

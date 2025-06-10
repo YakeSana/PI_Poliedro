@@ -12,13 +12,15 @@ import java.awt.Font;
 import java.awt.GraphicsEnvironment;
 import java.awt.Toolkit;
 import java.io.InputStream;
+import java.util.List;
 
 /**
  *
  * @author conta
  */
 public class TelaMenuAluno extends javax.swing.JFrame {
-    Usuario usuario;
+    private Usuario usuario;
+    private List<Integer> disciplinas;
     /** Creates new form TelaMenu */
     public TelaMenuAluno(Usuario usuario) {
         initComponents();
@@ -31,6 +33,11 @@ public class TelaMenuAluno extends javax.swing.JFrame {
         initComponents();
         this.setLocationRelativeTo(null);
         this.setResizable(  false);  
+    }
+    
+    public TelaMenuAluno(Usuario usuario, List<Integer> disciplinas){
+        this(usuario);
+        this.disciplinas = disciplinas;
     }
 
     /** This method is called from within the constructor to
@@ -156,13 +163,13 @@ public class TelaMenuAluno extends javax.swing.JFrame {
 
     private void jogarAlunoButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jogarAlunoButtonActionPerformed
         // TODO add your handling code here:
-        TelaJogo1 telaNova = new TelaJogo1(usuario);
+        TelaJogo1 telaNova = new TelaJogo1(usuario,disciplinas);
         dispose();
     }//GEN-LAST:event_jogarAlunoButtonActionPerformed
 
     private void materiasAlunoButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_materiasAlunoButtonActionPerformed
         // TODO add your handling code here:
-        TelaMateriasAluno materiasTelaAl = new TelaMateriasAluno();
+        TelaMaterias materiasTelaAl = new TelaMaterias(usuario);
         materiasTelaAl.setVisible(true);
         dispose();
     }//GEN-LAST:event_materiasAlunoButtonActionPerformed
