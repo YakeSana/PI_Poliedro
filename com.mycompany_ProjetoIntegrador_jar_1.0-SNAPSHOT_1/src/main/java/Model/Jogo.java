@@ -62,6 +62,7 @@ public class Jogo {
         // Geração de id da pergunta
         do {
             if (id_perguntas_disponiveis.isEmpty()) {
+                setIdPerguntasDisponiveis();
                 id_perguntas_feitas.clear();
             }
             id_pergunta = id_perguntas_disponiveis.get(random.nextInt(id_perguntas_disponiveis.size()));
