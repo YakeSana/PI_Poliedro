@@ -21,6 +21,7 @@ import javax.swing.Timer;
  * @author conta
  */
 public class TelaMenu extends javax.swing.JFrame {
+    
     Usuario usuario;
     List<Integer> disciplinas;
     /** Creates new form TelaMenu */
@@ -222,7 +223,7 @@ public class TelaMenu extends javax.swing.JFrame {
 
     private void areaAdmButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_areaAdmButtonActionPerformed
         // TODO add your handling code here:
-        AreaAdm admTela = new AreaAdm();
+        AreaAdm admTela = new AreaAdm(usuario);
         admTela.setVisible(true);
         dispose();
  
@@ -238,7 +239,7 @@ public class TelaMenu extends javax.swing.JFrame {
 
     private void rankingButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_rankingButtonActionPerformed
         // TODO add your handling code here:
-        TelaRanking rankingTela = new TelaRanking();
+        TelaRanking rankingTela = new TelaRanking(usuario);
         rankingTela.setVisible(true);
         dispose();
     }//GEN-LAST:event_rankingButtonActionPerformed

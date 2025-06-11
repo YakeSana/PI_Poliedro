@@ -5,6 +5,7 @@
 package Telas;
 
 import BD.ConnectionFactory;
+import Model.Usuario;
 import java.awt.Font;
 import java.awt.GraphicsEnvironment;
 import java.io.InputStream;
@@ -19,7 +20,7 @@ import javax.swing.table.DefaultTableModel;
  * @author conta
  */
 public class TelaRanking extends javax.swing.JFrame {
-
+    Usuario usuario;
     /**
      * Creates new form TelaPontuacao
      */
@@ -38,6 +39,11 @@ public class TelaRanking extends javax.swing.JFrame {
             JOptionPane.showMessageDialog(null, "Não foi possível encontrar no banco de Dados");
         }
     
+    }
+    
+    public TelaRanking(Usuario usuario){
+        this();
+        this.usuario = usuario;
     }
     private void consultaRanking() throws Exception{
         DefaultTableModel model = (DefaultTableModel)tableRanking.getModel();

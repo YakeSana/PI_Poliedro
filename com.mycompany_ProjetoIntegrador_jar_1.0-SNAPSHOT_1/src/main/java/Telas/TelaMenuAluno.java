@@ -176,7 +176,7 @@ public class TelaMenuAluno extends javax.swing.JFrame {
 
     private void pontuacaoButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_pontuacaoButtonActionPerformed
         // TODO add your handling code here:
-        TelaPontuacao pontuacaoTela = new TelaPontuacao();
+        TelaPontuacao pontuacaoTela = new TelaPontuacao(usuario);
         pontuacaoTela.setVisible(true);
         dispose();
     }//GEN-LAST:event_pontuacaoButtonActionPerformed

@@ -6,6 +6,7 @@ package Telas;
 
 import BD.PerguntasDAO;
 import Model.Pergunta;
+import Model.Usuario;
 import java.util.ArrayList;
 import java.util.List;
 import javax.swing.JOptionPane;
@@ -15,18 +16,19 @@ import javax.swing.JOptionPane;
  * @author conta
  */
 public class TelaAdicionarPeguntas extends javax.swing.JFrame {
-
+    private Usuario usuario;
     /**
      * Creates new form AreaAdm
      */
-    public TelaAdicionarPeguntas() {
+    public TelaAdicionarPeguntas(Usuario usuario) {
         initComponents();
         setaButton.setContentAreaFilled(false);
     setaButton.setBorderPainted(false);
     setaButton.setFocusPainted(false);
     setaButton.setOpaque(false);
     this.setLocationRelativeTo(null);
-    this.setResizable(  false);  
+    this.setResizable(  false); 
+    this.usuario = usuario;
     }
 
     /**
@@ -202,7 +204,7 @@ public class TelaAdicionarPeguntas extends javax.swing.JFrame {
 
     private void setaButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_setaButtonActionPerformed
         // TODO add your handling code here:
-        TelaGerenciarPerguntas GerenciarPerguntasTela = new TelaGerenciarPerguntas();
+        TelaGerenciarPerguntas GerenciarPerguntasTela = new TelaGerenciarPerguntas(usuario);
         GerenciarPerguntasTela.setVisible(true);
         dispose();
 
@@ -273,7 +275,7 @@ public class TelaAdicionarPeguntas extends javax.swing.JFrame {
     }
 }
 
-//GEN-LAST:event_adicionarPerguntasButtonActionPerformed
+                                                        
 
     private void txtAddPerguntaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtAddPerguntaActionPerformed
         // TODO add your handling code here:
@@ -282,52 +284,52 @@ public class TelaAdicionarPeguntas extends javax.swing.JFrame {
     /**
      * @param args the command line arguments
      */
-    public static void main(String args[]) {
-        /* Set the Nimbus look and feel */
-        //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
-        /* If Nimbus (introduced in Java SE 6) is not available, stay with the default look and feel.
-         * For details see http://download.oracle.com/javase/tutorial/uiswing/lookandfeel/plaf.html 
-         */
-        try {
-            for (javax.swing.UIManager.LookAndFeelInfo info : javax.swing.UIManager.getInstalledLookAndFeels()) {
-                if ("Nimbus".equals(info.getName())) {
-                    javax.swing.UIManager.setLookAndFeel(info.getClassName());
-                    break;
-                }
-            }
-        } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(TelaAdicionarPeguntas.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(TelaAdicionarPeguntas.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(TelaAdicionarPeguntas.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(TelaAdicionarPeguntas.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        }
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-
-        /* Create and display the form */
-        java.awt.EventQueue.invokeLater(new Runnable() {
-            public void run() {
-                new TelaAdicionarPeguntas().setVisible(true);
-            }
-        });
-    }
+//    public static void main(String args[]) {
+//        /* Set the Nimbus look and feel */
+//        //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
+//        /* If Nimbus (introduced in Java SE 6) is not available, stay with the default look and feel.
+//         * For details see http://download.oracle.com/javase/tutorial/uiswing/lookandfeel/plaf.html 
+//         */
+//        try {
+//            for (javax.swing.UIManager.LookAndFeelInfo info : javax.swing.UIManager.getInstalledLookAndFeels()) {
+//                if ("Nimbus".equals(info.getName())) {
+//                    javax.swing.UIManager.setLookAndFeel(info.getClassName());
+//                    break;
+//                }
+//            }
+//        } catch (ClassNotFoundException ex) {
+//            java.util.logging.Logger.getLogger(TelaAdicionarPeguntas.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+//        } catch (InstantiationException ex) {
+//            java.util.logging.Logger.getLogger(TelaAdicionarPeguntas.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+//        } catch (IllegalAccessException ex) {
+//            java.util.logging.Logger.getLogger(TelaAdicionarPeguntas.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+//        } catch (javax.swing.UnsupportedLookAndFeelException ex) {
+//            java.util.logging.Logger.getLogger(TelaAdicionarPeguntas.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+//        }
+//        //</editor-fold>
+//        //</editor-fold>
+//        //</editor-fold>
+//        //</editor-fold>
+//        //</editor-fold>
+//        //</editor-fold>
+//        //</editor-fold>
+//        //</editor-fold>
+//        //</editor-fold>
+//        //</editor-fold>
+//        //</editor-fold>
+//        //</editor-fold>
+//        //</editor-fold>
+//        //</editor-fold>
+//        //</editor-fold>
+//        //</editor-fold>
+//
+//        /* Create and display the form */
+//        java.awt.EventQueue.invokeLater(new Runnable() {
+//            public void run() {
+//                new TelaAdicionarPeguntas().setVisible(true);
+//            }
+//        });
+//    }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton adicionarPerguntasButton;

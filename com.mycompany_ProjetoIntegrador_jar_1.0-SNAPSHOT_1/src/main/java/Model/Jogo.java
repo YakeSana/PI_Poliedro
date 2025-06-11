@@ -51,7 +51,7 @@ public class Jogo {
 
     public Jogo(TelaJogo1 tela, List<Integer> disciplinas) {
         this(tela);
-        if(disciplinas != null)this.disciplinas = disciplinas;
+        if(disciplinas != null && !disciplinas.isEmpty())this.disciplinas = disciplinas;
         setIdPerguntasDisponiveis();
         atualiza_dificuldade();
         gerarPergunta();

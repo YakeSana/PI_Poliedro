@@ -5,6 +5,7 @@
 package Telas;
 
 import BD.ConnectionFactory;
+import Model.Usuario;
 import java.awt.Font;
 import java.awt.GraphicsEnvironment;
 import java.io.InputStream;
@@ -20,45 +21,45 @@ import javax.swing.table.DefaultTableModel;
  */
 public class TelaPontuacao extends javax.swing.JFrame {
 
+    private Usuario usuario;
+    private int idUsuarioLogado = usuario.getId(); // Atribuído no login, por exemplo
+
     /**
      * Creates new form TelaPontuacao
      */
-    public TelaPontuacao() {
+    public TelaPontuacao(Usuario usuario) {
         initComponents();
         setaButton.setContentAreaFilled(false);
-    setaButton.setBorderPainted(false);
-    setaButton.setFocusPainted(false);
-    setaButton.setOpaque(false);
-    this.setLocationRelativeTo(null);
-    this.setResizable(  false);  
-    try{
-        consultaPontuacao();
-    }catch(Exception ex){
+        setaButton.setBorderPainted(false);
+        setaButton.setFocusPainted(false);
+        setaButton.setOpaque(false);
+        this.setLocationRelativeTo(null);
+        this.setResizable(false);
+        this.usuario = usuario;
+        try {
+            consultaPontuacao();
+        } catch (Exception ex) {
             JOptionPane.showMessageDialog(null, "Não foi possível encontrar no banco de Dados");
         }
-    
+
     }
-    private int idUsuarioLogado; // Atribuído no login, por exemplo
+    
 
-private void consultaPontuacao() throws Exception {
-    DefaultTableModel model = (DefaultTableModel) tablePontuacao.getModel();
-    model.setRowCount(0);
+    private void consultaPontuacao() throws Exception {
+        DefaultTableModel model = (DefaultTableModel) tablePontuacao.getModel();
+        model.setRowCount(0);
 
-    String sql = "SELECT pontuacao_total FROM partida WHERE id_usuario = ? ORDER BY pontuacao_total DESC";
+        String sql = "SELECT pontuacao_total FROM partida WHERE id_usuario = ? ORDER BY pontuacao_total DESC";
 
-    try (Connection conn = ConnectionFactory.obterConexao();
-         PreparedStatement ps = conn.prepareStatement(sql)) {
-        ps.setInt(1, idUsuarioLogado); // Define o valor do parâmetro ?
+        try (Connection conn = ConnectionFactory.obterConexao(); PreparedStatement ps = conn.prepareStatement(sql)) {
+            ps.setInt(1, idUsuarioLogado); // Define o valor do parâmetro ?
 
-        ResultSet rs = ps.executeQuery();
-        while (rs.next()) {
-            model.addRow(new String[]{rs.getString("pontuacao_total")});
+            ResultSet rs = ps.executeQuery();
+            while (rs.next()) {
+                model.addRow(new String[]{rs.getString("pontuacao_total")});
+            }
         }
     }
-}
-
-        
-    
 
     /**
      * This method is called from within the constructor to initialize the form.
@@ -152,54 +153,54 @@ private void consultaPontuacao() throws Exception {
 
     private void setaButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_setaButtonActionPerformed
         // TODO add your handling code here:
-        TelaMenuAluno menuAlunoTela = new TelaMenuAluno();
+        TelaMenuAluno menuAlunoTela = new TelaMenuAluno(usuario);
         menuAlunoTela.setVisible(true);
         dispose();
-        
+
     }//GEN-LAST:event_setaButtonActionPerformed
 
     /**
      * @param args the command line arguments
      */
-    public static void main(String args[]) {
-        /* Set the Nimbus look and feel */
-        //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
-        /* If Nimbus (introduced in Java SE 6) is not available, stay with the default look and feel.
-         * For details see http://download.oracle.com/javase/tutorial/uiswing/lookandfeel/plaf.html 
-         */
-        try {
-            for (javax.swing.UIManager.LookAndFeelInfo info : javax.swing.UIManager.getInstalledLookAndFeels()) {
-                if ("Nimbus".equals(info.getName())) {
-                    javax.swing.UIManager.setLookAndFeel(info.getClassName());
-                    break;
-                }
-            }
-        } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(TelaPontuacao.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(TelaPontuacao.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(TelaPontuacao.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(TelaPontuacao.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        }
-        //</editor-fold>
-
-        /* Create and display the form */
-        java.awt.EventQueue.invokeLater(new Runnable() {
-            public void run() {
-                new TelaPontuacao().setVisible(true);
-            }
-        });
-        try { 
-            InputStream is = SuperCrumble.class.getResourceAsStream("/Imagens/Super Crumble.ttf");
-            Font customFont = Font.createFont(Font.TRUETYPE_FONT, is).deriveFont(24f);
-            GraphicsEnvironment ge = GraphicsEnvironment.getLocalGraphicsEnvironment();
-            ge.registerFont(customFont);
-        } catch (Exception e) {
-            e.printStackTrace();
-        }
-    }
+//    public static void main(String args[]) {
+//        /* Set the Nimbus look and feel */
+//        //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
+//        /* If Nimbus (introduced in Java SE 6) is not available, stay with the default look and feel.
+//         * For details see http://download.oracle.com/javase/tutorial/uiswing/lookandfeel/plaf.html 
+//         */
+//        try {
+//            for (javax.swing.UIManager.LookAndFeelInfo info : javax.swing.UIManager.getInstalledLookAndFeels()) {
+//                if ("Nimbus".equals(info.getName())) {
+//                    javax.swing.UIManager.setLookAndFeel(info.getClassName());
+//                    break;
+//                }
+//            }
+//        } catch (ClassNotFoundException ex) {
+//            java.util.logging.Logger.getLogger(TelaPontuacao.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+//        } catch (InstantiationException ex) {
+//            java.util.logging.Logger.getLogger(TelaPontuacao.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+//        } catch (IllegalAccessException ex) {
+//            java.util.logging.Logger.getLogger(TelaPontuacao.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+//        } catch (javax.swing.UnsupportedLookAndFeelException ex) {
+//            java.util.logging.Logger.getLogger(TelaPontuacao.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+//        }
+//        //</editor-fold>
+//
+//        /* Create and display the form */
+//        java.awt.EventQueue.invokeLater(new Runnable() {
+//            public void run() {
+//                new TelaPontuacao().setVisible(true);
+//            }
+//        });
+//        try {
+//            InputStream is = SuperCrumble.class.getResourceAsStream("/Imagens/Super Crumble.ttf");
+//            Font customFont = Font.createFont(Font.TRUETYPE_FONT, is).deriveFont(24f);
+//            GraphicsEnvironment ge = GraphicsEnvironment.getLocalGraphicsEnvironment();
+//            ge.registerFont(customFont);
+//        } catch (Exception e) {
+//            e.printStackTrace();
+//        }
+//    }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JLabel jLabel1;

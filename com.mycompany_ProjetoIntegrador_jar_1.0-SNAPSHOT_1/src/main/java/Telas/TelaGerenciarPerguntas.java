@@ -4,16 +4,18 @@
  */
 package Telas;
 
+import Model.Usuario;
+
 /**
  *
  * @author conta
  */
 public class TelaGerenciarPerguntas extends javax.swing.JFrame {
-
+    private Usuario usuario;
     /**
      * Creates new form AreaAdm
      */
-    public TelaGerenciarPerguntas() {
+    public TelaGerenciarPerguntas(Usuario usuario) {
         initComponents();
         setaButton.setContentAreaFilled(false);
     setaButton.setBorderPainted(false);
@@ -21,6 +23,7 @@ public class TelaGerenciarPerguntas extends javax.swing.JFrame {
     setaButton.setOpaque(false);
     this.setLocationRelativeTo(null);
     this.setResizable(  false);  
+    this.usuario = usuario;
     }
 
     /**
@@ -156,7 +159,7 @@ public class TelaGerenciarPerguntas extends javax.swing.JFrame {
 
     private void setaButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_setaButtonActionPerformed
         // TODO add your handling code here:
-        AreaAdm admTela = new AreaAdm();
+        AreaAdm admTela = new AreaAdm(usuario);
         admTela.setVisible(true);
         dispose();
 
@@ -164,21 +167,21 @@ public class TelaGerenciarPerguntas extends javax.swing.JFrame {
 
     private void areaadmCadastrarButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_areaadmCadastrarButtonActionPerformed
         // TODO add your handling code here:
-        TelaAdicionarPeguntas AddPerguntasTela = new TelaAdicionarPeguntas();
+        TelaAdicionarPeguntas AddPerguntasTela = new TelaAdicionarPeguntas(usuario);
         AddPerguntasTela.setVisible(true);
         dispose();
     }//GEN-LAST:event_areaadmCadastrarButtonActionPerformed
 
     private void removerPerguntasButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_removerPerguntasButtonActionPerformed
         // TODO add your handling code here:
-        TelaRemoverPerguntas removerTela = new TelaRemoverPerguntas();
+        TelaRemoverPerguntas removerTela = new TelaRemoverPerguntas(usuario);
         removerTela.setVisible(true);
         dispose();
     }//GEN-LAST:event_removerPerguntasButtonActionPerformed
 
     private void editarPerguntasButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_editarPerguntasButtonActionPerformed
         // TODO add your handling code here:
-        TelaEditarPerguntas editarPerguntasTela = new TelaEditarPerguntas();
+        TelaEditarPerguntas editarPerguntasTela = new TelaEditarPerguntas(usuario);
         editarPerguntasTela.setVisible(true);
         dispose();
     }//GEN-LAST:event_editarPerguntasButtonActionPerformed
@@ -186,44 +189,44 @@ public class TelaGerenciarPerguntas extends javax.swing.JFrame {
     /**
      * @param args the command line arguments
      */
-    public static void main(String args[]) {
-        /* Set the Nimbus look and feel */
-        //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
-        /* If Nimbus (introduced in Java SE 6) is not available, stay with the default look and feel.
-         * For details see http://download.oracle.com/javase/tutorial/uiswing/lookandfeel/plaf.html 
-         */
-        try {
-            for (javax.swing.UIManager.LookAndFeelInfo info : javax.swing.UIManager.getInstalledLookAndFeels()) {
-                if ("Nimbus".equals(info.getName())) {
-                    javax.swing.UIManager.setLookAndFeel(info.getClassName());
-                    break;
-                }
-            }
-        } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(TelaGerenciarPerguntas.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(TelaGerenciarPerguntas.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(TelaGerenciarPerguntas.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(TelaGerenciarPerguntas.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        }
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-
-        /* Create and display the form */
-        java.awt.EventQueue.invokeLater(new Runnable() {
-            public void run() {
-                new TelaGerenciarPerguntas().setVisible(true);
-            }
-        });
-    }
+//    public static void main(String args[]) {
+//        /* Set the Nimbus look and feel */
+//        //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
+//        /* If Nimbus (introduced in Java SE 6) is not available, stay with the default look and feel.
+//         * For details see http://download.oracle.com/javase/tutorial/uiswing/lookandfeel/plaf.html 
+//         */
+//        try {
+//            for (javax.swing.UIManager.LookAndFeelInfo info : javax.swing.UIManager.getInstalledLookAndFeels()) {
+//                if ("Nimbus".equals(info.getName())) {
+//                    javax.swing.UIManager.setLookAndFeel(info.getClassName());
+//                    break;
+//                }
+//            }
+//        } catch (ClassNotFoundException ex) {
+//            java.util.logging.Logger.getLogger(TelaGerenciarPerguntas.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+//        } catch (InstantiationException ex) {
+//            java.util.logging.Logger.getLogger(TelaGerenciarPerguntas.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+//        } catch (IllegalAccessException ex) {
+//            java.util.logging.Logger.getLogger(TelaGerenciarPerguntas.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+//        } catch (javax.swing.UnsupportedLookAndFeelException ex) {
+//            java.util.logging.Logger.getLogger(TelaGerenciarPerguntas.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+//        }
+//        //</editor-fold>
+//        //</editor-fold>
+//        //</editor-fold>
+//        //</editor-fold>
+//        //</editor-fold>
+//        //</editor-fold>
+//        //</editor-fold>
+//        //</editor-fold>
+//
+//        /* Create and display the form */
+//        java.awt.EventQueue.invokeLater(new Runnable() {
+//            public void run() {
+//                new TelaGerenciarPerguntas().setVisible(true);
+//            }
+//        });
+//    }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton areaadmCadastrarButton;
