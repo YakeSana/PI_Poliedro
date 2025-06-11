@@ -22,7 +22,7 @@ public class UsuarioDAO {
 
         try (ResultSet rs = ps.executeQuery()) {
             if (rs.next()) {
-                // Preenche o nome real e o tipo do usuário após o login com sucesso
+                
                 usuario.setId(rs.getInt("id_usuario"));
                 usuario.setNomeReal(rs.getString("nome_real"));
                 usuario.setTipo(rs.getString("tipo_usuario"));
@@ -41,7 +41,7 @@ public boolean nomeUsuarioJaExiste(String nomeUsuario) throws Exception {
 
         ps.setString(1, nomeUsuario);
         try (ResultSet rs = ps.executeQuery()) {
-            return rs.next(); // true se já existir
+            return rs.next(); 
         }
     }
 }
@@ -58,7 +58,7 @@ public boolean cadastrarUsuario(Usuario usuario) throws Exception {
         ps.setString(4, usuario.getTipo());
 
         int linhasAfetadas = ps.executeUpdate();
-        return linhasAfetadas > 0; // retorna true se o cadastro foi bem-sucedido
+        return linhasAfetadas > 0; 
     }
 }
 public void editar(Usuario usuario)throws Exception{
@@ -83,24 +83,7 @@ public void excluirUsuario(Usuario usuario) throws Exception{
         ps.execute();
     }
 }
-/*public void editarPerguntas(Pergunta pergunta)throws Exception{
-    String sql = "UPDATE pergunta SET texto = ? WHERE id_pergunta = ?";
-    try(Connection conn = ConnectionFactory.obterConexao();
-            PreparedStatement ps = conn.prepareStatement(sql)){
-            ps.setString(1,pergunta.getPergunta());
-            ps.setInt(2,pergunta.getId());
-            ps.execute();
-        }
-    }
-public void editarAlternativas(Alternativa alternativa)throws Exception{
-    String sql = "UPDATE alternativa SET texto = ? WHERE id_alternativa = ?";
-    try(Connection conn = ConnectionFactory.obterConexao();
-            PreparedStatement ps = conn.prepareStatement(sql)){
-            ps.setString(1,alternativa.getTexto());
-            ps.setInt(2,alternativa.getId());
-            ps.execute();
-        }
-    }*/
+
 
 }
 

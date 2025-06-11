@@ -221,13 +221,13 @@ public class TelaAdicionarPeguntas extends javax.swing.JFrame {
         alternativas.add(txtAddRespD.getText());
         alternativas.add(txtAddRespE.getText());
 
-        // Validação simples
+        
         if (textoPergunta.trim().isEmpty() || alternativas.stream().anyMatch(a -> a.trim().isEmpty())) {
             JOptionPane.showMessageDialog(null, "Preencha todos os campos antes de adicionar.");
             return;
         }
 
-        // Mapeamento da disciplina selecionada para o ID (ordem corrigida)
+        
         String disciplinaSelecionada = materiasComboBox.getSelectedItem().toString();
         int idDisciplina = switch (disciplinaSelecionada) {
             case "Matemática" -> 1;
@@ -242,7 +242,7 @@ public class TelaAdicionarPeguntas extends javax.swing.JFrame {
             default -> throw new IllegalArgumentException("Disciplina inválida");
         };
 
-        // Mapeamento da dificuldade selecionada para o ID
+        
         String dificuldadeSelecionada = dificuldadeComboBox.getSelectedItem().toString();
         int idDificuldade = switch (dificuldadeSelecionada) {
             case "Fácil" -> 1;
@@ -260,7 +260,7 @@ public class TelaAdicionarPeguntas extends javax.swing.JFrame {
             JOptionPane.showMessageDialog(null, "Erro ao adicionar pergunta, tente novamente.");
         }
 
-        // Limpar campos
+        
         txtAddPergunta.setText("");
         txtAddRespA.setText("");
         txtAddRespB.setText("");

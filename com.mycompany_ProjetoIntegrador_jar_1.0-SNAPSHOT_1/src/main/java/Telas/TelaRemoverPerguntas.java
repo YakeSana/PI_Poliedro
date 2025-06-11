@@ -262,17 +262,17 @@ public class TelaRemoverPerguntas extends javax.swing.JFrame {
 
     try {
         Pergunta pergunta = new Pergunta();
-        pergunta.setId(id); // define o ID da pergunta a ser excluída
+        pergunta.setId(id); 
 
         PerguntasDAO dao = new PerguntasDAO();
-        dao.excluirPerguntas(pergunta); // AQUI você chama o método que realmente exclui
+        dao.excluirPerguntas(pergunta); 
 
         JOptionPane.showMessageDialog(null, "Exclusão feita com sucesso!");
     } catch (Exception e) {
         JOptionPane.showMessageDialog(null, "Não foi possível excluir, tente novamente.");
     }
 
-    txtIdExcluir.setText(""); // limpa o campo de ID
+    txtIdExcluir.setText(""); 
 
     }//GEN-LAST:event_excluirButtonActionPerformed
 

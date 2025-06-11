@@ -133,7 +133,7 @@ public class TelaCadastro extends javax.swing.JFrame {
                                 .addContainerGap(20, Short.MAX_VALUE))
         );
 
-        // Aqui está a única modificação: pa       rel continua com 370x480 e Y=200
+        
         getContentPane().add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(540, 200, 370, 480));
 
         jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagens/img corredor - png.png")));
@@ -155,7 +155,7 @@ public class TelaCadastro extends javax.swing.JFrame {
         String tipo = jComboBoxTipo.getSelectedItem().toString();
 
         try {
-            // Troquei a ordem de 'senha' e 'nome' aqui:
+            
             Usuario novoUsuario = new Usuario(nome, usuario, senha, tipo);
             UsuarioDAO dao = new UsuarioDAO();
             dao.cadastrarUsuario(novoUsuario);

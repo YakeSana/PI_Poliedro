@@ -394,7 +394,7 @@ public class TelaEditarPerguntas extends javax.swing.JFrame {
             JOptionPane.showMessageDialog(null, "Erro ao salvar alterações.");
         }
 
-        // Limpar campos
+        
         txtId.setText("");
         txtPergunta.setText("");
         txtAlt1.setText("");

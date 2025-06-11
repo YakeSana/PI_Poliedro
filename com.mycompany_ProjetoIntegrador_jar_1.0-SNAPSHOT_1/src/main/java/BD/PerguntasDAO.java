@@ -86,16 +86,16 @@ public class PerguntasDAO {
     PreparedStatement psAlternativa = null;
     try {
         con = ConnectionFactory.obterConexao();
-        con.setAutoCommit(false); // Garantir atomicidade
+        con.setAutoCommit(false); 
 
-        // Atualiza o texto da pergunta
+        
         String sqlPergunta = "UPDATE pergunta SET texto = ? WHERE id_pergunta = ?";
         psPergunta = con.prepareStatement(sqlPergunta);
         psPergunta.setString(1, novoTextoPergunta);
         psPergunta.setInt(2, idPergunta);
         psPergunta.executeUpdate();
 
-        // Busca os IDs das alternativas associadas à pergunta
+        
         String sqlBuscaAlt = "SELECT id_alternativa FROM alternativa WHERE id_pergunta = ? ORDER BY id_alternativa";
         PreparedStatement psBuscaAlt = con.prepareStatement(sqlBuscaAlt);
         psBuscaAlt.setInt(1, idPergunta);
@@ -108,13 +108,13 @@ public class PerguntasDAO {
         rs.close();
         psBuscaAlt.close();
 
-        // Atualiza texto e campo 'correta' das alternativas
+        
         String sqlAlt = "UPDATE alternativa SET texto = ?, correta = ? WHERE id_alternativa = ?";
         psAlternativa = con.prepareStatement(sqlAlt);
 
         for (int i = 0; i < idsAlternativas.size() && i < novasAlternativas.size(); i++) {
             psAlternativa.setString(1, novasAlternativas.get(i));
-            psAlternativa.setBoolean(2, i == 0); // true apenas para a primeira alternativa
+            psAlternativa.setBoolean(2, i == 0); 
             psAlternativa.setInt(3, idsAlternativas.get(i));
             psAlternativa.executeUpdate();
         }
@@ -162,9 +162,9 @@ public class PerguntasDAO {
 
     try {
         con = ConnectionFactory.obterConexao();
-        con.setAutoCommit(false); // Garantir atomicidade
+        con.setAutoCommit(false); 
 
-        // Inserir a nova pergunta com disciplina e dificuldade
+        
         String sqlInserirPergunta = "INSERT INTO pergunta (texto, id_disciplina, id_dificuldade) VALUES (?, ?, ?)";
         psPergunta = con.prepareStatement(sqlInserirPergunta, Statement.RETURN_GENERATED_KEYS);
         psPergunta.setString(1, textoPergunta);
@@ -172,7 +172,7 @@ public class PerguntasDAO {
         psPergunta.setInt(3, idDificuldade);
         psPergunta.executeUpdate();
 
-        // Obter o ID gerado da pergunta
+        
         rs = psPergunta.getGeneratedKeys();
         int idPergunta = -1;
         if (rs.next()) {
@@ -181,13 +181,13 @@ public class PerguntasDAO {
             throw new SQLException("Falha ao obter o ID da nova pergunta.");
         }
 
-        // Inserir alternativas associadas à pergunta
+        
         String sqlInserirAlternativa = "INSERT INTO alternativa (texto, correta, id_pergunta) VALUES (?, ?, ?)";
         psAlternativa = con.prepareStatement(sqlInserirAlternativa);
 
         for (int i = 0; i < alternativas.size(); i++) {
             psAlternativa.setString(1, alternativas.get(i));
-            psAlternativa.setBoolean(2, i == 0); // Marca a primeira como correta
+            psAlternativa.setBoolean(2, i == 0); 
             psAlternativa.setInt(3, idPergunta);
             psAlternativa.executeUpdate();
         }
